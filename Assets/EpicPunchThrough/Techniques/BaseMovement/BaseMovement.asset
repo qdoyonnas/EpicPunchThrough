@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373d260b42f65fc4d9132c780b967cc6, type: 3}
+  m_Name: BaseMovement
+  m_EditorClassIdentifier: 
+  techniques:
+  - {fileID: 11400000, guid: 8125fb59269cf384bac4a63846cfe811, type: 2}
+  - {fileID: 11400000, guid: 1a2686c8b6dd4314182da20dd35a4dce, type: 2}
+  - {fileID: 11400000, guid: 8a9d639c26beccd40be4f5dc21250ebf, type: 2}
+  - {fileID: 11400000, guid: e49466c00bc31df4d9f7771f281cde2d, type: 2}
+  - {fileID: 11400000, guid: 045a6bb6f863cda4d81dd2bdb4f84409, type: 2}
+  - {fileID: 11400000, guid: 7c9ed46caded968488fb73802968cb6c, type: 2}
