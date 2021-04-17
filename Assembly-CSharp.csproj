@@ -115,7 +115,6 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\MenuControls\TabControl.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\MenuControls\MenuControlDecorator\SelectorControlDecorator.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\UI\DirectionIndicator.cs" />
-    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\ExitStrategies\AttackExit.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\AgentManager.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\MenuControls\GameStartControl.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\UpdateStrategies\MoveUpdate.cs" />
@@ -141,6 +140,27 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Scriptables\TechniqueSet.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Scriptables\TechStrategyOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\StateChangeOptions\EndTechStateChangeOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActionValidateOptions\NoValidateOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\StateChangeOptions\NoStateChangeOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\TriggerOptions\NoTriggerOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActivateOptions\NoActivateOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActionValidateOptions\AllValidateOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\NoExitOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\EventOptions\NoEventOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\UpdateOptions\NoUpdateOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActionValidateOptions\ContinueValidateOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActionValidateOptions\EndTechValidateOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActivateOptions\AttackActivateOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\EventOptions\EndTechEventOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\ActionExitOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\FlipDirectionExitOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\JumpExitOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\LaunchExitOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\UpdateOptions\ChargeUpdateOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\UpdateOptions\ExitUpdateOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\UpdateOptions\MoveUpdateOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\UpdateOptions\WallSlideUpdateOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -9,11 +9,3 @@ public class FlipDirectionExit : ExitTechStrategy
 		tech.owner.isFacingRight = !tech.owner.isFacingRight;
 	}
 }
-
-public class FlipDirectionExitOptions : ExitTechStrategyOptions
-{
-	public override ExitTechStrategy GenerateStrategy()
-	{
-		return new FlipDirectionExit();
-	}
-}

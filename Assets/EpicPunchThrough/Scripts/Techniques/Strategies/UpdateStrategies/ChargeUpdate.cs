@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class ChargeUpdate : UpdateTechStrategy
 {
     float frictionMultiplier;
-
+    
     double chargeRate;
     double minimumCharge;
     double maximumCharge;
@@ -33,27 +32,5 @@ public class ChargeUpdate : UpdateTechStrategy
 
         if( tech.owner.slideParticle != null ) { tech.owner.slideParticle.enabled = true; }
         tech.owner.HandlePhysics( data, tech.owner.physicsBody.frictionCoefficients * frictionMultiplier );
-    }
-}
-
-[System.Serializable]
-public class ChargeUpdateOptions : UpdateTechStrategyOptions
-{
-    float frictionMultiplier;
-    double chargeRate;
-    double minimumCharge;
-    double maximumCharge;
-
-    public override void InspectorDraw()
-    {
-        frictionMultiplier = EditorGUILayout.FloatField("Friction Multiplier", frictionMultiplier);
-        chargeRate = EditorGUILayout.DoubleField("Charge Rate", chargeRate);
-        minimumCharge = EditorGUILayout.DoubleField("Minimum Charge", minimumCharge);
-        maximumCharge = EditorGUILayout.DoubleField("Maximum Charge", maximumCharge);
-    }
-
-    public override UpdateTechStrategy GenerateStrategy()
-    {
-        return new ChargeUpdate(frictionMultiplier, chargeRate, minimumCharge, maximumCharge);
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(TechniqueOptions))]
+//[CustomEditor(typeof(TechniqueOptions))]
 public class TechniqueOptionsEditor : Editor
 {
     TechniqueOptions options;

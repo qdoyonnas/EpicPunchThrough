@@ -18,17 +18,17 @@ MonoBehaviour:
   states: 00000000
   actionSequence: 02000000
   triggerStrategies:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 1faf29397d5376046971fbb1e1beda79, type: 2}
   activateStrategies:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 512ec5750ac2c1746b5c9867b310953a, type: 2}
   stateStrategies:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 968041a5aa9397b4db36e5ba2528c842, type: 2}
   actionValidateStrategies:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 80994d196a5e1f84ea1e9c28d9c7b852, type: 2}
   updateStrategies:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 1f97042f17499224ba8ac5573ef78e2c, type: 2}
   eventStrategies:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: bbcd4ba7761ceed4faa53cfbe8fdbadb, type: 2}
   exitStrategies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 4589d1315c951474ea48038047cf80e3, type: 2}
+  - {fileID: 11400000, guid: f4ba4f9124858674eb0c68d997407152, type: 2}

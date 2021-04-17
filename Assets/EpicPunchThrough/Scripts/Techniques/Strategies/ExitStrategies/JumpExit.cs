@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class JumpExit : ExitTechStrategy
 {
@@ -24,21 +23,5 @@ public class JumpExit : ExitTechStrategy
         tech.CreateEmitter("launch", emitterPosition, Vector3.SignedAngle(Vector3.up, tech.owner.aimDirection, Vector3.forward) )
             .Expand(mult)
             .Accelerate(mult);
-    }
-}
-
-[System.Serializable]
-public class JumpExitOptions : ExitTechStrategyOptions
-{
-    float jumpMultiplier;
-
-    public override void InspectorDraw()
-    {
-        jumpMultiplier = EditorGUILayout.FloatField("Jump Multiplier", jumpMultiplier);
-    }
-
-    public override ExitTechStrategy GenerateStrategy()
-    {
-        return new JumpExit(jumpMultiplier);
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class WallSlideUpdate : UpdateTechStrategy
 {
@@ -28,23 +27,5 @@ public class WallSlideUpdate : UpdateTechStrategy
         }
         
         tech.owner.HandlePhysics( data, friction, gravity );
-    }
-}
-
-[Serializable]
-public class WallSlideUpdateOptions : UpdateTechStrategyOptions
-{
-    float frictionMultiplier;
-    float gravityMultiplier;
-
-    public override void InspectorDraw()
-    {
-        frictionMultiplier = EditorGUILayout.FloatField("Friction Multiplier", frictionMultiplier);
-        gravityMultiplier = EditorGUILayout.FloatField("Gravity Multiplier", gravityMultiplier);
-    }
-
-    public override UpdateTechStrategy GenerateStrategy()
-    {
-        return new WallSlideUpdate(frictionMultiplier, gravityMultiplier);
     }
 }
