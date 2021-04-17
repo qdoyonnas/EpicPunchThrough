@@ -9,3 +9,9 @@ public enum Direction {
     Back,
     Aim
 }
+
+[Serializable]
+public class ActionState {
+    public Agent.Action action;
+    public bool state;
+}

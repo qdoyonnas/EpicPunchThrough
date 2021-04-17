@@ -29,12 +29,6 @@ public class EndTechValidate : ActionValidateTechStrategy
 }
 
 [Serializable]
-public class ActionState {
-    public Agent.Action action;
-    public bool state;
-}
-
-[Serializable]
 public class EndTechValidateOptions: ActionValidateTechStrategyOptions
 {
     public ActionState[] actionStates = new ActionState[0];
