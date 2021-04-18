@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8847458953822398439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab601cacc3a3f6346a439e15d45e2088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionStates:
+  - action: 7
+    state: 0
+--- !u!114 &-8716781291738751962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98490a9d8be7bd40a495d55b1bb511c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6945363539177442748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af56ed141762e1444aa663d055f3e02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMult: 1
+--- !u!114 &-3824193223237153843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e441d8a1c78b7643a285ef3eb67408e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2497789594840657904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de69728a51c590d4199fbb21f06adf80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blend: 0
+  skipExit: 1
+--- !u!114 &-2176107056615342463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cea365ebb4c55b4a9a86a3f44e07917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 3
+  mult: 1
+--- !u!114 &-2088597192837853916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5986c599af8b144cacd7617057a102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-60901151052418285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfcc3e66770bff4cbdfa46f97f1c629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skipExit: 1
+  actionStates:
+  - action: 5
+    state: 1
+  - action: 6
+    state: 1
+  - action: 8
+    state: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6246bebaa97d842986d17b2d5bec99, type: 3}
+  m_Name: AirBackPunch1
+  m_EditorClassIdentifier: 
+  techniqueName: Air Back Punch
+  animatorController: {fileID: 9100000, guid: 71c9dd83dd2aa964d82139c330550161, type: 2}
+  particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
+  states: 02000000
+  actionSequence: 07000000
+  triggerStrategies:
+  - {fileID: -3824193223237153843}
+  activateStrategies:
+  - {fileID: 2626342125725709874}
+  stateStrategies:
+  - {fileID: 5333497504689053617}
+  actionValidateStrategies:
+  - {fileID: -8847458953822398439}
+  - {fileID: -60901151052418285}
+  updateStrategies:
+  - {fileID: 859373235971531228}
+  eventStrategies:
+  - {fileID: -2497789594840657904}
+  exitStrategies:
+  - {fileID: -2176107056615342463}
+  - {fileID: -6945363539177442748}
+  - {fileID: -2088597192837853916}
+--- !u!114 &859373235971531228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168c52ab055441145968250a6287cd96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frictionMultiplier: 1
+  chargeRate: 1
+  minimumCharge: 1
+  maximumCharge: 100
+--- !u!114 &2626342125725709874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c5f8e6554961e49ad1e6dc32046465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackVariations: 1
+--- !u!114 &5333497504689053617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857a2b56e5b14d648b7f1dde11deffd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

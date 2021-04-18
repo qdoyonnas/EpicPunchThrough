@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(menuName = "Project/Techniques/Strategies/Update/Move")]
 public class MoveUpdateOptions : UpdateTechStrategyOptions {
     public Direction direction;
     public float maxSpeed;

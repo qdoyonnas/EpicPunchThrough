@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(menuName = "Project/Techniques/Strategies/Action/Continue")]
 public class ContinueValidateOptions: ActionValidateTechStrategyOptions
 {
     public ActionState[] actionStates = new ActionState[0];

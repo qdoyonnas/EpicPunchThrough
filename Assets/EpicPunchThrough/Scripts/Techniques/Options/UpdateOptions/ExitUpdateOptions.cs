@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(menuName = "Project/Techniques/Strategies/Update/Exit Tech")]
 public class ExitUpdateOptions : UpdateTechStrategyOptions
 {
 	public bool transition = false;

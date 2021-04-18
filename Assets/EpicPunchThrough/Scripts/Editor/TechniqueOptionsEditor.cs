@@ -9,7 +9,6 @@ using UnityEditor;
 public class TechniqueOptionsEditor : Editor
 {
     TechniqueOptions options;
-    SerializedObject serializedOptions;
 
     #region StrategyData
     class StrategyData {
@@ -147,7 +146,10 @@ public class TechniqueOptionsEditor : Editor
     {
         if( target == null ) { return; }
         options = (TechniqueOptions)target;
-        serializedOptions = new SerializedObject(target);
+
+        if( string.IsNullOrEmpty(AssetDatabase.GetAssetPath(target)) ) {
+            return;
+        }
 
         strategyDatas = new StrategyData[] {
             GenerateStrategyData<TriggerTechStrategyOptions>( "Trigger Strategies", ref options.triggerStrategies, typeof(NoTriggerOptions) ),
@@ -162,6 +164,8 @@ public class TechniqueOptionsEditor : Editor
     private StrategyData GenerateStrategyData<T>( string label, ref T[] strategyOptions, Type defaultStrat )
         where T : TechStrategyOptions
     {
+        
+
         if( strategyOptions == null ) {
             strategyOptions = new T[1];
         }
@@ -176,23 +180,28 @@ public class TechniqueOptionsEditor : Editor
 
         return new StrategyData( this, typeof(T), label, strategyOptions, AssetDatabase.GetAssetPath(target) );
     }
-    
-    public override void OnInspectorGUI()
+
+	private void OnEnable()
+	{
+        ValidateOptions();
+	}
+
+	public override void OnInspectorGUI()
     {
-        if( strategyDatas == null ) {
-            ValidateOptions();
+        if( string.IsNullOrEmpty(AssetDatabase.GetAssetPath(target)) ) {
+            return;
         }
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Info", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField( serializedOptions.FindProperty("techniqueName") );
-        EditorGUILayout.PropertyField( serializedOptions.FindProperty("animatorController") );
-        EditorGUILayout.PropertyField( serializedOptions.FindProperty("particleController") );
+        EditorGUILayout.PropertyField( serializedObject.FindProperty("techniqueName") );
+        EditorGUILayout.PropertyField( serializedObject.FindProperty("animatorController") );
+        EditorGUILayout.PropertyField( serializedObject.FindProperty("particleController") );
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Trigger", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField( serializedOptions.FindProperty("states"), true );
-        EditorGUILayout.PropertyField( serializedOptions.FindProperty("actionSequence"), true );
+        EditorGUILayout.PropertyField( serializedObject.FindProperty("states"), true );
+        EditorGUILayout.PropertyField( serializedObject.FindProperty("actionSequence"), true );
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Strategies", EditorStyles.boldLabel);
@@ -248,6 +257,6 @@ public class TechniqueOptionsEditor : Editor
             }
         }
 
-        serializedOptions.ApplyModifiedProperties();
+        serializedObject.ApplyModifiedProperties();
     }
 }

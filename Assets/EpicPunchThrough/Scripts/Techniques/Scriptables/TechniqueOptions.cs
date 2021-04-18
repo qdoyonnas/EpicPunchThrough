@@ -21,8 +21,8 @@ public class TechniqueOptions : ScriptableObject
     [SerializeField] public UpdateTechStrategyOptions[] updateStrategies;
     [SerializeField] public EventTechStrategyOptions[] eventStrategies;
     [SerializeField] public ExitTechStrategyOptions[] exitStrategies;
-    
-    public void SetDirtyRecursive()
+
+	public void SetDirtyRecursive()
     {
         EditorUtility.SetDirty(this);
         foreach( TriggerTechStrategyOptions stratOptions in triggerStrategies ) {

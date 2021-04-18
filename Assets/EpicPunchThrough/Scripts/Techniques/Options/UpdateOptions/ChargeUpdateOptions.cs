@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(menuName = "Project/Techniques/Strategies/Update/Charge")]
 public class ChargeUpdateOptions : UpdateTechStrategyOptions
 {
     public float frictionMultiplier;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(menuName = "Project/Techniques/Strategies/Event/End Tech")]
 public class EndTechEventOptions : EventTechStrategyOptions
 {
 	public bool blend = false;

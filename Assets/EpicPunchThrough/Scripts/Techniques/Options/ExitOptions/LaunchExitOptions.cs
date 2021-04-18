@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(menuName = "Project/Techniques/Strategies/Exit/Launch")]
 public class LaunchExitOptions : ExitTechStrategyOptions
 {
 	public Direction direction;

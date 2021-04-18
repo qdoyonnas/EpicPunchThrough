@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(menuName = "Project/Techniques/Strategies/Exit/Jump")]
 public class JumpExitOptions : ExitTechStrategyOptions
 {
     public float jumpMultiplier;

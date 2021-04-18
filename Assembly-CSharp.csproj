@@ -112,6 +112,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\ActionValidateStrategies\EndTechValidate.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\MenuControls\MenuControlDecorator\ColorControlDecorator.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Environment\SpriteScroll.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\AttackExitOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\ActionValidateStrategies\ContinueValidate.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\FlipDirectionExitOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\InputSettings.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\PhysicsBody.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\AgentSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\EventOptions\NoEventOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\ExitStrategies\AttackExit.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Camera\CameraControl.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\MenuControls\ExitControl.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\SoundManager.cs" />
@@ -161,8 +163,6 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\ParticleSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Scriptables\TechniqueSet.cs" />
-    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\ExitStrategies\AttackExit.cs" />
-    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\AttackExitOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

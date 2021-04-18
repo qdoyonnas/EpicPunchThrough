@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373d260b42f65fc4d9132c780b967cc6, type: 3}
+  m_Name: BaseAirAttack
+  m_EditorClassIdentifier: 
+  techniques:
+  - {fileID: 11400000, guid: a16efa23ead63ae4287951342cd3b885, type: 2}
+  - {fileID: 11400000, guid: 58678c9d5d0769745b38bfd4321c0366, type: 2}
+  - {fileID: 11400000, guid: ae970ca5a3f49bb4f93587f186f47b4f, type: 2}
+  - {fileID: 11400000, guid: a0510f084484d4541a276b6a93b9837c, type: 2}

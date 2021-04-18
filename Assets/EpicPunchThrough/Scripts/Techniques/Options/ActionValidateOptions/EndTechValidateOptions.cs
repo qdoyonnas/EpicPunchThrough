@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(menuName = "Project/Techniques/Strategies/Action/End Tech")]
 public class EndTechValidateOptions: ActionValidateTechStrategyOptions
 {
     public bool skipExit = false;
