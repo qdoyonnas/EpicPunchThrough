@@ -140,6 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226b87ec2cb390c4dab3b6f5d1d9c993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventKey: Hit
+  hitboxes:
+  - {fileID: 2181914236361201304, guid: cb9bc3d3735ae834498d479262258c14, type: 3}
 --- !u!114 &7995513973853599134
 MonoBehaviour:
   m_ObjectHideFlags: 0

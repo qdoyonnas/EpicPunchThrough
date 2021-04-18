@@ -153,6 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226b87ec2cb390c4dab3b6f5d1d9c993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventKey: Hit
+  hitboxes:
+  - {fileID: 3515832710518442624, guid: 5b38d48889eab1a4f9cace91d0430c6b, type: 3}
 --- !u!114 &2835794575380792617
 MonoBehaviour:
   m_ObjectHideFlags: 0

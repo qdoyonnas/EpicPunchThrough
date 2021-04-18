@@ -35,7 +35,7 @@ public class HitboxEvent : EventTechStrategy
 				hit.transform.parent = tech.owner.transform;
 			}
 			double attackSpeed = tech.GetBlackboardData("AttackSpeed") as double? ?? 1.0;
-			hitScript.Init(attackSpeed);
+			hitScript.Init(tech.owner, tech.owner.Team, attackSpeed);
 		}
 	}
 }

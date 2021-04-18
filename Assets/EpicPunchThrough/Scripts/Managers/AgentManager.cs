@@ -80,14 +80,16 @@ public class AgentManager
     public struct AgentSpawnData
     {
         public readonly Vector3 position;
+        public readonly bool isFacingRight;
         public readonly string name;
         public readonly AgentType type;
         public readonly int team;
         public readonly string skin;
 
-        public AgentSpawnData( Vector3 position, string name, AgentType type, int team, string skin )
+        public AgentSpawnData( Vector3 position, bool isFacingRight, string name, AgentType type, int team, string skin )
         {
             this.position = position;
+            this.isFacingRight = isFacingRight;
             this.name = name;
             this.type = type;
             this.team = team;
@@ -121,6 +123,8 @@ public class AgentManager
         foreach( TechniqueSet set in settings.techniqueSettings.defaultSets ) {
             TechniqueGenerator.Instance.AddTechniqueSet(agent, set);
         }
+
+        agent.isFacingRight = data.isFacingRight;
     }
     public Transform GetAgentsObject()
     {

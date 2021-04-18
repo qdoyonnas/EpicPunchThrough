@@ -95,25 +95,34 @@ public class PlayManager
     }
     void SetupPlay(Scene scene, LoadSceneMode mode)
     {
+        SceneManager.sceneLoaded -= SetupPlay;
         EnvironmentManager.Instance.LoadEnvironment(scene, "Arena");
-
-        if( AgentManager.Instance.playerAgent == null ) {
-            SpawnPlayer(GetGameScene(), LoadSceneMode.Additive);
-        }
-
-        FollowCamera followCamera = GameObject.Find("SceneEntrance").GetComponent<FollowCamera>();
-        if( followCamera != null ) { followCamera.target = AgentManager.Instance.playerAgent.transform; }
+        SceneManager.sceneLoaded += SpawnPlayer;
 
         GameManager.Instance.activeCamera.Fade(0, GameManager.Instance.settings.sceneTransitionFadeDuration, true);
     }
 
     void SpawnPlayer(Scene scene, LoadSceneMode mode)
     {
-        AgentManager.AgentSpawnData spawnData = new AgentManager.AgentSpawnData(new Vector3(0, 5, -10), "Player", AgentManager.AgentType.player, 0, "Vat Grown");
+        if( AgentManager.Instance.playerAgent != null ) {
+            GameObject.Destroy(AgentManager.Instance.playerAgent.gameObject);
+        }
+
+        GameObject playerSpawn = GameObject.Find("SceneEntrance");
+        if( playerSpawn == null ) {
+            playerSpawn = GameObject.Find("PlayerSpawn");
+        }
+        AgentManager.AgentSpawnData spawnData = new AgentManager.AgentSpawnData(new Vector3(0, 5, -10), false, "Player", AgentManager.AgentType.player, 0, "Vat Grown");
+        if( playerSpawn != null ) {
+            AgentSpawn playerSpawnScript = playerSpawn.GetComponent<AgentSpawn>();
+            if( playerSpawnScript != null ) {
+                spawnData = new AgentManager.AgentSpawnData(playerSpawnScript.transform.position, playerSpawnScript.isFacingRight, playerSpawnScript.agentName, AgentManager.AgentType.player, 0, "Vat Grown");
+            }
+        }
         AgentManager.Instance.SpawnAgent(spawnData);
 
-        //spawnData = new AgentManager.AgentSpawnData(new Vector3(-20, 24, -10), "Enemy1", AgentManager.AgentType.fighter, 0, "Vat Grown Grunt");
-        //AgentManager.Instance.SpawnAgent(spawnData);
+        FollowCamera followCamera = GameObject.Find("SceneEntrance").GetComponent<FollowCamera>();
+        if( followCamera != null ) { followCamera.target = AgentManager.Instance.playerAgent.transform; }
 
         SceneManager.sceneLoaded -= SpawnPlayer;
     }

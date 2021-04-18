@@ -159,7 +159,8 @@ public class Agent : MonoBehaviour
         Block,
         Jump,
         Dash,
-        Clash
+        Clash,
+        Hit
     }
     protected List<Action> actions = new List<Action>();
     public Action[] ActionSequence {
@@ -566,11 +567,13 @@ public class Agent : MonoBehaviour
         if( other == null ) { return; }
 
         bool isBoundary = other.gameObject.layer == LayerMask.NameToLayer("Boundary");
+        bool isProp = other.gameObject.layer == LayerMask.NameToLayer("Prop");
         if( isBoundary ) {
             if( other.GetComponent<Follow>().target != transform ) {
                 return;
             }
         }
+        if( !isBoundary && !isProp ) { return; }
 
         groundFound = _groundCheck.triggerCount > 0;
         
@@ -588,11 +591,13 @@ public class Agent : MonoBehaviour
         if( other == null ) { return; }
 
         bool isBoundary = other.gameObject.layer == LayerMask.NameToLayer("Boundary");
+        bool isProp = other.gameObject.layer == LayerMask.NameToLayer("Prop");
         if( isBoundary ) {
             if( other.GetComponent<Follow>().target != transform ) {
                 return;
             }
         }
+        if( !isBoundary && !isProp ) { return; }
 
         wallFound = _leftWallCheck.triggerCount > 0;
         if( isFacingRight != true ) { isFacingRight = true; }
@@ -612,11 +617,13 @@ public class Agent : MonoBehaviour
         if( other == null ) { return; }
 
         bool isBoundary = other.gameObject.layer == LayerMask.NameToLayer("Boundary");
+        bool isProp = other.gameObject.layer == LayerMask.NameToLayer("Prop");
         if( isBoundary ) {
             if( other.GetComponent<Follow>().target != transform ) {
                 return;
             }
         }
+        if( !isBoundary && !isProp ) { return; }
 
         wallFound = _rightWallCheck.triggerCount > 0;
         if( isFacingRight == true ) { isFacingRight = false; }
@@ -636,11 +643,13 @@ public class Agent : MonoBehaviour
         if( other == null ) { return; }
 
         bool isBoundary = other.gameObject.layer == LayerMask.NameToLayer("Boundary");
+        bool isProp = other.gameObject.layer == LayerMask.NameToLayer("Prop");
         if( isBoundary ) {
             if( other.GetComponent<Follow>().target != transform ) {
                 return;
             }
         }
+        if( !isBoundary && !isProp ) { return; }
 
         ceilingFound = _ceilingCheck.triggerCount > 0;
 
@@ -660,6 +669,8 @@ public class Agent : MonoBehaviour
         if( other.gameObject.layer == LayerMask.NameToLayer("Boundary") ) {
             return;
         }
+        bool isProp = other.gameObject.layer == LayerMask.NameToLayer("Prop");
+        if( !isProp ) { return; }
 
         if( state ) {
             backgroundColliders.Add(other);
@@ -784,6 +795,7 @@ public class Agent : MonoBehaviour
     public event ActionEvent Jump;
     public event ActionEvent Dash;
     public event ActionEvent Clash;
+    public event ActionEvent Hit;
 
     public void SubscribeToActionEvent(Action action, ActionEvent callback, bool unSubscribe = false)
     {
@@ -824,6 +836,9 @@ public class Agent : MonoBehaviour
                     break;
                 case Action.Clash:
                     Clash += callback;
+                    break;
+                case Action.Hit:
+                    Hit += callback;
                     break;
                 default:
                     Debug.LogError("Action not implemented");
@@ -866,6 +881,9 @@ public class Agent : MonoBehaviour
                     break;
                 case Action.Clash:
                     Clash -= callback;
+                    break;
+				case Action.Hit:
+                    Hit -= callback;
                     break;
                 default:
                     Debug.LogError("Action not implemented");
@@ -927,6 +945,9 @@ public class Agent : MonoBehaviour
             case Action.Clash:
                 handler = Clash;
                 break;
+            case Action.Hit:
+                handler = Hit;
+                break;
             default:
                 Debug.LogError("Action not implemented: " + action);
                 return;
@@ -944,6 +965,11 @@ public class Agent : MonoBehaviour
         }
 
         return;
+    }
+
+    public void ReceiveHit()
+    {
+        Debug.Log(name + " received hit!");
     }
 
     #endregion
