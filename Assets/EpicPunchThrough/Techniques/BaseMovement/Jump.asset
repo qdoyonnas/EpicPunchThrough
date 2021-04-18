@@ -1,5 +1,84 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4811791125678532560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cea365ebb4c55b4a9a86a3f44e07917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 4
+  mult: 5
+--- !u!114 &-4127809779928870845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e441d8a1c78b7643a285ef3eb67408e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3717918488553135739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98490a9d8be7bd40a495d55b1bb511c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3199334731705917993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857a2b56e5b14d648b7f1dde11deffd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2631274108255774169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168c52ab055441145968250a6287cd96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frictionMultiplier: 0.5
+  chargeRate: 2
+  minimumCharge: 2
+  maximumCharge: 10
+--- !u!114 &-1817846533389434082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec00070d28357924d890b2fe77fd9f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpMultiplier: 5
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18,17 +97,45 @@ MonoBehaviour:
   states: 01000000
   actionSequence: 0a000000
   triggerStrategies:
-  - {fileID: 11400000, guid: 1faf29397d5376046971fbb1e1beda79, type: 2}
+  - {fileID: -4127809779928870845}
   activateStrategies:
-  - {fileID: 11400000, guid: 512ec5750ac2c1746b5c9867b310953a, type: 2}
+  - {fileID: -3717918488553135739}
   stateStrategies:
-  - {fileID: 11400000, guid: 5b71e89182c2c1b489e4b6b9a607d7ca, type: 2}
+  - {fileID: -3199334731705917993}
   actionValidateStrategies:
-  - {fileID: 11400000, guid: a42dbdb5a9619fa43b4d21faf33a34c7, type: 2}
+  - {fileID: 4605257157354353959}
   updateStrategies:
-  - {fileID: 11400000, guid: 6eaaa9045a616104f9ae191878fca968, type: 2}
+  - {fileID: -2631274108255774169}
   eventStrategies:
-  - {fileID: 11400000, guid: bbcd4ba7761ceed4faa53cfbe8fdbadb, type: 2}
+  - {fileID: 2351029069401011331}
   exitStrategies:
-  - {fileID: 11400000, guid: 4c743a5cf2ba11844a7606315091e330, type: 2}
-  - {fileID: 11400000, guid: 4c6b3b6596b822440a910b70484d97e9, type: 2}
+  - {fileID: -1817846533389434082}
+  - {fileID: -4811791125678532560}
+--- !u!114 &2351029069401011331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882110b1986569a48868f8a6f5b840fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4605257157354353959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfcc3e66770bff4cbdfa46f97f1c629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skipExit: 0
+  actionStates:
+  - action: 10
+    state: 0

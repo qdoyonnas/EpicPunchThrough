@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-//[CustomEditor(typeof(TechniqueOptions))]
+[CustomEditor(typeof(TechniqueOptions))]
 public class TechniqueOptionsEditor : Editor
 {
     TechniqueOptions options;
@@ -16,22 +16,24 @@ public class TechniqueOptionsEditor : Editor
         public Type baseType;
         public string label;
         public bool show = true;
+        public string assetPath;
 
         Dictionary<string, Type> types;
         
         public StrategyEntry[] strategies;
 
-        public StrategyData(TechniqueOptionsEditor window, Type baseType, string label, TechStrategyOptions[] strategies)
+        public StrategyData(TechniqueOptionsEditor window, Type baseType, string label, TechStrategyOptions[] strategies, string path)
         {
             this.baseType = baseType;
             this.label = label;
+            this.assetPath = path;
             GetAllDerivedTypes();
 
             this.strategies = new StrategyEntry[strategies.Length];
             for( int i = 0; i < strategies.Length; i++ ) {
                 if( strategies[i] != null ) {
                     int choice = Array.IndexOf(types.Keys.ToArray(), strategies[i].GetType().Name);
-                    this.strategies[i] = new StrategyEntry(choice, strategies[i]);
+                    this.strategies[i] = new StrategyEntry(choice, strategies[i], assetPath);
                 }
             }
         }
@@ -83,7 +85,14 @@ public class TechniqueOptionsEditor : Editor
                     if( i < oldData.Length ) {
                         strategies[i] = oldData[i];
                     } else {
-                        strategies[i] = new StrategyEntry(0, (TechStrategyOptions)ScriptableObject.CreateInstance(types[types.Keys.First()]) );
+                        ScriptableObject script = ScriptableObject.CreateInstance(types[types.Keys.First()]);
+                        AssetDatabase.AddObjectToAsset(script, assetPath);
+                        strategies[i] = new StrategyEntry(0, (TechStrategyOptions)script, assetPath);
+                    }
+                }
+                if( length < oldData.Length ) {
+                    for( int i = length; i < oldData.Length; i++ ) {
+                        AssetDatabase.RemoveObjectFromAsset(oldData[i].strategy);
                     }
                 }
             }
@@ -97,10 +106,13 @@ public class TechniqueOptionsEditor : Editor
     public class StrategyEntry {
         public int choice;
         public TechStrategyOptions strategy;
-        public StrategyEntry( int c, TechStrategyOptions s )
+        public string assetPath;
+
+        public StrategyEntry( int c, TechStrategyOptions s, string path )
         {
             choice = c;
             strategy = s;
+            assetPath = path;
         }
 
         public bool DrawStrategy(Dictionary<string, Type> types)
@@ -116,7 +128,10 @@ public class TechniqueOptionsEditor : Editor
 
             if( choice != this.choice ) {
                 string name = types.Keys.ToArray()[choice];
-                strategy = (TechStrategyOptions)ScriptableObject.CreateInstance( types[name] );
+                AssetDatabase.RemoveObjectFromAsset(strategy);
+                ScriptableObject script = ScriptableObject.CreateInstance( types[name] );
+                AssetDatabase.AddObjectToAsset(script, assetPath);
+                strategy = (TechStrategyOptions)script;
                 this.choice = choice;
                 update = true;
             }
@@ -153,11 +168,13 @@ public class TechniqueOptionsEditor : Editor
 
         for( int i = 0; i < strategyOptions.Length; i++ ) {
             if( strategyOptions[i] == null ) {
-                strategyOptions[i] = (T)ScriptableObject.CreateInstance(defaultStrat);
+                ScriptableObject script = ScriptableObject.CreateInstance(defaultStrat);
+                AssetDatabase.AddObjectToAsset(script, AssetDatabase.GetAssetPath(target));
+                strategyOptions[i] = (T)script;
             }
         }
 
-        return new StrategyData( this, typeof(T), label, strategyOptions );
+        return new StrategyData( this, typeof(T), label, strategyOptions, AssetDatabase.GetAssetPath(target) );
     }
     
     public override void OnInspectorGUI()
