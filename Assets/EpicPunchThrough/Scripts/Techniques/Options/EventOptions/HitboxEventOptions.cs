@@ -5,9 +5,9 @@ using UnityEditor;
 
 public class HitboxEventOptions : EventTechStrategyOptions
 {
-	string eventKey;
-	GameObject[] hitboxes = new GameObject[0];
-
+	public string eventKey;
+	public GameObject[] hitboxes = new GameObject[0];
+    
     bool show = true;
 
 	public override void InspectorDraw()

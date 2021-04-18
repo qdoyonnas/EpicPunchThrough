@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/EpicPunchThrough/Scenes/Environments/CityEnvironment.unity
     guid: 8ef41e111d19b2b45ac608ea904ee2cf
+  - enabled: 1
+    path: Assets/EpicPunchThrough/Scenes/Environments/ArenaEnvironment.unity
+    guid: ea2ee762f33bef84b84d780641cadb91
   m_configObjects: {}

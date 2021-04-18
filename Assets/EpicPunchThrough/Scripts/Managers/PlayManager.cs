@@ -95,7 +95,7 @@ public class PlayManager
     }
     void SetupPlay(Scene scene, LoadSceneMode mode)
     {
-        EnvironmentManager.Instance.LoadEnvironment(scene, "City");
+        EnvironmentManager.Instance.LoadEnvironment(scene, "Arena");
 
         if( AgentManager.Instance.playerAgent == null ) {
             SpawnPlayer(GetGameScene(), LoadSceneMode.Additive);

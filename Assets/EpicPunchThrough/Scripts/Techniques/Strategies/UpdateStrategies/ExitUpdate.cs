@@ -22,5 +22,6 @@ public class ExitUpdate : UpdateTechStrategy
 		}
 
 		tech.owner.HandlePhysics(data);
+		tech.owner.HandleAnimation();
 	}
 }

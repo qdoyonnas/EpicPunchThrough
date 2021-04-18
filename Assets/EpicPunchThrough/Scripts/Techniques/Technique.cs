@@ -124,6 +124,7 @@ public class Technique
         { return; }
 
         if( techTrigger.sequence.Length > 1 ) {
+            if( owner.ActionSequence.Length < techTrigger.sequence.Length ) { return; }
             for( int i = 1; i <= techTrigger.sequence.Length; i++ ) {
                 if( techTrigger.sequence[techTrigger.sequence.Length - i] != owner.ActionSequence[owner.ActionSequence.Length - i] ) {
                     return;

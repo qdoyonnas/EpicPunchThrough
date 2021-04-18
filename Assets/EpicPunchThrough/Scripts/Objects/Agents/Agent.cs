@@ -536,6 +536,8 @@ public class Agent : MonoBehaviour
     }
     public virtual void HandlePhysics( GameManager.UpdateData data, Vector3? frictionOverride, Vector3? gravityOverride )
     {
+        EnableTriggerChecks();
+
         if( backgroundDistance < onLayer ) {
             backgroundDistance = onLayer;
         }
@@ -561,6 +563,8 @@ public class Agent : MonoBehaviour
 
     protected virtual void SetGroundFound( bool state, Collider other )
     {
+        if( other == null ) { return; }
+
         bool isBoundary = other.gameObject.layer == LayerMask.NameToLayer("Boundary");
         if( isBoundary ) {
             if( other.GetComponent<Follow>().target != transform ) {
@@ -581,6 +585,8 @@ public class Agent : MonoBehaviour
     }
     protected virtual void SetLeftWallFound( bool state, Collider other )
     {
+        if( other == null ) { return; }
+
         bool isBoundary = other.gameObject.layer == LayerMask.NameToLayer("Boundary");
         if( isBoundary ) {
             if( other.GetComponent<Follow>().target != transform ) {
@@ -603,6 +609,8 @@ public class Agent : MonoBehaviour
     }
     protected virtual void SetRightWallFound( bool state, Collider other )
     {
+        if( other == null ) { return; }
+
         bool isBoundary = other.gameObject.layer == LayerMask.NameToLayer("Boundary");
         if( isBoundary ) {
             if( other.GetComponent<Follow>().target != transform ) {
@@ -625,6 +633,8 @@ public class Agent : MonoBehaviour
     }
     protected virtual void SetCeilingFound( bool state, Collider other )
     {
+        if( other == null ) { return; }
+
         bool isBoundary = other.gameObject.layer == LayerMask.NameToLayer("Boundary");
         if( isBoundary ) {
             if( other.GetComponent<Follow>().target != transform ) {
@@ -645,6 +655,8 @@ public class Agent : MonoBehaviour
     }
     protected virtual void BackgroundFound( bool state, Collider other )
     {
+        if( other == null ) { return; }
+
         if( other.gameObject.layer == LayerMask.NameToLayer("Boundary") ) {
             return;
         }

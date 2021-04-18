@@ -60,6 +60,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\PropsManager.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Utility\TriggerCheck.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\JumpExitOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\Hitbox.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\MenuSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Camera\FollowCamera.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\GameManager.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\NoExitOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActivateOptions\NoActivateOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\Props\Prop.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\EventOptions\HitboxEventOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\Agents\PlayerAgent.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\Menus\IntroBar.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\InputManager.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\InputSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\EnvironmentSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\UpdateOptions\ExitUpdateOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\EventStrategies\HitboxEvent.cs" />
     <Compile Include="Assets\Rotary Heart\SerializableDictionaryLite\DrawKeyAsPropertyAttribute.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\Agents\Agent.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\PhysicsBody.cs" />
@@ -163,9 +166,6 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\ParticleSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Scriptables\TechniqueSet.cs" />
-    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\EventStrategies\HitboxEvent.cs" />
-    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\EventOptions\HitboxEventOptions.cs" />
-    <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\Hitbox.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

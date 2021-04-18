@@ -37,7 +37,10 @@ MonoBehaviour:
     isExpanded: 1
     _keyValues:
     - City
+    - Arena
     _keys:
     - City
+    - Arena
     _values:
     - {fileID: 11400000, guid: 905209bb249184f4cbca676d25fa56b5, type: 2}
+    - {fileID: 11400000, guid: 5d8be8c45883bc844b4c642a4fa8d550, type: 2}
