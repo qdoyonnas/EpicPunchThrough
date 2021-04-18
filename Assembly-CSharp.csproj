@@ -163,6 +163,9 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\ParticleSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Scriptables\TechniqueSet.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\EventStrategies\HitboxEvent.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\EventOptions\HitboxEventOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\Hitbox.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

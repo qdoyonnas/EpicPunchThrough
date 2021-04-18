@@ -52,6 +52,9 @@ public class Agent : MonoBehaviour
             return _activeTechnique;
         }
         set {
+            if( ValidActiveTechnique() ) {
+                activeTechnique.DeActivate();
+            }
             _activeTechnique = value;
         }
     }
@@ -866,7 +869,12 @@ public class Agent : MonoBehaviour
             && !activeTechnique.ValidateAction(action, value) )
         { escape = true; }
 
-        if( value == 0 && action == lastAction) { _activeActionValue = 0; escape = true; }
+        if( value == 0 ) { 
+            if( action == lastAction ) {
+                _activeActionValue = 0; 
+            }
+            escape = true; 
+        }
         if( escape ) { return; }
 
         ActionEvent handler;

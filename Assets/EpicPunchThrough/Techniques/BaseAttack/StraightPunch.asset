@@ -27,12 +27,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipExit: 1
+  onlyBeforeExit: 1
   actionStates:
   - action: 6
     state: 1
   - action: 8
     state: 1
   - action: 7
+    state: 1
+  - action: 9
     state: 1
 --- !u!114 &-1180306059661141460
 MonoBehaviour:
@@ -58,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab601cacc3a3f6346a439e15d45e2088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onlyBeforeExit: 0
   actionStates:
   - action: 5
     state: 0
@@ -107,6 +111,7 @@ MonoBehaviour:
   - {fileID: -476033356018673772}
   eventStrategies:
   - {fileID: 5871351135201234971}
+  - {fileID: 1305904222750049267}
   exitStrategies:
   - {fileID: -5050734107212379975}
   - {fileID: 8490985870940349}
@@ -122,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af56ed141762e1444aa663d055f3e02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedMult: 1
 --- !u!114 &110329679774732457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +141,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackVariations: 2
+--- !u!114 &1305904222750049267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226b87ec2cb390c4dab3b6f5d1d9c993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2835794575380792617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,5 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de69728a51c590d4199fbb21f06adf80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventKey: Exit
   blend: 0
   skipExit: 1

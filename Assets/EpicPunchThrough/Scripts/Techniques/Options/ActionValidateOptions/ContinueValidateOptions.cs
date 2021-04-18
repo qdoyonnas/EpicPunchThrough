@@ -5,12 +5,15 @@ using UnityEditor;
 
 public class ContinueValidateOptions: ActionValidateTechStrategyOptions
 {
+    public bool onlyBeforeExit = false;
     public ActionState[] actionStates = new ActionState[0];
 
     private bool show = true;
 
     public override void InspectorDraw()
     {
+        onlyBeforeExit = EditorGUILayout.Toggle("Only before Exit", onlyBeforeExit);
+
         EditorGUILayout.BeginHorizontal();
         show = EditorGUILayout.Foldout(show ,"Actions");
         int length = EditorGUILayout.IntField(actionStates.Length);
@@ -37,11 +40,13 @@ public class ContinueValidateOptions: ActionValidateTechStrategyOptions
                     actionStates[i] = new ActionState();
                 }
             }
+
+            EditorUtility.SetDirty(this);
         }
     }
 
     public override ActionValidateTechStrategy GenerateStrategy()
     {
-        return new ContinueValidate(actionStates);
+        return new ContinueValidate(onlyBeforeExit, actionStates);
     }
 }

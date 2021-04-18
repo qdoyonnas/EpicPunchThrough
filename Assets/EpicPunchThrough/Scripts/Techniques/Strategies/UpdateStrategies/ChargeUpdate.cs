@@ -22,7 +22,7 @@ public class ChargeUpdate : UpdateTechStrategy
     public override void Update( Technique tech, GameManager.UpdateData data, float value )
     {
         if( value > 0 ) {
-            double charge = (tech.GetBlackboardData("charge") as double?) ?? 0.0;
+            double charge = (tech.GetBlackboardData("charge") as double?) ?? 0.1;
             if( charge < minimumCharge ) {
                 tech.SetBlackboardData("charge", minimumCharge);
             } else if( charge < maximumCharge ) {

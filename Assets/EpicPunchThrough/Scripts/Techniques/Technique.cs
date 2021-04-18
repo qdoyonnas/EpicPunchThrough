@@ -27,6 +27,19 @@ public class Technique
         }
     }
 
+    public enum State {
+        Trigger = 0,
+        Activate = 1,
+        Update = 2,
+        Exit = 3,
+        Inactive = 4
+    }
+    protected State _state = State.Inactive;
+    public State state {
+        get {
+            return _state;
+        }
+    }
     protected Dictionary<string, object> blackboard = new Dictionary<string, object>();
 
     #region TechTrigger
@@ -61,7 +74,7 @@ public class Technique
     protected ExitTechStrategy[] exitStrategies;
 
     #endregion
-
+    
     public Technique( Agent owner, string name, RuntimeAnimatorController animCtrl, ParticleController particleController, TechTrigger techTrgr, 
         TriggerTechStrategy[] triggerStrategy, ActivateTechStrategy[] activateStrategy, StateChangeStrategy[] stateStrategy,
         ActionValidateTechStrategy[] validateStrategy, UpdateTechStrategy[] updateStrategy, EventTechStrategy[] eventStrategy, ExitTechStrategy[] exitStrategy )
@@ -93,13 +106,15 @@ public class Technique
 
     public virtual void Activate()
     {
-        ClearBlackboardData();
+        _state = State.Activate;
 
         if( activateStrategies == null ) { return; }
 
         foreach( ActivateTechStrategy strategy in activateStrategies ) {
             strategy.Activate(this);
         }
+
+        _state = State.Update;
     }
     public virtual void OnTrigger( float value )
     {
@@ -109,13 +124,14 @@ public class Technique
         { return; }
 
         if( techTrigger.sequence.Length > 1 ) {
-            for( int i = 1; i < techTrigger.sequence.Length; i++ ) {
+            for( int i = 1; i <= techTrigger.sequence.Length; i++ ) {
                 if( techTrigger.sequence[techTrigger.sequence.Length - i] != owner.ActionSequence[owner.ActionSequence.Length - i] ) {
                     return;
                 }
             }
         }
 
+        _state = State.Trigger;
         if( triggerStrategies == null ) { return; }
         foreach( TriggerTechStrategy strategy in triggerStrategies ) {
             if( !strategy.Trigger(this, value) ) { return; }
@@ -168,11 +184,17 @@ public class Technique
     }
     public virtual void Exit()
     {
+        _state = State.Exit;
         if( exitStrategies == null ) { return; }
 
         foreach(ExitTechStrategy strategy in exitStrategies ) {
             strategy.Exit(this);
         }
+    }
+    public virtual void DeActivate()
+    {
+        _state = State.Inactive;
+        ClearBlackboardData();
     }
 
     #endregion

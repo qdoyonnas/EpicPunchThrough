@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6246bebaa97d842986d17b2d5bec99, type: 3}
   m_Name: ChangeDirection
   m_EditorClassIdentifier: 
-  techniqueName: Run Back
+  techniqueName: Turn
   animatorController: {fileID: 9100000, guid: 2228a36b707dfa742b07385092387f2b, type: 2}
   particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
   states: 00000000
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipExit: 1
+  onlyBeforeExit: 0
   actionStates:
   - action: 1
     state: 1

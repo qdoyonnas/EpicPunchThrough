@@ -15,7 +15,10 @@ public class AttackExit : ExitTechStrategy
 	{
         double charge = (tech.GetBlackboardData("charge") as double?) ?? 1.0;
 		double mult = charge * (0.3 / speedMult);
-		tech.owner.animator.SetFloat("AttackSpeed", (1/(float)mult));
+		double attackSpeed = 1/mult;
+		tech.owner.animator.SetFloat("AttackSpeed", (float)attackSpeed);
 		tech.owner.animator.SetTrigger("Attack");
+
+		tech.SetBlackboardData("AttackSpeed", mult);
 	}
 }

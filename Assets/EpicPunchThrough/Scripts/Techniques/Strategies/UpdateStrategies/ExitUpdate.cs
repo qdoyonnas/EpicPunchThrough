@@ -13,10 +13,14 @@ public class ExitUpdate : UpdateTechStrategy
 
 	public override void Update(Technique tech, GameManager.UpdateData data, float value)
 	{
-		if( transition ) {
-			tech.owner.TransitionTechnique(null, false);
-		} else {
-			tech.Exit();
+		if( tech.state < Technique.State.Exit ) {
+			if( transition ) {
+				tech.owner.TransitionTechnique(null, false);
+			} else {
+				tech.Exit();
+			}
 		}
+
+		tech.owner.HandlePhysics(data);
 	}
 }

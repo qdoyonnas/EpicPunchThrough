@@ -6,6 +6,7 @@ using UnityEditor;
 public class EndTechValidateOptions: ActionValidateTechStrategyOptions
 {
     public bool skipExit = false;
+    public bool onlyBeforeExit = false;
     public ActionState[] actionStates = new ActionState[0];
 
     private bool show = true;
@@ -13,6 +14,7 @@ public class EndTechValidateOptions: ActionValidateTechStrategyOptions
     public override void InspectorDraw()
     {
         skipExit = EditorGUILayout.Toggle("Skip Exit", skipExit);
+        onlyBeforeExit = EditorGUILayout.Toggle("Only before Exit", onlyBeforeExit);
 
         EditorGUILayout.BeginHorizontal();
         show = EditorGUILayout.Foldout(show ,"Actions");
@@ -40,11 +42,13 @@ public class EndTechValidateOptions: ActionValidateTechStrategyOptions
                     actionStates[i] = new ActionState();
                 }
             }
+
+            EditorUtility.SetDirty(this);
         }
     }
 
     public override ActionValidateTechStrategy GenerateStrategy()
     {
-        return new EndTechValidate(skipExit, actionStates);
+        return new EndTechValidate(skipExit, onlyBeforeExit, actionStates);
     }
 }
