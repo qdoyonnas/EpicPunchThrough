@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class TriggerCheck : MonoBehaviour
 {
+    public bool externalTriggerCount = false;
     [Serializable]
     public class TriggerAction : UnityEvent<bool, Collider> {}
     public TriggerAction onTrigger = new TriggerAction();
@@ -34,6 +35,11 @@ public class TriggerCheck : MonoBehaviour
         get {
             return _triggerCount;
         }
+        set {
+            if( externalTriggerCount ) {
+                _triggerCount = value;
+            }
+        }
     }
 
     private void Awake()
@@ -43,12 +49,12 @@ public class TriggerCheck : MonoBehaviour
 
     private void OnTriggerEnter( Collider other )
     {
-        _triggerCount++;
+        if( !externalTriggerCount ) { _triggerCount++; }
         onTrigger.Invoke( true, other );
     }
     private void OnTriggerExit( Collider other )
     {
-        _triggerCount--;
+        if( !externalTriggerCount ) { _triggerCount--; }
         onTrigger.Invoke( false, other );
     }
 }

@@ -154,6 +154,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\MenuControls\GameStateControl.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\GameManagerSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\Transitional.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\AgentSpawn.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\PlayManager.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\PlaySettings.cs" />
     <Compile Include="Assets\Rotary Heart\SerializableDictionaryLite\SerializableDictionaryBase.cs" />
@@ -166,7 +167,6 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\ParticleSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Scriptables\TechniqueSet.cs" />
-    <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\AgentSpawn.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

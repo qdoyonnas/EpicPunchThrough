@@ -1433,6 +1433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c710bb0e97f64aa488aeef0eea7f9c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalTriggerCount: 1
   onTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -1858,6 +1859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c710bb0e97f64aa488aeef0eea7f9c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalTriggerCount: 0
   onTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -2039,7 +2041,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 6.5, z: 1}
+  m_Size: {x: 0.8, y: 5.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5641009559178035255
 MonoBehaviour:
@@ -2053,6 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c710bb0e97f64aa488aeef0eea7f9c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalTriggerCount: 1
   onTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -2419,6 +2422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c710bb0e97f64aa488aeef0eea7f9c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalTriggerCount: 1
   onTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -2600,7 +2604,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 6.5, z: 1}
+  m_Size: {x: 0.8, y: 5.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3290873048282853014
 MonoBehaviour:
@@ -2614,6 +2618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c710bb0e97f64aa488aeef0eea7f9c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  externalTriggerCount: 1
   onTrigger:
     m_PersistentCalls:
       m_Calls: []

@@ -575,6 +575,7 @@ public class Agent : MonoBehaviour
         }
         if( !isBoundary && !isProp ) { return; }
 
+        _groundCheck.triggerCount += state ? 1 : -1;
         groundFound = _groundCheck.triggerCount > 0;
         
         if( state ) {
@@ -599,6 +600,7 @@ public class Agent : MonoBehaviour
         }
         if( !isBoundary && !isProp ) { return; }
 
+        _leftWallCheck.triggerCount += state ? 1 : -1;
         wallFound = _leftWallCheck.triggerCount > 0;
         if( isFacingRight != true ) { isFacingRight = true; }
 
@@ -625,6 +627,7 @@ public class Agent : MonoBehaviour
         }
         if( !isBoundary && !isProp ) { return; }
 
+        _rightWallCheck.triggerCount += state ? 1 : -1;
         wallFound = _rightWallCheck.triggerCount > 0;
         if( isFacingRight == true ) { isFacingRight = false; }
 
@@ -651,6 +654,7 @@ public class Agent : MonoBehaviour
         }
         if( !isBoundary && !isProp ) { return; }
 
+        _ceilingCheck.triggerCount += state ? 1 : -1;
         ceilingFound = _ceilingCheck.triggerCount > 0;
 
         if( state ) {
