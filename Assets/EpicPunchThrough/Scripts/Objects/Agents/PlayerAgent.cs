@@ -17,6 +17,28 @@ public class PlayerAgent : Agent
     protected Dictionary<Control, float> controlState = new Dictionary<Control, float>();
     protected List<Control> controlQueue = new List<Control>();
 
+    public override State state {
+        get {
+            return base.state;
+        }
+        set {
+            base.state = value;
+
+            if( activeActionValue != 0 ) {
+                ActionEvent handler = ActionToActionEvent(lastAction);
+                if( handler != null ) {
+                    handler(new ActionEventArgs(activeActionValue));
+                }
+            } else {
+                foreach( KeyValuePair<Control, float> control in controlState ) {
+                    if( control.Value != 0 ) {
+                        controlQueue.Add(control.Key);
+                    }
+                }
+            }
+        }
+    }
+
     public override void Init()
     {
         base.Init();
@@ -121,48 +143,17 @@ public class PlayerAgent : Agent
         controlQueue.Add(control);
     }
 
-    #endregion
+	#endregion
 
-    public override void DoUpdate( GameManager.UpdateData data )
+	#region Action Methods
+	public override void DoUpdate( GameManager.UpdateData data )
     {
         if( controlQueue.Count > 0 ) {
             SubmitAction();
         }
 
         if( activeActionValue != 0 ) {
-            Control control = Control.Horizontal;
-            switch( lastAction ) {
-                case Action.MoveForward:
-                    control = Control.Horizontal;
-                    break;
-                case Action.MoveBack:
-                    control = Control.Horizontal;
-                    break;
-                case Action.MoveUp:
-                    control = Control.Vertical;
-                    break;
-                case Action.MoveDown:
-                    control = Control.Vertical;
-                    break;
-                case Action.Jump:
-                    control = Control.Jump;
-                    break;
-                case Action.AttackBack:
-                    control = Control.Attack;
-                    break;
-                case Action.AttackDown:
-                    control = Control.Attack;
-                    break;
-                case Action.AttackForward:
-                    control = Control.Attack;
-                    break;
-                case Action.AttackUp:
-                    control = Control.Attack;
-                    break;
-                case Action.Block:
-                    control = Control.Block;
-                    break;
-            }
+            Control control = ActionToControl(lastAction);
             if( controlState[control] == 0 ) {
                 PerformAction(lastAction, 0);
             }
@@ -268,5 +259,44 @@ public class PlayerAgent : Agent
 
         actions.Clear();
         SubmitAttack();
+    }
+    #endregion
+
+    public Control ActionToControl( Action action )
+    {
+        Control control = Control.Horizontal;
+        switch( action ) {
+            case Action.MoveForward:
+                control = Control.Horizontal;
+                break;
+            case Action.MoveBack:
+                control = Control.Horizontal;
+                break;
+            case Action.MoveUp:
+                control = Control.Vertical;
+                break;
+            case Action.MoveDown:
+                control = Control.Vertical;
+                break;
+            case Action.Jump:
+                control = Control.Jump;
+                break;
+            case Action.AttackBack:
+                control = Control.Attack;
+                break;
+            case Action.AttackDown:
+                control = Control.Attack;
+                break;
+            case Action.AttackForward:
+                control = Control.Attack;
+                break;
+            case Action.AttackUp:
+                control = Control.Attack;
+                break;
+            case Action.Block:
+                control = Control.Block;
+                break;
+        }
+        return control;
     }
 }

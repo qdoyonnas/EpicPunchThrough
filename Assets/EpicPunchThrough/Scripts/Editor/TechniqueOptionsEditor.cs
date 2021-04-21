@@ -152,7 +152,7 @@ public class TechniqueOptionsEditor : Editor
         }
 
         strategyDatas = new StrategyData[] {
-            GenerateStrategyData<TriggerTechStrategyOptions>( "Trigger Strategies", ref options.triggerStrategies, typeof(NoTriggerOptions) ),
+            GenerateStrategyData<TriggerTechStrategyOptions>( "Trigger Strategies", ref options.triggerStrategies, typeof(NoInterruptTriggerOptions) ),
             GenerateStrategyData<ActivateTechStrategyOptions>( "Activate Strategies", ref options.activateStrategies, typeof(NoActivateOptions) ),
             GenerateStrategyData<StateChangeStrategyOptions>( "State Strategies", ref options.stateStrategies, typeof(EndTechStateChangeOptions) ),
             GenerateStrategyData<ActionValidateTechStrategyOptions>( "Action Strategies", ref options.actionValidateStrategies, typeof(NoValidateOptions) ),

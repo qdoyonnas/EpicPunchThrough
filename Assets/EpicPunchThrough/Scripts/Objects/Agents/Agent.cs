@@ -95,7 +95,7 @@ public class Agent : MonoBehaviour
         Launched
     }
     protected State _state;
-    public State state {
+    public virtual State state {
         get {
             return _state;
         }
@@ -785,8 +785,19 @@ public class Agent : MonoBehaviour
     #endregion
 
     #region Action Methods
+    
+    public class ActionEventArgs {
+        public bool activated { get; set; }
+        public float value { get; private set; }
 
-    public delegate void ActionEvent( float value );
+        public ActionEventArgs( float value ) {
+            activated = false;
+            this.value = value;
+        }
+    }
+
+    public delegate void ActionEvent( ActionEventArgs e );
+
     public event ActionEvent MoveForward;
     public event ActionEvent MoveBack;
     public event ActionEvent MoveUp;
@@ -911,63 +922,21 @@ public class Agent : MonoBehaviour
         }
         if( escape ) { return; }
 
-        ActionEvent handler;
-        switch( action ) {
-            case Action.MoveForward:
-                handler = MoveForward;
-                break;
-            case Action.MoveBack:
-                handler = MoveBack;
-                break;
-            case Action.MoveUp:
-                handler = MoveUp;
-                break;
-            case Action.MoveDown:
-                handler = MoveDown;
-                break;
-            case Action.AttackForward:
-                handler = AttackForward;
-                break;
-            case Action.AttackDown:
-                handler = AttackDown;
-                break;
-            case Action.AttackBack:
-                handler = AttackBack;
-                break;
-            case Action.AttackUp:
-                handler = AttackUp;
-                break;
-            case Action.Block:
-                handler = Block;
-                break;
-            case Action.Jump:
-                handler = Jump;
-                break;
-            case Action.Dash:
-                handler = Dash;
-                break;
-            case Action.Clash:
-                handler = Clash;
-                break;
-            case Action.Hit:
-                handler = Hit;
-                break;
-            default:
-                Debug.LogError("Action not implemented: " + action);
-                return;
+        ActionEvent handler = ActionToActionEvent(action);
+        if( handler == null ) { return; }
+        ActionEventArgs e = new ActionEventArgs(value);
+        handler(e);
+
+        if( e.activated ) {
+            actions.Add(action);
+
+            if( actions.Count > AgentManager.Instance.settings.actionSequenceLength ) {
+                actions.RemoveAt(0);
+            }
+
+            _activeActionValue = value;
         }
-        actions.Add(action);
-
-        if( actions.Count > AgentManager.Instance.settings.actionSequenceLength ) {
-            actions.RemoveAt(0);
-        }
-
-        _activeActionValue = value;
-
-        if( handler != null ) {
-            handler( value );
-        }
-
+        
         return;
     }
 
@@ -1060,6 +1029,57 @@ public class Agent : MonoBehaviour
         }
 
         return null;
+    }
+
+    public virtual ActionEvent ActionToActionEvent( Action action )
+    {
+        ActionEvent handler = null;
+        switch( action ) {
+            case Action.MoveForward:
+                handler = MoveForward;
+                break;
+            case Action.MoveBack:
+                handler = MoveBack;
+                break;
+            case Action.MoveUp:
+                handler = MoveUp;
+                break;
+            case Action.MoveDown:
+                handler = MoveDown;
+                break;
+            case Action.AttackForward:
+                handler = AttackForward;
+                break;
+            case Action.AttackDown:
+                handler = AttackDown;
+                break;
+            case Action.AttackBack:
+                handler = AttackBack;
+                break;
+            case Action.AttackUp:
+                handler = AttackUp;
+                break;
+            case Action.Block:
+                handler = Block;
+                break;
+            case Action.Jump:
+                handler = Jump;
+                break;
+            case Action.Dash:
+                handler = Dash;
+                break;
+            case Action.Clash:
+                handler = Clash;
+                break;
+            case Action.Hit:
+                handler = Hit;
+                break;
+            default:
+                Debug.LogError("Action not implemented: " + action);
+                break;
+        }
+
+        return handler;
     }
 
     #endregion

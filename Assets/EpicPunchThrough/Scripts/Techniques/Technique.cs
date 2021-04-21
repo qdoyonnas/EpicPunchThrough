@@ -116,11 +116,10 @@ public class Technique
 
         _state = State.Update;
     }
-    public virtual void OnTrigger( float value )
+    public virtual void OnTrigger( Agent.ActionEventArgs e )
     {
-        if( owner.ValidActiveTechnique()
-            || ( Array.IndexOf(techTrigger.states, Agent.State.Any) == -1
-                && Array.IndexOf(techTrigger.states, owner.state) == -1 ) ) 
+        if( Array.IndexOf(techTrigger.states, Agent.State.Any) == -1
+                && Array.IndexOf(techTrigger.states, owner.state) == -1 ) 
         { return; }
 
         if( techTrigger.sequence.Length > 1 ) {
@@ -135,9 +134,10 @@ public class Technique
         _state = State.Trigger;
         if( triggerStrategies == null ) { return; }
         foreach( TriggerTechStrategy strategy in triggerStrategies ) {
-            if( !strategy.Trigger(this, value) ) { return; }
+            if( !strategy.Trigger(this, e.value) ) { return; }
         }
 
+        e.activated = true;
         owner.AddActivatingTechnique(this);
     }
     public virtual void OnStateChange( Agent.State previousState, Agent.State newState )

@@ -30,7 +30,7 @@ public class TechniqueGenerator
 
         Technique.TechTrigger techTrigger = GenerateTechTrigger(options);
 
-        TriggerTechStrategyOptions[] triggerStrategyOptions = options.triggerStrategies == null ? new TriggerTechStrategyOptions[] { ScriptableObject.CreateInstance<NoTriggerOptions>() } : options.triggerStrategies;
+        TriggerTechStrategyOptions[] triggerStrategyOptions = options.triggerStrategies == null ? new TriggerTechStrategyOptions[] { ScriptableObject.CreateInstance<NoInterruptTriggerOptions>() } : options.triggerStrategies;
         ActivateTechStrategyOptions[] activateStrategyOptions = options.activateStrategies == null ? new ActivateTechStrategyOptions[] { ScriptableObject.CreateInstance<NoActivateOptions>() } : options.activateStrategies;
         StateChangeStrategyOptions[] stateStrategyOptions = options.stateStrategies == null ? new StateChangeStrategyOptions[] { ScriptableObject.CreateInstance<EndTechStateChangeOptions>() } : options.stateStrategies;
         ActionValidateTechStrategyOptions[] actionValidateStrategyOptions = options.actionValidateStrategies == null ? new ActionValidateTechStrategyOptions[] { ScriptableObject.CreateInstance<NoValidateOptions>() } : options.actionValidateStrategies;

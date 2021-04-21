@@ -14,10 +14,10 @@ public abstract class TechStrategy {
 public abstract class TriggerTechStrategy: TechStrategy {
     public abstract bool Trigger(Technique tech, float value );
 }
-public class NoTrigger: TriggerTechStrategy {
+public class NoInterruptTrigger: TriggerTechStrategy {
     public override bool Trigger(Technique tech, float value )
     {
-        return true;
+        return !tech.owner.ValidActiveTechnique();
     }
 }
 
@@ -54,12 +54,7 @@ public abstract class StateChangeStrategy: TechStrategy {
 public class NoStateChange: StateChangeStrategy {
 	public override void OnStateChange(Technique tech, Agent.State previousState, Agent.State newState) {}
 }
-public class EndTechStateChange: StateChangeStrategy {
-    public override void OnStateChange( Technique tech, Agent.State previousState, Agent.State newState )
-    {
-        tech.owner.TransitionTechnique(null, false);
-    }
-}
+
 
 public abstract class UpdateTechStrategy: TechStrategy {
     public abstract void Update(Technique tech, GameManager.UpdateData data, float value );

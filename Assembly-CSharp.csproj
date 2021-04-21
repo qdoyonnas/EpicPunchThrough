@@ -86,7 +86,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\MenuManager.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActionValidateOptions\ContinueValidateOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\Menus\MenuDecorators\InputNavigateMenuDecorator.cs" />
-    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\TriggerOptions\NoTriggerOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\TriggerOptions\NoInterruptTriggerOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\UpdateStrategies\WallSlideUpdate.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\UpdateStrategies\ExitUpdate.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\PropSettings.cs" />
@@ -167,6 +167,8 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\ParticleSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Scriptables\TechniqueSet.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\UI\PlayerUI.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\StateChangeStrategies\EndTechStateChange.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
