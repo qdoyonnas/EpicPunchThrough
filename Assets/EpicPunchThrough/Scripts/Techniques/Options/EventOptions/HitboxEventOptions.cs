@@ -6,6 +6,9 @@ using UnityEditor;
 public class HitboxEventOptions : EventTechStrategyOptions
 {
 	public string eventKey;
+    public Direction launchDirection = Direction.Forward;
+    public float launchForce = 1;
+    public float inertiaCarry = 1;
 	public GameObject[] hitboxes = new GameObject[0];
     
     bool show = true;
@@ -13,6 +16,10 @@ public class HitboxEventOptions : EventTechStrategyOptions
 	public override void InspectorDraw()
 	{
 		eventKey = EditorGUILayout.TextField("Event Key", eventKey);
+
+        launchDirection = (Direction)EditorGUILayout.EnumPopup("Direction", launchDirection);
+        launchForce = EditorGUILayout.FloatField("Launch Force", launchForce);
+        inertiaCarry = EditorGUILayout.FloatField("Inertia Carry", inertiaCarry);
 		
 		EditorGUILayout.BeginHorizontal();
         show = EditorGUILayout.Foldout(show ,"Hitboxes");
@@ -38,13 +45,11 @@ public class HitboxEventOptions : EventTechStrategyOptions
                     hitboxes[i] = hits[i];
                 }
             }
-
-            EditorUtility.SetDirty(this);
         }
 	}
 
 	public override EventTechStrategy GenerateStrategy()
 	{
-		return new HitboxEvent(eventKey, hitboxes);
+		return new HitboxEvent(eventKey, launchDirection, launchForce, inertiaCarry, hitboxes);
 	}
 }

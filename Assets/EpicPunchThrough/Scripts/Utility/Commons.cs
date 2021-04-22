@@ -7,7 +7,8 @@ public enum Direction {
     Down,
     Up,
     Back,
-    Aim
+    Aim,
+    None
 }
 
 [Serializable]

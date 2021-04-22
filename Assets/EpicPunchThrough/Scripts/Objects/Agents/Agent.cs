@@ -39,6 +39,8 @@ public class Agent : MonoBehaviour
 
     protected Dictionary<string, Transform> anchors = new Dictionary<string, Transform>();
 
+    protected int animationVariation = 0;
+
     #endregion
 
     #region Technique Fields
@@ -129,6 +131,15 @@ public class Agent : MonoBehaviour
                     physicsBody.velocity = new Vector3(physicsBody.velocity.x, 0, 0);
                     break;
                 case State.Flinched:
+                    physicsBody.useGravity = true;
+                    physicsBody.velocity = new Vector3(0, 0, 0);
+                    physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().airFriction;
+                    if( slideParticle != null ) {
+                        slideParticle.End();
+                        slideParticle.transform.parent = null;
+                    }
+
+                    animationVariation = UnityEngine.Random.Range(0, 3);
                     break;
                 case State.Stunned:
                     break;
@@ -220,6 +231,8 @@ public class Agent : MonoBehaviour
             return segment;
         }
     }
+
+    protected float stateTimestamp = 0;
 
     #endregion
 
@@ -457,6 +470,12 @@ public class Agent : MonoBehaviour
                     state = State.InAir;
                 }
                 break;
+            case State.Flinched:
+                if( Time.time >= stateTimestamp ) {
+                    animator.SetBool("Flinched", false);
+                    state = State.InAir;
+                }
+                break;
             case State.WallSliding:
                 if( groundFound ) {
                     state = State.Grounded;
@@ -512,9 +531,12 @@ public class Agent : MonoBehaviour
     public virtual void HandleAnimation()
     {
         if( state == State.Grounded ) {
-            animator.SetBool("Grounded", true );
+            animator.SetBool( "Grounded", true );
             float xVelocity = Mathf.Abs(physicsBody.velocity.x / 7f);
-            animator.SetFloat("speed", xVelocity);
+            animator.SetFloat( "speed", xVelocity );
+        } else if( state == State.Flinched ) {
+            animator.SetBool( "Flinched", true );
+            animator.SetFloat( "Variation", animationVariation );
         } else {
             animator.SetBool("Grounded", false );
             float yVelocity = (physicsBody.velocity.y / 10f);
@@ -940,9 +962,12 @@ public class Agent : MonoBehaviour
         return;
     }
 
-    public void ReceiveHit()
+    public void ReceiveHit(Vector3 launchVector)
     {
-        Debug.Log(name + " received hit!");
+        state = State.Flinched;
+        stateTimestamp = Time.time + 0.2f;
+
+        physicsBody.AddVelocity(launchVector);
     }
 
     #endregion

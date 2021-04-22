@@ -5,12 +5,18 @@ using UnityEngine;
 public class HitboxEvent : EventTechStrategy
 {
 	string eventKey;
+	Direction launchDirection;
+	float forceMult;
+	float inertiaCarry;
 	GameObject[] hitboxes;
 
-	public HitboxEvent(string key, GameObject[] hitboxes)
+	public HitboxEvent(string key, Direction launchDirection, float forceMult, float inertia, GameObject[] hitboxes)
 	{
+		this.launchDirection = launchDirection;
+		this.forceMult = forceMult;
 		this.eventKey = key;
 		this.hitboxes = hitboxes;
+		this.inertiaCarry = inertia;
 	}
 
 	public override void OnEvent(Technique tech, AnimationEvent e)
@@ -34,8 +40,15 @@ public class HitboxEvent : EventTechStrategy
 			if( !hitScript.isStatic ) {
 				hit.transform.parent = tech.owner.transform;
 			}
+
 			double attackSpeed = tech.GetBlackboardData("AttackSpeed") as double? ?? 1.0;
-			hitScript.Init(tech.owner, tech.owner.Team, attackSpeed);
+			double charge = (tech.GetBlackboardData("charge") as double?) ?? 1.0;
+
+			Vector3 launchVectorOverride = Utilities.GetDirectionVector(tech.owner, launchDirection);
+			if( launchDirection == Direction.None ) { launchVectorOverride = Vector3.back; }
+			float launchForce = (float)(charge * forceMult);
+
+			hitScript.Init(tech.owner, tech.owner.Team, attackSpeed, launchVectorOverride, launchForce, inertiaCarry);
 		}
 	}
 }

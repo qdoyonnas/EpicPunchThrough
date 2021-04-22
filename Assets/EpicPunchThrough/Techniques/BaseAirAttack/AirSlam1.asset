@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857a2b56e5b14d648b7f1dde11deffd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skipExit: 1
 --- !u!114 &1495518348415015833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventKey: Hit
+  launchDirection: 1
+  launchForce: 10
+  inertiaCarry: 1
   hitboxes:
   - {fileID: 193826631772633062, guid: 236e5cf2c711ff74693d073e19955d4f, type: 3}
 --- !u!114 &3748429579251469913

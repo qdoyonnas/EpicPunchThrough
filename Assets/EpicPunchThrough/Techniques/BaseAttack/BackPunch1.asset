@@ -206,5 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventKey: Hit
+  launchDirection: 0
+  launchForce: 2
+  inertiaCarry: 1
   hitboxes:
   - {fileID: 3515832710518442624, guid: 5b38d48889eab1a4f9cace91d0430c6b, type: 3}

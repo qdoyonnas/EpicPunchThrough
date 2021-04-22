@@ -253,10 +253,9 @@ public class TechniqueOptionsEditor : Editor
                         break;
                 }
 
-                options.SetDirtyRecursive();
             }
         }
-
+        options.SetDirtyRecursive();
         serializedObject.ApplyModifiedProperties();
     }
 }

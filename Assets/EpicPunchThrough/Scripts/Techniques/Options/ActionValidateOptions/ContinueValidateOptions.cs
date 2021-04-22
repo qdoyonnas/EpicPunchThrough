@@ -40,8 +40,6 @@ public class ContinueValidateOptions: ActionValidateTechStrategyOptions
                     actionStates[i] = new ActionState();
                 }
             }
-
-            EditorUtility.SetDirty(this);
         }
     }
 
