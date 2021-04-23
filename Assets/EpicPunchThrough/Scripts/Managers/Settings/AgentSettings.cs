@@ -9,6 +9,12 @@ public class AgentSettings : ScriptableObject
     public Agent.State initialAgentState = Agent.State.Grounded;
     public bool useController;
 
+    [Header("Vital Force Settings")]
+    [Min(0)] public long baseVitalForce;
+    [Min(1)] public long defaultActiveVFFactor;
+    [Min(1)] public long criticalSoulFactor;
+    public double chargeRate;
+
     [Header("Animator Controllers")]
     public GameObject baseCharacterPrefab;
     public RuntimeAnimatorController baseCharacterController;

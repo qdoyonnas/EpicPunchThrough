@@ -15,9 +15,8 @@ public class LaunchExit : ExitTechStrategy
 
 	public override void Exit(Technique tech)
 	{
-        double charge = (tech.GetBlackboardData("charge") as double?) ?? 1.0;
 		Vector3 launchDirection = Utilities.GetDirectionVector(tech.owner, direction);
-        Vector3 launchVector = (launchDirection * (float)(mult * charge));
+        Vector3 launchVector = (launchDirection * (float)(mult * (float)tech.owner.chargingVF));
         tech.owner.physicsBody.AddVelocity(launchVector);
         tech.owner.onLayer = 1;
 	}

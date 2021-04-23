@@ -264,11 +264,98 @@ public class Agent : MonoBehaviour
 
     protected BoxCollider[] boundaryColliders;
 
+	#endregion
+
+	#region Vital Force Fields
+
+    ulong _maxVF = 1000000;
+    ulong _currentVF = 1000000;
+    ulong _activeFactor = 4;
+    ulong _chargingVF = 0;
+    ulong _criticalSoul = 20;
+
+    public ulong maxVF {
+        get {
+            return _maxVF;
+        }
+        set {
+            if( value <= ulong.MaxValue ) {
+                _maxVF = value;
+            } else {
+                _maxVF = ulong.MaxValue;
+            }
+        }
+    }
+    public ulong currentVF {
+        get {
+            return _currentVF;
+        }
+        set {
+            if( value <= _maxVF ) {
+                _currentVF = value;
+            } else {
+                _currentVF = _maxVF;
+            }
+        }
+    }
+    public double VFRemaining {
+        get {
+            return (double)currentVF / (double)maxVF;
+        }
+    }
+
+    public ulong activeVF {
+        get {
+            return _maxVF / _activeFactor;
+        }
+    }
+    public ulong activeFactor {
+        get {
+            return _activeFactor;
+        }
+        set {
+            if( value > 0 ) {
+                _activeFactor = value;
+            } else {
+                _activeFactor = 1;
+            }
+        }
+    }
+
+    public ulong chargingVF {
+        get {
+            return _chargingVF;
+        }
+        set {
+            if( chargingVF <= _currentVF ) {
+                _chargingVF = value;
+            } else {
+                _chargingVF = _currentVF;
+            }
+        }
+    }
+    public double chargeRate {
+        get {
+            return (double)activeVF * AgentManager.Instance.settings.chargeRate;
+        }
+    }
+
+    public ulong criticalVF {
+         get {
+            return _maxVF / _criticalSoul;
+        }
+    }
+    public ulong criticalSoul {
+        get {
+            return _criticalSoul;
+        }
+    }
+
     #endregion
 
-    #region Initialization
+	#region Initialization
 
-    protected bool didInit = false;
+	protected bool didInit = false;
     private void Start()
     {
         if( !didInit ) {
@@ -323,6 +410,9 @@ public class Agent : MonoBehaviour
 
         OnEnvironmentChange( null, EnvironmentManager.Instance.GetEnvironment() );
         EnvironmentManager.Instance.environmentChanged += OnEnvironmentChange;
+
+        _criticalSoul = (ulong)AgentManager.Instance.settings.criticalSoulFactor;
+        currentVF = maxVF;
 
         AgentManager.Instance.RegisterAgent(this);
 

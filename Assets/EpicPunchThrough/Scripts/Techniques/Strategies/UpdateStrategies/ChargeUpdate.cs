@@ -7,10 +7,10 @@ public class ChargeUpdate : UpdateTechStrategy
     float frictionMultiplier;
     
     double chargeRate;
-    double minimumCharge;
-    double maximumCharge;
+    ulong minimumCharge;
+    ulong maximumCharge;
 
-    public ChargeUpdate( float frictionMultiplier, double chargeRate, double minimumCharge, double maximumCharge )
+    public ChargeUpdate( float frictionMultiplier, double chargeRate, ulong minimumCharge, ulong maximumCharge )
     {
         this.frictionMultiplier = frictionMultiplier;
 
@@ -22,11 +22,16 @@ public class ChargeUpdate : UpdateTechStrategy
     public override void Update( Technique tech, GameManager.UpdateData data, float value )
     {
         if( value > 0 ) {
-            double charge = (tech.GetBlackboardData("charge") as double?) ?? 0.1;
-            if( charge < minimumCharge ) {
-                tech.SetBlackboardData("charge", minimumCharge);
-            } else if( charge < maximumCharge ) {
-                tech.SetBlackboardData("charge", charge + (chargeRate * data.deltaTime));
+            if( tech.owner.chargingVF < minimumCharge ) {
+                tech.owner.chargingVF = minimumCharge;
+            } else if( tech.owner.chargingVF < maximumCharge ) {
+                ulong chargeUp = (ulong)((chargeRate * tech.owner.chargeRate) * (double)data.deltaTime);
+                Debug.Log(chargeUp);
+                tech.owner.chargingVF += chargeUp;
+
+                if( tech.owner.chargingVF > maximumCharge ) {
+                    tech.owner.chargingVF = maximumCharge;
+                }
             }
         }
 

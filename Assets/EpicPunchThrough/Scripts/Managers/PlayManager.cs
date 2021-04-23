@@ -112,11 +112,22 @@ public class PlayManager
         if( playerSpawn == null ) {
             playerSpawn = GameObject.Find("PlayerSpawn");
         }
-        AgentManager.AgentSpawnData spawnData = new AgentManager.AgentSpawnData(new Vector3(0, 5, -10), false, "Player", AgentManager.AgentType.player, 0, "Vat Grown");
+        AgentManager.AgentSpawnData spawnData = new AgentManager.AgentSpawnData(new Vector3(0, 5, -10), 
+                                                        false, "Player", 
+                                                        AgentManager.AgentType.player, 
+                                                        0, "Vat Grown", 
+                                                        (ulong)AgentManager.Instance.settings.baseVitalForce, 
+                                                        (ulong)AgentManager.Instance.settings.defaultActiveVFFactor);
         if( playerSpawn != null ) {
             AgentSpawn playerSpawnScript = playerSpawn.GetComponent<AgentSpawn>();
             if( playerSpawnScript != null ) {
-                spawnData = new AgentManager.AgentSpawnData(playerSpawnScript.transform.position, playerSpawnScript.isFacingRight, playerSpawnScript.agentName, AgentManager.AgentType.player, 0, "Vat Grown");
+                spawnData = new AgentManager.AgentSpawnData(playerSpawnScript.transform.position, 
+                    playerSpawnScript.isFacingRight, 
+                    playerSpawnScript.agentName, 
+                    AgentManager.AgentType.player, 
+                    0, "Vat Grown", 
+                    (ulong)AgentManager.Instance.settings.baseVitalForce,
+                    (ulong)AgentManager.Instance.settings.defaultActiveVFFactor);
             }
         }
         AgentManager.Instance.SpawnAgent(spawnData);

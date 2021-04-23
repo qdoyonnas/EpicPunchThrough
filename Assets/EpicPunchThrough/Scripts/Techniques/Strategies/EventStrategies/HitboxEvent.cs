@@ -42,11 +42,10 @@ public class HitboxEvent : EventTechStrategy
 			}
 
 			double attackSpeed = tech.GetBlackboardData("AttackSpeed") as double? ?? 1.0;
-			double charge = (tech.GetBlackboardData("charge") as double?) ?? 1.0;
 
 			Vector3 launchVectorOverride = Utilities.GetDirectionVector(tech.owner, launchDirection);
 			if( launchDirection == Direction.None ) { launchVectorOverride = Vector3.back; }
-			float launchForce = (float)(charge * forceMult);
+			float launchForce = (float)tech.owner.chargingVF * forceMult;
 
 			hitScript.Init(tech.owner, tech.owner.Team, attackSpeed, launchVectorOverride, launchForce, inertiaCarry);
 		}

@@ -13,8 +13,7 @@ public class AttackExit : ExitTechStrategy
 
 	public override void Exit(Technique tech)
 	{
-        double charge = (tech.GetBlackboardData("charge") as double?) ?? 1.0;
-		double mult = charge * (0.3 / speedMult);
+		double mult = (double)tech.owner.chargingVF * (0.3 / speedMult);
 		double attackSpeed = 1/mult;
 		tech.owner.animator.SetFloat("AttackSpeed", (float)attackSpeed);
 		tech.owner.animator.SetTrigger("Attack");

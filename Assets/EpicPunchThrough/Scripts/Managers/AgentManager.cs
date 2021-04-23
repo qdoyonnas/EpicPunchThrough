@@ -85,8 +85,10 @@ public class AgentManager
         public readonly AgentType type;
         public readonly int team;
         public readonly string skin;
+        public readonly ulong vitalForce;
+        public readonly ulong activeForceFactor;
 
-        public AgentSpawnData( Vector3 position, bool isFacingRight, string name, AgentType type, int team, string skin )
+        public AgentSpawnData( Vector3 position, bool isFacingRight, string name, AgentType type, int team, string skin, ulong vf, ulong avf )
         {
             this.position = position;
             this.isFacingRight = isFacingRight;
@@ -94,6 +96,8 @@ public class AgentManager
             this.type = type;
             this.team = team;
             this.skin = skin;
+            this.vitalForce = vf;
+            this.activeForceFactor = avf;
         }
     }
     public void SpawnAgent(AgentSpawnData data)
@@ -113,13 +117,19 @@ public class AgentManager
                 agent = agentObject.AddComponent<Agent>();
                 break;
         }
+
+        agent.maxVF = data.vitalForce;
+        agent.activeFactor = data.activeForceFactor;
+
         agent.Init(settings.baseCharacterController, settings.baseParticleController, data.team);
         agent.SetName(data.name);
+
         if( !string.IsNullOrEmpty(data.skin) ) {
             if( skins.ContainsKey(data.skin) ) {
                 agent.SetSkin(skins[data.skin]);
             }
         }
+
         foreach( TechniqueSet set in settings.techniqueSettings.defaultSets ) {
             TechniqueGenerator.Instance.AddTechniqueSet(agent, set);
         }
