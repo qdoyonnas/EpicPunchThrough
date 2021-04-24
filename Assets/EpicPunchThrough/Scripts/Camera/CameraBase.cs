@@ -38,6 +38,12 @@ public class CameraBase : MonoBehaviour
 	float shakeRadius = 0;
 	float shakeDuration = 0;
 
+    public float zoom {
+        get {
+            return _camera.orthographicSize * 2;
+        }
+    }
+
 	public delegate void MoveAction(Vector3 translation);
 	public event MoveAction Moved;
 	protected virtual void OnMove(Vector3 translation)

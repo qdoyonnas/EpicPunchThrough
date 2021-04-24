@@ -20,19 +20,19 @@ public class CameraControl : MonoBehaviour
     {
         FindCamera();
 
-        GameManager.Instance.fixedUpdated += DoFixedUpdate;
+        GameManager.Instance.updated += DoFixedUpdate;
     }
     private void OnDisable()
     {
         if( GameManager.Instance != null ) {
-            GameManager.Instance.fixedUpdated -= DoFixedUpdate;
+            GameManager.Instance.updated -= DoFixedUpdate;
         }
     }
     private void OnEnable()
     {
         FindCamera();
 
-        GameManager.Instance.fixedUpdated += DoFixedUpdate;
+        GameManager.Instance.updated += DoFixedUpdate;
     }
 
     void FindCamera()

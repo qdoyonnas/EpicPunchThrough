@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,9 +26,9 @@ public class ChargeUpdate : UpdateTechStrategy
             if( tech.owner.chargingVF < minimumCharge ) {
                 tech.owner.chargingVF = minimumCharge;
             } else if( tech.owner.chargingVF < maximumCharge ) {
-                ulong chargeUp = (ulong)((chargeRate * tech.owner.chargeRate) * (double)data.deltaTime);
-                Debug.Log(chargeUp);
-                tech.owner.chargingVF += chargeUp;
+                double chargeUp = (chargeRate * tech.owner.chargeRate) * (double)data.deltaTime;
+
+                tech.owner.chargingVF += (ulong)Math.Ceiling(chargeUp);
 
                 if( tech.owner.chargingVF > maximumCharge ) {
                     tech.owner.chargingVF = maximumCharge;

@@ -13,21 +13,25 @@ public class FollowCamera : CameraControl
     public float stopSpeed;
     public Vector3 deadZone;
 
-    protected Vector3 velocity = new Vector3();
+    protected Vector2 velocity = new Vector2();
 
     protected override void DoFixedUpdate( GameManager.UpdateData data )
     {
         if( target == null ) { return; }
 
-        Vector3 targetPosition = target.position;
+        Vector2 targetPosition = target.position;
         if( offsetByTargetVelocity ) {
             PhysicsBody targetBody = target.GetComponent<PhysicsBody>();
             if( targetBody != null ) {
-                targetPosition += targetBody.velocity;
+                targetPosition += (Vector2)targetBody.velocity;
+                if( Vector2.Distance(targetPosition, target.position) > (cameraBase.zoom * 0.8f) ) {
+                    Vector2 direction = (targetPosition - (Vector2)target.position).normalized;
+                    targetPosition = (Vector2)target.position + (direction * (cameraBase.zoom * 0.8f));
+                }
             }
         }
 
-        Vector3 offset = targetPosition - cameraBase.transform.position;
+        Vector2 offset = targetPosition - (Vector2)cameraBase.transform.position;
 
         if( Mathf.Sign(velocity.x) != Mathf.Sign(offset.x) ) {
             velocity.x = velocity.x * (1 - dampening);
@@ -42,12 +46,15 @@ public class FollowCamera : CameraControl
         if( velocity.magnitude > 0 ) {
             velocity = velocity * (1 - friction);
             if( velocity.magnitude < stopSpeed ) {
-                velocity = new Vector3();
+                velocity = new Vector2();
             }
         }
 
-        Vector3 oldPosition = cameraBase.transform.position;
         cameraBase.Move(velocity, true);
-        velocity = cameraBase.transform.position - oldPosition;
+    }
+
+    public float DistanceToTarget()
+    {
+        return Vector2.Distance(cameraBase.transform.position, target.position);
     }
 }
