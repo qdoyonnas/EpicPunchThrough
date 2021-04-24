@@ -238,7 +238,8 @@ MonoBehaviour:
   dampening: 0.06
   friction: 0.01
   stopSpeed: 0.001
-  deadZone: {x: 8, y: 8, z: 0}
+  deadZone: {x: 8, y: 8}
+  velocityClamp: {x: 0.85, y: 0.5}
 --- !u!114 &1065286097
 MonoBehaviour:
   m_ObjectHideFlags: 0

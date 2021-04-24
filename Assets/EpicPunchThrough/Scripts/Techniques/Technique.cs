@@ -196,6 +196,7 @@ public class Technique
     {
         _state = State.Inactive;
         ClearBlackboardData();
+        owner.chargingVF = 0;
     }
 
     #endregion
