@@ -7,15 +7,19 @@ public class LaunchExitOptions : ExitTechStrategyOptions
 {
 	public Direction direction;
 	public float mult;
+	public float minForce;
+	public float maxForce;
 
 	public override void InspectorDraw()
 	{
 		direction = (Direction)EditorGUILayout.EnumPopup("Direction", direction);
 		mult = EditorGUILayout.FloatField("Force Multiplier", mult);
+		minForce = EditorGUILayout.FloatField("Minimum Force", minForce);
+		maxForce = EditorGUILayout.FloatField("Maximum Force", maxForce);
 	}
 
 	public override ExitTechStrategy GenerateStrategy()
 	{
-		return new LaunchExit(direction, mult);
+		return new LaunchExit(direction, mult, minForce, maxForce);
 	}
 }

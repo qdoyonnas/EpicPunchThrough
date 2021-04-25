@@ -23,6 +23,45 @@ MonoBehaviour:
     state: 1
   - action: 9
     state: 1
+--- !u!114 &-4120477210710128725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76e054fae4b0bc48ab0972f1b8dd0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.019337256
+      outSlope: 0.019337256
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.109769486
+    - serializedVersion: 3
+      time: 5
+      value: 0.1
+      inSlope: -0.025483262
+      outSlope: -0.025483262
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.016658688
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 1
+  maxVF: -1
+  clampPositive: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,13 +89,27 @@ MonoBehaviour:
   - {fileID: 3748429579251469913}
   - {fileID: -4584209602831138605}
   updateStrategies:
-  - {fileID: 1822489178353300896}
+  - {fileID: -4120477210710128725}
+  - {fileID: 101899093190594614}
   eventStrategies:
   - {fileID: 3049137268711434953}
   - {fileID: 3341942348643529070}
   exitStrategies:
   - {fileID: 3270711986576958698}
-  - {fileID: 1495518348415015833}
+  - {fileID: 7183634560355331695}
+--- !u!114 &101899093190594614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f500e47fce818478d6537aed745d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frictionMultiplier: 1
 --- !u!114 &1317826433645119571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,20 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipExit: 1
---- !u!114 &1495518348415015833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cea365ebb4c55b4a9a86a3f44e07917, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: 1
-  mult: 7
 --- !u!114 &1822489178353300896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventKey: Hit
   launchDirection: 1
+  pushForce: 2
+  breakForce: 1
   launchForce: 10
   inertiaCarry: 1
   hitboxes:
@@ -174,6 +215,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e441d8a1c78b7643a285ef3eb67408e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7183634560355331695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0626e09124ec74bbc17d3f1f348280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 1
+  forceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.2
+      inSlope: 0.8
+      outSlope: 0.8
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.8
+      outSlope: 0.8
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  force: 30
 --- !u!114 &7531304140812511052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +267,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   mult: 6
+  minForce: 0
+  maxForce: 0
 --- !u!114 &7995513973853599134
 MonoBehaviour:
   m_ObjectHideFlags: 0

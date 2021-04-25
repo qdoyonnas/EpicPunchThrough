@@ -43,6 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e441d8a1c78b7643a285ef3eb67408e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6597945797570808462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f500e47fce818478d6537aed745d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frictionMultiplier: 1
 --- !u!114 &-4482360614547506064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,10 +106,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventKey: Hit
   launchDirection: 0
+  pushForce: 1
+  breakForce: 1
   launchForce: 4
   inertiaCarry: 1
   hitboxes:
   - {fileID: 3515832710518442624, guid: 5b38d48889eab1a4f9cace91d0430c6b, type: 3}
+--- !u!114 &-1870246410376622237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76e054fae4b0bc48ab0972f1b8dd0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.019337256
+      outSlope: 0.019337256
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.109769486
+    - serializedVersion: 3
+      time: 5
+      value: 0.1
+      inSlope: -0.025483262
+      outSlope: -0.025483262
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.016658688
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 1
+  maxVF: -1
+  clampPositive: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,12 +178,13 @@ MonoBehaviour:
   - {fileID: 4393023440658131927}
   - {fileID: -4482360614547506064}
   updateStrategies:
-  - {fileID: -8797717915225654177}
+  - {fileID: -1870246410376622237}
+  - {fileID: -6597945797570808462}
   eventStrategies:
   - {fileID: -8880474619991381814}
   - {fileID: -1910291306526117929}
   exitStrategies:
-  - {fileID: 1081661639299747904}
+  - {fileID: 4147180234456981170}
   - {fileID: -2868517740729707461}
 --- !u!114 &795312227070387274
 MonoBehaviour:
@@ -144,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackVariations: 2
---- !u!114 &1081661639299747904
+--- !u!114 &4147180234456981170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,11 +208,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cea365ebb4c55b4a9a86a3f44e07917, type: 3}
+  m_Script: {fileID: 11500000, guid: ab0626e09124ec74bbc17d3f1f348280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  mult: 1.5
+  forceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.2
+      inSlope: 0.8
+      outSlope: 0.8
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.8
+      outSlope: 0.8
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  force: 10
 --- !u!114 &4393023440658131927
 MonoBehaviour:
   m_ObjectHideFlags: 0

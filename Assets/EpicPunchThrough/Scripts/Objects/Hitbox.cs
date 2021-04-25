@@ -9,6 +9,9 @@ public class Hitbox : MonoBehaviour
     public bool hitsSelf = false;
     public bool hitsFriendlies = false;
 
+    public float pushForce;
+    public double breakForce;
+    public float launchForce;
     public Vector3 launchVector = Vector3.left;
 
     float inertiaCarry = 0;
@@ -29,13 +32,15 @@ public class Hitbox : MonoBehaviour
 		GameManager.Instance.fixedUpdated -= OnUpdate;
 	}
 
-	public void Init( Agent self, int team, double attackSpeed, Vector3 launchVector, float launchForce, float inertiaCarry )
+	public void Init( Agent self, int team, double attackSpeed, Vector3 launchVector, float pushForce, double breakForce, float launchForce, float inertiaCarry )
     {
         this.self = self;
         if( !this.hitsFriendlies ) { this.team = team; }
         lifeTimestamp = Time.time + (lifeTime * (float)attackSpeed);
         if( launchVector.z == 0 ) { this.launchVector = launchVector; }
-        this.launchVector *= launchForce;
+        this.pushForce = pushForce;
+        this.breakForce = breakForce;
+        this.launchForce = launchForce;
         this.inertiaCarry = inertiaCarry;
 
         GameManager.Instance.fixedUpdated += OnUpdate;
@@ -49,7 +54,12 @@ public class Hitbox : MonoBehaviour
 
         if( agent.state != Agent.State.Flinched ) {
             hitAgents.Add(agent);
-            agent.ReceiveHit(launchVector + (self.physicsBody.velocity * inertiaCarry));
+
+            Vector3 totalPushVector = launchVector * (self.physicsBody.velocity.magnitude * pushForce);
+            Vector3 totalLaunchVector = (launchVector * launchForce) + (self.physicsBody.velocity * inertiaCarry);
+
+            self.physicsBody.velocity = Vector3.zero;
+            agent.ReceiveHit(totalPushVector, breakForce, totalLaunchVector);
         }
 	}
 }

@@ -104,18 +104,6 @@ public class Technique
 
     #region Behaviour Methods
 
-    public virtual void Activate()
-    {
-        _state = State.Activate;
-
-        if( activateStrategies == null ) { return; }
-
-        foreach( ActivateTechStrategy strategy in activateStrategies ) {
-            strategy.Activate(this);
-        }
-
-        _state = State.Update;
-    }
     public virtual void OnTrigger( Agent.ActionEventArgs e )
     {
         if( Array.IndexOf(techTrigger.states, Agent.State.Any) == -1
@@ -132,7 +120,6 @@ public class Technique
         }
 
         _state = State.Trigger;
-        if( triggerStrategies == null ) { return; }
         foreach( TriggerTechStrategy strategy in triggerStrategies ) {
             if( !strategy.Trigger(this, e.value) ) { return; }
         }
@@ -140,10 +127,21 @@ public class Technique
         e.activated = true;
         owner.AddActivatingTechnique(this);
     }
+    public virtual void Activate()
+    {
+        _state = State.Activate;
+
+        foreach( ActivateTechStrategy strategy in activateStrategies ) {
+            strategy.Activate(this);
+        }
+
+        _state = State.Update;
+        foreach( UpdateTechStrategy strategy in updateStrategies ) {
+            strategy.BeforeUpdate(this);
+        }
+    }
     public virtual void OnStateChange( Agent.State previousState, Agent.State newState )
     {
-        if( stateStrategies == null ) { return; }
-
         foreach( StateChangeStrategy strategy in stateStrategies ) {
             strategy.OnStateChange(this, previousState, newState);
         }
@@ -156,8 +154,6 @@ public class Technique
     /// <returns>Boolean indicating whether the action is allowed during the technique</returns>
     public virtual bool ValidateAction(Agent.Action action, float value)
     {
-        if( validateStrategies == null ) { return true; }
-
         bool valid = true;
         foreach( ActionValidateTechStrategy strategy in validateStrategies ) {
             if( !strategy.Validate(this, action, value) ) {
@@ -169,26 +165,24 @@ public class Technique
     }
     public virtual void Update( GameManager.UpdateData data, float value )
     {
-        if( updateStrategies == null ) { return; }
-
         foreach( UpdateTechStrategy strategy in updateStrategies ) {
             strategy.Update( this, data, value );
         }
     }
     public virtual void OnAnimationEvent( AnimationEvent e )
     {
-        if( eventStrategies == null ) { return; }
-
         foreach( EventTechStrategy strategy in eventStrategies ) {
             strategy.OnEvent(this, e);
         }
     }
     public virtual void Exit()
     {
-        _state = State.Exit;
-        if( exitStrategies == null ) { return; }
+        foreach( UpdateTechStrategy strategy in updateStrategies ) {
+            strategy.AfterUpdate(this);
+        }
 
-        foreach(ExitTechStrategy strategy in exitStrategies ) {
+        _state = State.Exit;
+        foreach( ExitTechStrategy strategy in exitStrategies ) {
             strategy.Exit(this);
         }
     }

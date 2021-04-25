@@ -86,6 +86,7 @@ public class Agent : MonoBehaviour
         }
     }
 
+    protected double breakLimit = 100;
     public enum State {
         Any, // For technique triggers only - Agents should never be in this state
         Grounded,
@@ -271,7 +272,7 @@ public class Agent : MonoBehaviour
     ulong _maxVF = 1000000;
     ulong _currentVF = 1000000;
     ulong _activeFactor = 4;
-    ulong _chargingVF = 0;
+    double _chargingVF = 0;
     ulong _criticalSoul = 20;
 
     public ulong maxVF {
@@ -304,7 +305,7 @@ public class Agent : MonoBehaviour
         }
     }
 
-    public ulong activeVF {
+    public double activeVF {
         get {
             return _maxVF / _activeFactor;
         }
@@ -322,7 +323,7 @@ public class Agent : MonoBehaviour
         }
     }
 
-    public ulong chargingVF {
+    public double chargingVF {
         get {
             return _chargingVF;
         }
@@ -1052,12 +1053,12 @@ public class Agent : MonoBehaviour
         return;
     }
 
-    public void ReceiveHit(Vector3 launchVector)
+    public void ReceiveHit(Vector3 pushVector, double breakForce, Vector3 launchVector)
     {
         state = State.Flinched;
         stateTimestamp = Time.time + 0.2f;
 
-        physicsBody.AddVelocity(launchVector);
+        physicsBody.AddVelocity(pushVector);
     }
 
     #endregion

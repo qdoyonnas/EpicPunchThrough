@@ -7,6 +7,8 @@ public class HitboxEventOptions : EventTechStrategyOptions
 {
 	public string eventKey;
     public Direction launchDirection = Direction.Forward;
+    public float pushForce = 1;
+    public float breakForce = 1;
     public float launchForce = 1;
     public float inertiaCarry = 1;
 	public GameObject[] hitboxes = new GameObject[0];
@@ -18,6 +20,8 @@ public class HitboxEventOptions : EventTechStrategyOptions
 		eventKey = EditorGUILayout.TextField("Event Key", eventKey);
 
         launchDirection = (Direction)EditorGUILayout.EnumPopup("Direction", launchDirection);
+        pushForce = EditorGUILayout.FloatField("Push Force", pushForce);
+        breakForce = EditorGUILayout.FloatField("Break Force", breakForce);
         launchForce = EditorGUILayout.FloatField("Launch Force", launchForce);
         inertiaCarry = EditorGUILayout.FloatField("Inertia Carry", inertiaCarry);
 		
@@ -50,6 +54,6 @@ public class HitboxEventOptions : EventTechStrategyOptions
 
 	public override EventTechStrategy GenerateStrategy()
 	{
-		return new HitboxEvent(eventKey, launchDirection, launchForce, inertiaCarry, hitboxes);
+		return new HitboxEvent(eventKey, launchDirection, pushForce, breakForce, launchForce, inertiaCarry, hitboxes);
 	}
 }

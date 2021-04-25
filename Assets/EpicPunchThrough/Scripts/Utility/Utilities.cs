@@ -41,4 +41,18 @@ public static class Utilities
 
         return vector;
     }
+
+    public static float VFToForce(double vf, float minForce = -1, float maxForce = -1)
+    {
+        float force = (float)(vf * 0.05);
+
+        if( minForce != -1 && force < minForce ) {
+			force = minForce;
+		}
+		if( maxForce != -1 && force > maxForce ) {
+			force = maxForce;
+		}
+
+        return force;
+    }
 }

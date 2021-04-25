@@ -5,16 +5,12 @@ using UnityEngine;
 
 public class ChargeUpdate : UpdateTechStrategy
 {
-    float frictionMultiplier;
-    
     double chargeRate;
     ulong minimumCharge;
     ulong maximumCharge;
 
-    public ChargeUpdate( float frictionMultiplier, double chargeRate, ulong minimumCharge, ulong maximumCharge )
+    public ChargeUpdate( double chargeRate, ulong minimumCharge, ulong maximumCharge )
     {
-        this.frictionMultiplier = frictionMultiplier;
-
         this.chargeRate = chargeRate;
         this.minimumCharge = minimumCharge;
         this.maximumCharge = maximumCharge;
@@ -28,7 +24,7 @@ public class ChargeUpdate : UpdateTechStrategy
             } else if( tech.owner.chargingVF < maximumCharge ) {
                 double chargeUp = (chargeRate * tech.owner.chargeRate) * (double)data.deltaTime;
 
-                tech.owner.chargingVF += (ulong)Math.Ceiling(chargeUp);
+                tech.owner.chargingVF += chargeUp;
 
                 if( tech.owner.chargingVF > maximumCharge ) {
                     tech.owner.chargingVF = maximumCharge;
@@ -36,7 +32,6 @@ public class ChargeUpdate : UpdateTechStrategy
             }
         }
 
-        if( tech.owner.slideParticle != null ) { tech.owner.slideParticle.enabled = true; }
-        tech.owner.HandlePhysics( data, tech.owner.physicsBody.frictionCoefficients * frictionMultiplier );
+        tech.SetBlackboardData("charge", (double)tech.owner.chargingVF / (double)maximumCharge);
     }
 }

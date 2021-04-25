@@ -6,14 +6,18 @@ public class HitboxEvent : EventTechStrategy
 {
 	string eventKey;
 	Direction launchDirection;
-	float forceMult;
+	float pushMult;
+	float breakMult;
+	float launchMult;
 	float inertiaCarry;
 	GameObject[] hitboxes;
 
-	public HitboxEvent(string key, Direction launchDirection, float forceMult, float inertia, GameObject[] hitboxes)
+	public HitboxEvent(string key, Direction launchDirection, float pushForce, float breakForce, float launchForce, float inertia, GameObject[] hitboxes)
 	{
 		this.launchDirection = launchDirection;
-		this.forceMult = forceMult;
+		this.pushMult = pushForce;
+		this.breakMult = breakForce;
+		this.launchMult = launchForce;
 		this.eventKey = key;
 		this.hitboxes = hitboxes;
 		this.inertiaCarry = inertia;
@@ -45,9 +49,11 @@ public class HitboxEvent : EventTechStrategy
 
 			Vector3 launchVectorOverride = Utilities.GetDirectionVector(tech.owner, launchDirection);
 			if( launchDirection == Direction.None ) { launchVectorOverride = Vector3.back; }
-			float launchForce = (float)tech.owner.chargingVF * forceMult;
 
-			hitScript.Init(tech.owner, tech.owner.Team, attackSpeed, launchVectorOverride, launchForce, inertiaCarry);
+			double breakForce = Utilities.VFToForce(tech.owner.chargingVF * breakMult);
+			float launchForce = Utilities.VFToForce(tech.owner.chargingVF * launchMult);
+
+			hitScript.Init(tech.owner, tech.owner.Team, attackSpeed, launchVectorOverride, pushMult, breakForce, launchForce, inertiaCarry);
 		}
 	}
 }

@@ -58,6 +58,8 @@ public class NoStateChange: StateChangeStrategy {
 
 public abstract class UpdateTechStrategy: TechStrategy {
     public abstract void Update(Technique tech, GameManager.UpdateData data, float value );
+    public virtual void BeforeUpdate(Technique tech) { }
+    public virtual void AfterUpdate(Technique tech) { }
 }
 public class NoUpdate: UpdateTechStrategy {
     public override void Update(Technique tech, GameManager.UpdateData data, float value )
