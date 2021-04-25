@@ -23,18 +23,18 @@ public class PlayerAgent : Agent
         }
         set {
             base.state = value;
-
-            if( activeActionValue != 0 ) {
-                ActionEvent handler = ActionToActionEvent(lastAction);
-                if( handler != null ) {
-                    handler(new ActionEventArgs(activeActionValue));
-                }
-            } else {
-                foreach( KeyValuePair<Control, float> control in controlState ) {
-                    if( control.Value != 0 ) {
-                        controlQueue.Add(control.Key);
-                    }
-                }
+            RepeatControls();
+        }
+    }
+    
+    public override Technique activeTechnique {
+        get {
+            return base.activeTechnique;
+        }
+        set {
+            base.activeTechnique = value;
+            if( value == null ) {
+                //RepeatControls();
             }
         }
     }
@@ -298,5 +298,21 @@ public class PlayerAgent : Agent
                 break;
         }
         return control;
+    }
+
+    protected void RepeatControls()
+    {
+        if( activeActionValue != 0 ) {
+            ActionEvent handler = ActionToActionEvent(lastAction);
+            if( handler != null ) {
+                handler(new ActionEventArgs(activeActionValue));
+            }
+        } else {
+            foreach( KeyValuePair<Control, float> control in controlState ) {
+                if( control.Value != 0 ) {
+                    controlQueue.Add(control.Key);
+                }
+            }
+        }
     }
 }

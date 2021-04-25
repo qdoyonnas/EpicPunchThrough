@@ -49,7 +49,7 @@ public class Agent : MonoBehaviour
     protected List<Technique> activatingTechniques = new List<Technique>();
 
     protected Technique _activeTechnique;
-    public Technique activeTechnique {
+    public virtual Technique activeTechnique {
         get {
             return _activeTechnique;
         }

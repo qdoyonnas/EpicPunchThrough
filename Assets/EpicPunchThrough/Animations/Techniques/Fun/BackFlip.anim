@@ -3763,7 +3763,7 @@ AnimationClip:
   m_Events:
   - time: 1.6666666
     functionName: AnimationEvent
-    data: 
+    data: Exit
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

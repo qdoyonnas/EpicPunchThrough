@@ -109,11 +109,12 @@ public class Technique
         if( Array.IndexOf(techTrigger.states, Agent.State.Any) == -1
                 && Array.IndexOf(techTrigger.states, owner.state) == -1 ) 
         { return; }
+        
 
         if( techTrigger.sequence.Length > 1 ) {
-            if( owner.ActionSequence.Length < techTrigger.sequence.Length ) { return; }
-            for( int i = 1; i <= techTrigger.sequence.Length; i++ ) {
-                if( techTrigger.sequence[techTrigger.sequence.Length - i] != owner.ActionSequence[owner.ActionSequence.Length - i] ) {
+            if( owner.ActionSequence.Length < techTrigger.sequence.Length - 1 ) { return; }
+            for( int i = 1; i <= techTrigger.sequence.Length - 1; i++ ) {
+                if( techTrigger.sequence[(techTrigger.sequence.Length - 1) - i] != owner.ActionSequence[owner.ActionSequence.Length - i] ) {
                     return;
                 }
             }
