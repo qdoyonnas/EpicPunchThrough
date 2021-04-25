@@ -34,7 +34,11 @@ public class PlayerAgent : Agent
         set {
             base.activeTechnique = value;
             if( value == null ) {
-                //RepeatControls();
+                foreach( KeyValuePair<Control, float> control in controlState ) {
+                    if( control.Value != 0 ) {
+                        controlQueue.Add(control.Key);
+                    }
+                }
             }
         }
     }
