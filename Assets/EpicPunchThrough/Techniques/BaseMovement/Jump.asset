@@ -69,19 +69,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipExit: 1
---- !u!114 &-2631274108255774169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168c52ab055441145968250a6287cd96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeRate: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

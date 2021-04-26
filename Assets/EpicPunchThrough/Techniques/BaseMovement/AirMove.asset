@@ -25,6 +25,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipExit: 0
+  onlyBeforeExit: 0
   actionStates:
   - action: 1
     state: 0
@@ -107,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857a2b56e5b14d648b7f1dde11deffd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skipExit: 1
 --- !u!114 &8250733591851392878
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,22 +39,6 @@ MonoBehaviour:
   duration: 1
   maxVF: -1
   clampPositive: 1
---- !u!114 &-5050734107212379975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cea365ebb4c55b4a9a86a3f44e07917, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: 0
-  mult: 1
-  minForce: 0
-  maxForce: 100
 --- !u!114 &-4569363301131765167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,19 +128,6 @@ MonoBehaviour:
   actionStates:
   - action: 5
     state: 0
---- !u!114 &-476033356018673772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168c52ab055441145968250a6287cd96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeRate: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +205,7 @@ MonoBehaviour:
   launchDirection: 0
   pushForce: 1
   breakForce: 1
-  launchForce: 4
+  launchForce: 1
   inertiaCarry: 1
   hitboxes:
   - {fileID: 3515832710518442624, guid: 5b38d48889eab1a4f9cace91d0430c6b, type: 3}

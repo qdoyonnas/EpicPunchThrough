@@ -50,7 +50,7 @@ public class HitboxEvent : EventTechStrategy
 			Vector3 launchVectorOverride = Utilities.GetDirectionVector(tech.owner, launchDirection);
 			if( launchDirection == Direction.None ) { launchVectorOverride = Vector3.back; }
 
-			double breakForce = Utilities.VFToForce(tech.owner.chargingVF * breakMult);
+			double breakForce = tech.owner.chargingVF * breakMult;
 			float launchForce = Utilities.VFToForce(tech.owner.chargingVF * launchMult);
 
 			hitScript.Init(tech.owner, tech.owner.Team, attackSpeed, launchVectorOverride, pushMult, breakForce, launchForce, inertiaCarry);

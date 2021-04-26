@@ -16,18 +16,6 @@ MonoBehaviour:
   actionStates:
   - action: 7
     state: 0
---- !u!114 &-8716781291738751962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98490a9d8be7bd40a495d55b1bb511c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-7496528495403962800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,19 +191,6 @@ MonoBehaviour:
   - {fileID: 2658718870049735652}
   - {fileID: -6945363539177442748}
   - {fileID: -2088597192837853916}
---- !u!114 &859373235971531228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168c52ab055441145968250a6287cd96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeRate: 1
 --- !u!114 &2626342125725709874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +258,7 @@ MonoBehaviour:
   launchDirection: 0
   pushForce: 1
   breakForce: 1
-  launchForce: 2
+  launchForce: 1
   inertiaCarry: 1
   hitboxes:
   - {fileID: 3515832710518442624, guid: 5b38d48889eab1a4f9cace91d0430c6b, type: 3}

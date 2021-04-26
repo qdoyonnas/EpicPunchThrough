@@ -15,22 +15,6 @@ MonoBehaviour:
   eventKey: Exit
   blend: 0
   skipExit: 1
---- !u!114 &-8797717915225654177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168c52ab055441145968250a6287cd96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frictionMultiplier: 0
-  chargeRate: 1
-  minimumCharge: 1
-  maximumCharge: 100
 --- !u!114 &-8216609239928891739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +156,7 @@ MonoBehaviour:
   launchDirection: 2
   pushForce: 1.5
   breakForce: 1
-  launchForce: 7
+  launchForce: 1
   inertiaCarry: 1
   hitboxes:
   - {fileID: 7548750905403194054, guid: ac0a08285f9bf3d4594b6dc3e6fd9b4f, type: 3}
@@ -204,7 +188,7 @@ MonoBehaviour:
   - {fileID: -4482360614547506064}
   updateStrategies:
   - {fileID: -6156126673291564790}
-  - {fileID: 6662008573979157715}
+  - {fileID: 4451018161911808296}
   eventStrategies:
   - {fileID: -8880474619991381814}
   - {fileID: -1094988333261363710}
@@ -236,10 +220,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab601cacc3a3f6346a439e15d45e2088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onlyBeforeExit: 0
+  onlyBeforeExit: 1
   actionStates:
   - action: 8
     state: 0
+--- !u!114 &4451018161911808296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f500e47fce818478d6537aed745d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frictionMultiplier: 1
 --- !u!114 &6660884961117392678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,16 +250,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipExit: 1
---- !u!114 &6662008573979157715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82f500e47fce818478d6537aed745d96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frictionMultiplier: 1

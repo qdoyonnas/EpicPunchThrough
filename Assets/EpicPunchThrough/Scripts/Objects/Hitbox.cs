@@ -52,14 +52,19 @@ public class Hitbox : MonoBehaviour
         if( agent == null || (!hitsSelf && agent == self) || agent.Team == team ) { return; }
         if( hitAgents.Contains(agent) ) { return; }
 
-        if( agent.state != Agent.State.Flinched ) {
-            hitAgents.Add(agent);
+        switch( agent.state ) {
+            case Agent.State.Flinched:
+            case Agent.State.Launched:
+                break;
+            default:
+                hitAgents.Add(agent);
 
-            Vector3 totalPushVector = launchVector * (self.physicsBody.velocity.magnitude * pushForce);
-            Vector3 totalLaunchVector = (launchVector * launchForce) + (self.physicsBody.velocity * inertiaCarry);
+                Vector3 totalPushVector = launchVector * (self.physicsBody.velocity.magnitude * pushForce);
+                Vector3 totalLaunchVector = (launchVector * launchForce) + (self.physicsBody.velocity * inertiaCarry);
 
-            self.physicsBody.velocity = Vector3.zero;
-            agent.ReceiveHit(totalPushVector, breakForce, totalLaunchVector);
+                self.physicsBody.velocity = Vector3.zero;
+                agent.ReceiveHit(totalPushVector, breakForce, totalLaunchVector);
+                break;
         }
 	}
 }

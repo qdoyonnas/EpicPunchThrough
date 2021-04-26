@@ -16,19 +16,6 @@ MonoBehaviour:
   actionStates:
   - action: 8
     state: 0
---- !u!114 &-6826139201940784107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168c52ab055441145968250a6287cd96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeRate: 1
 --- !u!114 &-6770921340849343272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +144,7 @@ MonoBehaviour:
   launchDirection: 2
   pushForce: 1.5
   breakForce: 1
-  launchForce: 7
+  launchForce: 1
   inertiaCarry: 1
   hitboxes:
   - {fileID: 7548750905403194054, guid: ac0a08285f9bf3d4594b6dc3e6fd9b4f, type: 3}

@@ -14,6 +14,7 @@ public class AgentSettings : ScriptableObject
     [Min(1)] public long defaultActiveVFFactor;
     [Min(1)] public long criticalSoulFactor;
     public double chargeRate;
+    public double breakFactor;
 
     [Header("Animator Controllers")]
     public GameObject baseCharacterPrefab;

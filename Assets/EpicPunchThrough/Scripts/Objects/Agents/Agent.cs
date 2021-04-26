@@ -86,7 +86,6 @@ public class Agent : MonoBehaviour
         }
     }
 
-    protected double breakLimit = 100;
     public enum State {
         Any, // For technique triggers only - Agents should never be in this state
         Grounded,
@@ -142,11 +141,18 @@ public class Agent : MonoBehaviour
 
                     animationVariation = UnityEngine.Random.Range(0, 3);
                     break;
-                case State.Stunned:
-                    break;
                 case State.Launched:
                     physicsBody.useGravity = true;
+                    physicsBody.velocity = new Vector3(0, 0, 0);
                     physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().airFriction;
+                    if( slideParticle != null ) {
+                        slideParticle.End();
+                        slideParticle.transform.parent = null;
+                    }
+
+                    animationVariation = UnityEngine.Random.Range(0, 3);
+                    break;
+                case State.Stunned:
                     break;
             }
 
@@ -351,6 +357,13 @@ public class Agent : MonoBehaviour
             return _criticalSoul;
         }
     }
+
+    public double breakLimit {
+        get {
+            return (double)activeVF * AgentManager.Instance.settings.breakFactor;
+        }
+    }
+
 
     #endregion
 
@@ -567,6 +580,12 @@ public class Agent : MonoBehaviour
                     state = State.InAir;
                 }
                 break;
+            case State.Launched:
+                if( Time.time >= stateTimestamp ) {
+                    animator.SetBool("Flinched", false);
+                    state = State.InAir;
+                }
+                break;
             case State.WallSliding:
                 if( groundFound ) {
                     state = State.Grounded;
@@ -621,18 +640,23 @@ public class Agent : MonoBehaviour
 
     public virtual void HandleAnimation()
     {
-        if( state == State.Grounded ) {
-            animator.SetBool( "Grounded", true );
-            float xVelocity = Mathf.Abs(physicsBody.velocity.x / 7f);
-            animator.SetFloat( "speed", xVelocity );
-        } else if( state == State.Flinched ) {
-            animator.SetBool( "Flinched", true );
-            animator.SetFloat( "Variation", animationVariation );
-        } else {
-            animator.SetBool("Grounded", false );
-            float yVelocity = (physicsBody.velocity.y / 10f);
-            yVelocity = yVelocity > 0 ? Mathf.Clamp(yVelocity, 0.5f, 1f): Mathf.Clamp(yVelocity + 1, 0, 0.5f);
-            animator.SetFloat("YDirection", yVelocity);
+        switch( state ) {
+            case State.Grounded:
+                animator.SetBool( "Grounded", true );
+                float xVelocity = Mathf.Abs(physicsBody.velocity.x / 7f);
+                animator.SetFloat( "speed", xVelocity );
+                break;
+            case State.Flinched:
+            case State.Launched:
+                animator.SetBool( "Flinched", true );
+                animator.SetFloat( "Variation", animationVariation );
+                break;
+            default:
+                animator.SetBool("Grounded", false );
+                float yVelocity = (physicsBody.velocity.y / 10f);
+                yVelocity = yVelocity > 0 ? Mathf.Clamp(yVelocity, 0.5f, 1f): Mathf.Clamp(yVelocity + 1, 0, 0.5f);
+                animator.SetFloat("YDirection", yVelocity);
+                break;
         }
     }
 
@@ -1055,10 +1079,19 @@ public class Agent : MonoBehaviour
 
     public void ReceiveHit(Vector3 pushVector, double breakForce, Vector3 launchVector)
     {
-        state = State.Flinched;
-        stateTimestamp = Time.time + 0.2f;
+        if( breakLimit > breakForce ) {
+            Debug.Log("Flinched");
+            state = State.Flinched;
+            stateTimestamp = Time.time + 0.2f;
 
-        physicsBody.AddVelocity(pushVector);
+            physicsBody.AddVelocity(pushVector);
+        } else {
+            Debug.Log("Launched");
+            state = State.Launched;
+            stateTimestamp = Time.time + 1f;
+
+            physicsBody.AddVelocity(launchVector);
+        }
     }
 
     #endregion
