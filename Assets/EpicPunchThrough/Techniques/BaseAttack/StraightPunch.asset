@@ -160,6 +160,8 @@ MonoBehaviour:
   eventStrategies:
   - {fileID: 5871351135201234971}
   - {fileID: 1305904222750049267}
+  hitStrategies:
+  - {fileID: 3435070421302834241}
   exitStrategies:
   - {fileID: -3253495698673801066}
   - {fileID: 8490985870940349}
@@ -232,6 +234,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e441d8a1c78b7643a285ef3eb67408e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3435070421302834241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd038c8fcbe0e264b84679a3810d99c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5871351135201234971

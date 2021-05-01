@@ -41,6 +41,18 @@ MonoBehaviour:
   actionStates:
   - action: 9
     state: 1
+--- !u!114 &-935967745976918717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd038c8fcbe0e264b84679a3810d99c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-934954609909067354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +99,8 @@ MonoBehaviour:
   - {fileID: 1894277367148541790}
   eventStrategies:
   - {fileID: -2407098581076414154}
+  hitStrategies:
+  - {fileID: -935967745976918717}
   exitStrategies:
   - {fileID: -934954609909067354}
   - {fileID: 6039820182534091510}

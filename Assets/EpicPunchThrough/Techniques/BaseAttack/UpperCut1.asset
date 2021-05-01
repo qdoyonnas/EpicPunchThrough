@@ -125,6 +125,8 @@ MonoBehaviour:
   eventStrategies:
   - {fileID: 5116080383207204877}
   - {fileID: 861219653687394836}
+  hitStrategies:
+  - {fileID: 3857037819796747194}
   exitStrategies:
   - {fileID: 9101040190337343268}
   - {fileID: -6770921340849343272}
@@ -142,12 +144,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventKey: Hit
   launchDirection: 2
-  pushForce: 1.5
+  pushForce: 1
   breakForce: 1
   launchForce: 1
   inertiaCarry: 1
   hitboxes:
   - {fileID: 7548750905403194054, guid: ac0a08285f9bf3d4594b6dc3e6fd9b4f, type: 3}
+--- !u!114 &3857037819796747194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd038c8fcbe0e264b84679a3810d99c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4314883666570057861
 MonoBehaviour:
   m_ObjectHideFlags: 0

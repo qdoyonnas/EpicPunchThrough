@@ -71,13 +71,15 @@ public class Technique
     protected ActionValidateTechStrategy[] validateStrategies;
     protected UpdateTechStrategy[] updateStrategies;
     protected EventTechStrategy[] eventStrategies;
+    protected HitTechStrategy[] hitStrategies;
     protected ExitTechStrategy[] exitStrategies;
 
     #endregion
     
     public Technique( Agent owner, string name, RuntimeAnimatorController animCtrl, ParticleController particleController, TechTrigger techTrgr, 
         TriggerTechStrategy[] triggerStrategy, ActivateTechStrategy[] activateStrategy, StateChangeStrategy[] stateStrategy,
-        ActionValidateTechStrategy[] validateStrategy, UpdateTechStrategy[] updateStrategy, EventTechStrategy[] eventStrategy, ExitTechStrategy[] exitStrategy )
+        ActionValidateTechStrategy[] validateStrategy, UpdateTechStrategy[] updateStrategy, EventTechStrategy[] eventStrategy, 
+        HitTechStrategy[] hitStrategy, ExitTechStrategy[] exitStrategy )
     {
         if( owner == null || animCtrl == null ) { 
             Debug.LogError("Technique generated with empty arguments");
@@ -97,6 +99,7 @@ public class Technique
         this.validateStrategies = validateStrategy;
         this.updateStrategies = updateStrategy;
         this.eventStrategies = eventStrategy;
+        this.hitStrategies = hitStrategy;
         this.exitStrategies = exitStrategy;
 
         owner.SubscribeToActionEvent(techTrigger.sequence[techTrigger.sequence.Length-1], OnTrigger);
@@ -174,6 +177,12 @@ public class Technique
     {
         foreach( EventTechStrategy strategy in eventStrategies ) {
             strategy.OnEvent(this, e);
+        }
+    }
+    public virtual void OnHit(Vector3 pushVector, double breakForce, Vector3 launchVector)
+    {
+        foreach( HitTechStrategy strategy in hitStrategies ) {
+            strategy.OnHit(this, pushVector, breakForce, launchVector);
         }
     }
     public virtual void Exit()

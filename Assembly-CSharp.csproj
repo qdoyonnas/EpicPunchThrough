@@ -60,6 +60,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\PropsManager.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\UpdateStrategies\TimedChargeUpdate.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Utility\TriggerCheck.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Camera\ExactCamera.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\JumpExitOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\Hitbox.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\MenuSettings.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\ParticleSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Scriptables\TechniqueSet.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\HitOptions\DefaultHitOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

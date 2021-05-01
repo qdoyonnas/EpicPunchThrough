@@ -158,14 +158,13 @@ public class TechniqueOptionsEditor : Editor
             GenerateStrategyData<ActionValidateTechStrategyOptions>( "Action Strategies", ref options.actionValidateStrategies, typeof(NoValidateOptions) ),
             GenerateStrategyData<UpdateTechStrategyOptions>( "Update Strategies", ref options.updateStrategies, typeof(NoUpdateOptions) ),
             GenerateStrategyData<EventTechStrategyOptions>( "Event Strategies", ref options.eventStrategies, typeof(NoEventOptions) ),
+            GenerateStrategyData<HitTechStrategyOptions>( "Hit Strategies", ref options.hitStrategies, typeof(DefaultHitOptions) ),
             GenerateStrategyData<ExitTechStrategyOptions>( "Exit Strategies", ref options.exitStrategies, typeof(NoExitOptions) )
         };
     }
     private StrategyData GenerateStrategyData<T>( string label, ref T[] strategyOptions, Type defaultStrat )
         where T : TechStrategyOptions
     {
-        
-
         if( strategyOptions == null ) {
             strategyOptions = new T[1];
         }
@@ -243,6 +242,12 @@ public class TechniqueOptionsEditor : Editor
                         options.eventStrategies = new EventTechStrategyOptions[data.strategies.Length];
                         for( int i = 0; i < data.strategies.Length; i++ ) {
                             options.eventStrategies[i] = (EventTechStrategyOptions)data.strategies[i].strategy;
+                        }
+                        break;
+                    case "HitTechStrategyOptions":
+                        options.hitStrategies = new HitTechStrategyOptions[data.strategies.Length];
+                        for( int i = 0; i < data.strategies.Length; i++ ) {
+                            options.hitStrategies[i] = (HitTechStrategyOptions)data.strategies[i].strategy;
                         }
                         break;
                     case "ExitTechStrategyOptions":

@@ -106,6 +106,10 @@ public class Agent : MonoBehaviour
                 _activeTechnique.OnStateChange( _state, value );
             }
 
+            // Default state behaviour
+            physicsBody.useGravity = true;
+            transform.eulerAngles = Vector3.zero;
+
             switch( value ) {
                 case State.Grounded:
                     physicsBody.useGravity = false;
@@ -114,7 +118,6 @@ public class Agent : MonoBehaviour
                     slideParticle = ParticleManager.Instance.CreateEmitter(GetAnchor("FloorAnchor").position, 0f, transform, particleController.GetParticles("slide"));
                     break;
                 case State.InAir:
-                    physicsBody.useGravity = true;
                     physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().airFriction;
                     if( slideParticle != null ) {
                         slideParticle.End();
@@ -122,16 +125,13 @@ public class Agent : MonoBehaviour
                     }
                     break;
                 case State.WallSliding:
-                    physicsBody.useGravity = true;
                     physicsBody.velocity = new Vector3(0, physicsBody.velocity.y, 0);
                     physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().wallFriction;
                     break;
                 case State.OnCeiling:
-                    physicsBody.useGravity = true;
                     physicsBody.velocity = new Vector3(physicsBody.velocity.x, 0, 0);
                     break;
                 case State.Flinched:
-                    physicsBody.useGravity = true;
                     physicsBody.velocity = new Vector3(0, 0, 0);
                     physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().airFriction;
                     if( slideParticle != null ) {
@@ -142,7 +142,6 @@ public class Agent : MonoBehaviour
                     animationVariation = UnityEngine.Random.Range(0, 3);
                     break;
                 case State.Launched:
-                    physicsBody.useGravity = true;
                     physicsBody.velocity = new Vector3(0, 0, 0);
                     physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().airFriction;
                     if( slideParticle != null ) {
@@ -150,7 +149,7 @@ public class Agent : MonoBehaviour
                         slideParticle.transform.parent = null;
                     }
 
-                    animationVariation = UnityEngine.Random.Range(0, 3);
+                    animationVariation = UnityEngine.Random.Range(0, 1);
                     break;
                 case State.Stunned:
                     break;
@@ -581,10 +580,19 @@ public class Agent : MonoBehaviour
                 }
                 break;
             case State.Launched:
-                if( Time.time >= stateTimestamp ) {
-                    animator.SetBool("Flinched", false);
+                if( Time.time >= stateTimestamp
+                    || (groundFound 
+                    && physicsBody.velocity.magnitude < AgentManager.Instance.settings.autoStopSpeed) ) {
+                    animator.SetBool("Launched", false);
+                    animator.SetBool("Fallen", false);
                     state = State.InAir;
                 }
+                //} else {
+                //    if( groundFound && physicsBody.velocity.magnitude < AgentManager.Instance.settings.autoStopSpeed ) {
+                //        transform.rotation = Quaternion.identity;
+                //        animator.SetBool("Fallen", true);
+                //    }
+                //}
                 break;
             case State.WallSliding:
                 if( groundFound ) {
@@ -647,8 +655,11 @@ public class Agent : MonoBehaviour
                 animator.SetFloat( "speed", xVelocity );
                 break;
             case State.Flinched:
-            case State.Launched:
                 animator.SetBool( "Flinched", true );
+                animator.SetFloat( "Variation", animationVariation );
+                break;
+            case State.Launched:
+                animator.SetBool( "Launched", true );
                 animator.SetFloat( "Variation", animationVariation );
                 break;
             default:
@@ -1079,18 +1090,37 @@ public class Agent : MonoBehaviour
 
     public void ReceiveHit(Vector3 pushVector, double breakForce, Vector3 launchVector)
     {
+        if( ValidActiveTechnique() ) {
+            activeTechnique.OnHit(pushVector, breakForce, launchVector);
+        } else {
+            ProcessHit(pushVector, breakForce, launchVector);
+        }
+    }
+    public void ProcessHit(Vector3 pushVector, double breakForce, Vector3 launchVector)
+    {
         if( breakLimit > breakForce ) {
-            Debug.Log("Flinched");
             state = State.Flinched;
             stateTimestamp = Time.time + 0.2f;
 
             physicsBody.AddVelocity(pushVector);
         } else {
-            Debug.Log("Launched");
             state = State.Launched;
             stateTimestamp = Time.time + 1f;
 
             physicsBody.AddVelocity(launchVector);
+
+            float rotation = Vector3.SignedAngle(Vector3.right, launchVector, Vector3.forward);
+            if( launchVector.x < 0 ) {
+                isFacingRight = true;
+            } else if( launchVector.x > 0 ) {
+                isFacingRight = false;
+            }
+
+            if( isFacingRight ) {
+                rotation += 180;
+            }
+
+            transform.eulerAngles = new Vector3(0, 0, rotation);
         }
     }
 

@@ -10,10 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 373d260b42f65fc4d9132c780b967cc6, type: 3}
-  m_Name: BaseAirAttack
+  m_Name: BasicDefence
   m_EditorClassIdentifier: 
   techniques:
-  - {fileID: 11400000, guid: a16efa23ead63ae4287951342cd3b885, type: 2}
-  - {fileID: 11400000, guid: 58678c9d5d0769745b38bfd4321c0366, type: 2}
-  - {fileID: 11400000, guid: ae970ca5a3f49bb4f93587f186f47b4f, type: 2}
-  - {fileID: 11400000, guid: 7de14fb05059de942a24bf758fa37d87, type: 2}
+  - {fileID: 11400000, guid: c527fc1cffe2d99409427e3a7b2a1d15, type: 2}

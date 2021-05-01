@@ -18,9 +18,9 @@ MonoBehaviour:
   defaultActiveVFFactor: 4
   criticalSoulFactor: 20
   chargeRate: 0.001
-  breakFactor: 0.015
+  breakFactor: 0.1
   baseCharacterPrefab: {fileID: 1900686433913378215, guid: f45a6399d77610a408db92ccc4274982, type: 3}
-  baseCharacterController: {fileID: 9100000, guid: 2228a36b707dfa742b07385092387f2b, type: 2}
+  baseCharacterController: {fileID: 9100000, guid: 1433135bc191f594cb9a0da8137204ad, type: 2}
   baseParticleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
   actionSequenceLength: 10
   autoStopSpeed: 0.01

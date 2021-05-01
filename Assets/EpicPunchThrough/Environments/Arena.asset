@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Arena
   m_EditorClassIdentifier: 
   sceneName: ArenaEnvironment
-  gravity: {x: 0, y: -9.8, z: 0}
+  gravity: {x: 0, y: -16, z: 0}
   agentBounds:
     leftBound: 0
     rightBound: 0
@@ -24,5 +24,5 @@ MonoBehaviour:
     minY: 3
     maxY: 0
   groundFriction: {x: 0.08, y: 0, z: 0}
-  airFriction: {x: 0, y: 0, z: 0}
+  airFriction: {x: 0.002, y: 0.002, z: 0}
   wallFriction: {x: 0, y: 0.01, z: 0}

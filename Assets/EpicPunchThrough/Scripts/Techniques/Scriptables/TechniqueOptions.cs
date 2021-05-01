@@ -20,6 +20,7 @@ public class TechniqueOptions : ScriptableObject
     [SerializeField] public ActionValidateTechStrategyOptions[] actionValidateStrategies;
     [SerializeField] public UpdateTechStrategyOptions[] updateStrategies;
     [SerializeField] public EventTechStrategyOptions[] eventStrategies;
+    [SerializeField] public HitTechStrategyOptions[] hitStrategies;
     [SerializeField] public ExitTechStrategyOptions[] exitStrategies;
 
 	public void SetDirtyRecursive()
@@ -41,6 +42,9 @@ public class TechniqueOptions : ScriptableObject
             EditorUtility.SetDirty(stratOptions);
         }
         foreach( EventTechStrategyOptions stratOptions in eventStrategies ) {
+            EditorUtility.SetDirty(stratOptions);
+        }
+        foreach( HitTechStrategyOptions stratOptions in hitStrategies ) {
             EditorUtility.SetDirty(stratOptions);
         }
         foreach( ExitTechStrategyOptions stratOptions in exitStrategies ) {

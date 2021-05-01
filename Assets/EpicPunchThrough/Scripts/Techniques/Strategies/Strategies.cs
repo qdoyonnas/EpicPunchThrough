@@ -79,6 +79,16 @@ public class NoEvent: EventTechStrategy {
 	}
 }
 
+public abstract class HitTechStrategy: TechStrategy {
+    public abstract void OnHit( Technique tech, Vector3 pushVector, double breakForce, Vector3 launchVector );
+}
+public class DefaultHit : HitTechStrategy {
+	public override void OnHit(Technique tech, Vector3 pushVector, double breakForce, Vector3 launchVector)
+	{
+		tech.owner.ProcessHit(pushVector, breakForce, launchVector);
+	}
+}
+
 public abstract class ExitTechStrategy: TechStrategy {
     public abstract void Exit( Technique tech );
 }

@@ -36,6 +36,7 @@ public class TechniqueGenerator
         ActionValidateTechStrategyOptions[] actionValidateStrategyOptions = options.actionValidateStrategies == null ? new ActionValidateTechStrategyOptions[] { ScriptableObject.CreateInstance<NoValidateOptions>() } : options.actionValidateStrategies;
         UpdateTechStrategyOptions[] updateStrategyOptions = options.updateStrategies == null ? new UpdateTechStrategyOptions[] { ScriptableObject.CreateInstance<NoUpdateOptions>() } : options.updateStrategies;
         EventTechStrategyOptions[] eventStrategyOptions = options.eventStrategies == null ? new EventTechStrategyOptions[]{ ScriptableObject.CreateInstance<NoEventOptions>() } : options.eventStrategies;
+        HitTechStrategyOptions[] hitStrategyOptions = options.hitStrategies == null ? new HitTechStrategyOptions[]{ ScriptableObject.CreateInstance<DefaultHitOptions>() } : options.hitStrategies;
         ExitTechStrategyOptions[] exitStrategyOptions = options.exitStrategies == null ? new ExitTechStrategyOptions[] { ScriptableObject.CreateInstance<NoExitOptions>() } : options.exitStrategies;
 
         TriggerTechStrategy[] triggerStrategies = new TriggerTechStrategy[triggerStrategyOptions.Length];
@@ -62,6 +63,10 @@ public class TechniqueGenerator
         for( int i = 0; i < eventStrategyOptions.Length; i++ ) {
             eventStrategies[i] = eventStrategyOptions[i].GenerateStrategy();
         }
+        HitTechStrategy[] hitStrategies = new HitTechStrategy[hitStrategyOptions.Length];
+        for( int i = 0; i < hitStrategyOptions.Length; i++ ) {
+            hitStrategies[i] = hitStrategyOptions[i].GenerateStrategy();
+        }
         ExitTechStrategy[] exitStrategies = new ExitTechStrategy[exitStrategyOptions.Length];
         for( int i = 0; i < exitStrategyOptions.Length; i++ ) {
             exitStrategies[i] = exitStrategyOptions[i].GenerateStrategy();
@@ -69,7 +74,7 @@ public class TechniqueGenerator
 
         Technique tech = new Technique(agent, options.techniqueName,  animController, particleController, techTrigger, 
                                 triggerStrategies, activateStrategies, stateStrategies, actionValidateStrategies, 
-                                updateStrategies, eventStrategies, exitStrategies);
+                                updateStrategies, eventStrategies, hitStrategies, exitStrategies);
         agent.AddTechnique(tech);
     }
 

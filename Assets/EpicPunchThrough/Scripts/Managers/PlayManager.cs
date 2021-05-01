@@ -132,7 +132,7 @@ public class PlayManager
         }
         AgentManager.Instance.SpawnAgent(spawnData);
 
-        FollowCamera followCamera = GameObject.Find("SceneEntrance").GetComponent<FollowCamera>();
+        CameraControl followCamera = GameObject.Find("SceneEntrance").GetComponent<CameraControl>();
         if( followCamera != null ) { followCamera.target = AgentManager.Instance.playerAgent.transform; }
 
         SceneManager.sceneLoaded -= SpawnPlayer;

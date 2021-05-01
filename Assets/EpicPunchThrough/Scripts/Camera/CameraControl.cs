@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
+    public Transform target;
+
     [Tooltip("Leave blank for auto-find")]
     protected CameraBase _cameraBase;
     public CameraBase cameraBase {

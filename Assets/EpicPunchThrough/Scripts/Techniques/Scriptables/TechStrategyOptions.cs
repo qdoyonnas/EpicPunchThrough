@@ -66,6 +66,15 @@ public class EventTechStrategyOptions: TechStrategyOptions
 }
 
 [Serializable]
+public class HitTechStrategyOptions: TechStrategyOptions
+{
+    public virtual HitTechStrategy GenerateStrategy()
+    {
+        return null;
+    }
+}
+
+[Serializable]
 public class ExitTechStrategyOptions: TechStrategyOptions
 {
     public virtual ExitTechStrategy GenerateStrategy()
