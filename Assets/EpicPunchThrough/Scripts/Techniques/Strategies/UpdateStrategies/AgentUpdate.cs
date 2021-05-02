@@ -5,14 +5,20 @@ using UnityEngine;
 public class AgentUpdate : UpdateTechStrategy
 {
 	float frictionMultiplier;
+    float gravityMultiplier;
+	bool slideParticles;
 
-	public AgentUpdate( float friction ) {
+	public AgentUpdate( float friction, float gravity, bool slide ) {
 		frictionMultiplier = friction;
+		gravityMultiplier = gravity;
+		slideParticles = slide;
 	}
 
 	public override void Update(Technique tech, GameManager.UpdateData data, float value)
 	{
-		if( tech.owner.slideParticle != null ) { tech.owner.slideParticle.enabled = true; }
-        tech.owner.HandlePhysics( data, tech.owner.physicsBody.frictionCoefficients * frictionMultiplier );
+		if( tech.owner.slideParticle != null ) { tech.owner.slideParticle.enabled = slideParticles; }
+        tech.owner.HandlePhysics( data, tech.owner.physicsBody.frictionCoefficients * frictionMultiplier, 
+			EnvironmentManager.Instance.GetEnvironment().gravity * gravityMultiplier );
+        tech.owner.HandleAnimation();
 	}
 }

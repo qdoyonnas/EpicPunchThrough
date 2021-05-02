@@ -225,6 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frictionMultiplier: 0.5
+  gravityMultiplier: 1
+  slideParticles: 1
 --- !u!114 &2835794575380792617
 MonoBehaviour:
   m_ObjectHideFlags: 0

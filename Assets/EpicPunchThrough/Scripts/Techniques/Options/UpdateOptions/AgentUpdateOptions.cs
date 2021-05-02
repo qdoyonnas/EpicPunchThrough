@@ -6,14 +6,18 @@ using UnityEditor;
 public class AgentUpdateOptions : UpdateTechStrategyOptions
 {
 	public float frictionMultiplier;
+	public float gravityMultiplier;
+	public bool slideParticles;
 
 	public override void InspectorDraw()
 	{
 		frictionMultiplier = EditorGUILayout.FloatField("Friction Multiplier", frictionMultiplier);
+		gravityMultiplier = EditorGUILayout.FloatField("Gravity Multiplier", gravityMultiplier);
+		slideParticles = EditorGUILayout.Toggle("Slide Particles", slideParticles);
 	}
 
 	public override UpdateTechStrategy GenerateStrategy()
 	{
-		return new AgentUpdate(frictionMultiplier);
+		return new AgentUpdate(frictionMultiplier, gravityMultiplier, slideParticles);
 	}
 }

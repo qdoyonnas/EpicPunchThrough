@@ -18,14 +18,25 @@ public class WallSlideUpdate : UpdateTechStrategy
     {
         Vector3? friction = new Vector3();
         Vector3? gravity = null;
+
+        if( tech.owner.slideParticle != null ) {
+            tech.owner.slideParticle.End();
+            tech.owner.slideParticle.transform.parent = null;
+        }
+        tech.owner.slideParticle = ParticleManager.Instance.CreateEmitter(tech.owner.GetAnchor("FloorAnchor").position, 90f, tech.owner.transform, tech.particleController.GetParticles("slide"));
+
         if( tech.owner.physicsBody.velocity.y >= 0 ) {
             gravity = EnvironmentManager.Instance.GetEnvironment().gravity * gravityMultiplier;
             tech.owner.animator.SetBool("WallRunning", true);
+		    if( tech.owner.slideParticle != null ) { tech.owner.slideParticle.enabled = false; }
         } else {
             friction = tech.owner.physicsBody.frictionCoefficients * frictionMultiplier;
             tech.owner.animator.SetBool("WallRunning", false);
+		    if( tech.owner.slideParticle != null ) { tech.owner.slideParticle.enabled = true; }
         }
         
+
         tech.owner.HandlePhysics( data, friction, gravity );
+        tech.owner.HandleAnimation();
     }
 }

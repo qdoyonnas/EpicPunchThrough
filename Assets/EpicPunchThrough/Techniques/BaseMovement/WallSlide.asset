@@ -15,8 +15,6 @@ MonoBehaviour:
   skipExit: 0
   onlyBeforeExit: 0
   actionStates:
-  - action: 1
-    state: 0
   - action: 10
     state: 1
 --- !u!114 &-6949812974853052844
@@ -85,6 +83,7 @@ MonoBehaviour:
   particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
   states: 03000000
   actionSequence: 03000000
+  consumeVF: 1
   triggerStrategies:
   - {fileID: -2187250861762466847}
   activateStrategies:
@@ -113,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7ae633ba6d0d54c9bd3ca176c8c89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frictionMultiplier: 2
-  gravityMultiplier: 1
+  frictionMultiplier: 4
+  gravityMultiplier: 0.5
 --- !u!114 &950877097748165481
 MonoBehaviour:
   m_ObjectHideFlags: 0

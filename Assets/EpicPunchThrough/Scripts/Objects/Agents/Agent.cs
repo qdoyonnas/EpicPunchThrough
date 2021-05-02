@@ -692,7 +692,7 @@ public class Agent : MonoBehaviour
     }
     protected virtual void HandleTriggerChecks()
     {
-        EnableTriggerChecks();
+        //EnableTriggerChecks();
 
         if( backgroundDistance < onLayer ) {
             backgroundDistance = onLayer;
@@ -712,7 +712,13 @@ public class Agent : MonoBehaviour
             _ceilingCheck.transform.localScale = new Vector3(1, 1, onLayer);
         } else {
             _bodyCollider.transform.localScale = new Vector3(1, 1, 1);
-            _groundCheck.transform.localScale = new Vector3(1, 1, (passThrough ? 1 : backgroundDistance) );
+            
+            if( physicsBody.velocity.y > 0 ) { 
+                _groundCheck.transform.localScale = new Vector3(1, 1, 1);
+            } else {
+                _groundCheck.transform.localScale = new Vector3(1, 1, (passThrough ? 1 : backgroundDistance) );
+            }
+
             _rightWallCheck.transform.localScale = new Vector3(1, 1, (wallCollide ? backgroundDistance : 1) );
             _leftWallCheck.transform.localScale = new Vector3(1, 1, (wallCollide ? backgroundDistance : 1) );
             _ceilingCheck.transform.localScale = new Vector3(1, 1, 1);

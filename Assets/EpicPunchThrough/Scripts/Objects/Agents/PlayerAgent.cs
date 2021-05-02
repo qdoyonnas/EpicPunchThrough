@@ -116,6 +116,17 @@ public class PlayerAgent : Agent
     {
         UpdateControl(Control.Vertical, value);
 
+        if( value > 0 ) {
+            wallCollide = true;
+            passThrough = false;
+        } else if( value < 0 ) {
+            passThrough = true;
+            wallCollide = false;
+        } else {
+            passThrough = false;
+            wallCollide = false;
+        }
+
         return true;
     }
 

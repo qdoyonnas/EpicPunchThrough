@@ -24,9 +24,7 @@ public class MoveUpdate : UpdateTechStrategy
             Vector3 velDelta = velDirection * (acceleration * data.deltaTime * value);
 
             tech.owner.physicsBody.AddVelocity(velDelta);
+            if( tech.owner.slideParticle != null ) { tech.owner.slideParticle.enabled = false; }
         }
-
-        tech.owner.HandlePhysics( data, new Vector3(0, 0, 0) );
-        tech.owner.HandleAnimation();
     }
 }

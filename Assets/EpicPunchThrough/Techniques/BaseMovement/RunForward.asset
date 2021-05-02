@@ -25,6 +25,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd038c8fcbe0e264b84679a3810d99c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6797313886332409743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f500e47fce818478d6537aed745d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frictionMultiplier: 0
+  gravityMultiplier: 1
+  slideParticles: 0
 --- !u!114 &-3033037533045381333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +84,7 @@ MonoBehaviour:
   particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
   states: 01000000
   actionSequence: 01000000
+  consumeVF: 1
   triggerStrategies:
   - {fileID: 6759182524172981362}
   activateStrategies:
@@ -79,6 +95,7 @@ MonoBehaviour:
   - {fileID: 4013680279888139547}
   updateStrategies:
   - {fileID: -3033037533045381333}
+  - {fileID: -6797313886332409743}
   eventStrategies:
   - {fileID: 8739783539567800385}
   hitStrategies:
