@@ -36,7 +36,7 @@ public class Hitbox : MonoBehaviour
     {
         this.self = self;
         if( !this.hitsFriendlies ) { this.team = team; }
-        lifeTimestamp = Time.time + (lifeTime * (float)attackSpeed);
+        lifeTimestamp = Time.time + (lifeTime / (float)attackSpeed);
         if( launchVector.z == 0 ) { this.launchVector = launchVector; }
         this.pushForce = pushForce;
         this.breakForce = breakForce;

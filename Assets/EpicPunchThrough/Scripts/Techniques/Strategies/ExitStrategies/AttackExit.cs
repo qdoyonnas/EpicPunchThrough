@@ -17,10 +17,9 @@ public class AttackExit : ExitTechStrategy
 		double chargeRatio = tech.GetBlackboardData("charge") as double? ?? 0.0f;
 		chargeRatio = Math.Max(Math.Min(chargeRatio, 1), 0);
 
-		double mult = speedMult * (0.8 * chargeRatio);
+		double mult = speedMult / (0.8 * chargeRatio);
 		mult = mult == 0 ? 0.01 : mult;
-		double attackSpeed = 1/mult;
-		tech.owner.animator.SetFloat("AttackSpeed", (float)attackSpeed);
+		tech.owner.animator.SetFloat("AttackSpeed", (float)mult);
 		tech.owner.animator.SetTrigger("Attack");
 
 		tech.SetBlackboardData("AttackSpeed", mult);
