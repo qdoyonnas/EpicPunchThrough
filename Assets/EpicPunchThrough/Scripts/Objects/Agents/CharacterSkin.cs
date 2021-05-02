@@ -7,29 +7,36 @@ public class CharacterSkin : ScriptableObject
 {
     public new string name;
 
-    //[Header("Body")]
-    //public SpriteMesh Face;
-    //public SpriteMesh Chest;
-    //public SpriteMesh Hip;
+	[Header("Body")]
+	public Color headColor;
+	public Color neckColor;
+	public Color torsoColor;
+	public Color lowerTorsoColor;
+	public Color hipColor;
 
-    //[Header("Left Arm")]
-    //public SpriteMesh LeftShoulder;
-    //public SpriteMesh LeftArm;
-    //public SpriteMesh LeftHand;
-    //public SpriteMesh Fingers;
+	[Header("Left Arm")]
+	public Color leftShoulderColor;
+	public Color leftUpperArmColor;
+	public Color leftElbowColor;
+	public Color leftLowerArmColor;
+	public Color leftHandColor;
 
-    //[Header("Right Arm")]
-    //public SpriteMesh RightShoulder;
-    //public SpriteMesh RightArm;
-    //public SpriteMesh RightHand;
+	[Header("Right Arm")]
+	public Color rightShoulderColor;
+	public Color rightUpperArmColor;
+	public Color rightElbowColor;
+	public Color rightLowerArmColor;
+	public Color rightHandColor;
 
-    //[Header("Left Leg")]
-    //public SpriteMesh LeftThigh;
-    //public SpriteMesh LeftLeg;
-    //public SpriteMesh LeftFoot;
+	[Header("Left Leg")]
+	public Color leftUpperLegColor;
+	public Color leftLowerLegColor;
+	public Color leftKneeColor;
+	public Color leftFootColor;
 
-    //[Header("Right Leg")]
-    //public SpriteMesh RightThigh;
-    //public SpriteMesh RightLeg;
-    //public SpriteMesh RightFoot;
+	[Header("Right Leg")]
+	public Color rightUpperLegColor;
+	public Color rightLowerLegColor;
+	public Color rightKneeColor;
+	public Color rightFootColor;
 }

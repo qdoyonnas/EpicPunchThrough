@@ -91,6 +91,7 @@ MonoBehaviour:
   particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
   states: 01000000
   actionSequence: 06000000
+  consumeVF: 1
   triggerStrategies:
   - {fileID: 4464643800310632447}
   activateStrategies:

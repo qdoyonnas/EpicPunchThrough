@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class PlayerUI : MonoBehaviour
 	RectTransform VFBar;
 	Image currentVF;
 	Image activeVF;
+	Text activeAmount;
 	Image chargingVF;
 	Image critical;
 
@@ -22,6 +24,7 @@ public class PlayerUI : MonoBehaviour
 		VFBar = transform.Find("VFBar").GetComponent<RectTransform>();
 		currentVF = transform.Find("VFBar/Current").GetComponent<Image>();
 		activeVF = transform.Find("VFBar/Active").GetComponent<Image>();
+		activeAmount = activeVF.transform.Find("Amount").GetComponent<Text>();
 		chargingVF = transform.Find("VFBar/Charging").GetComponent<Image>();
 		critical = transform.Find("VFBar/Critical").GetComponent<Image>();
 	}
@@ -42,6 +45,7 @@ public class PlayerUI : MonoBehaviour
 
 		float activeX = -(width - (width * (1f / (float)player.activeFactor))) - 1.5f;
 		activeVF.rectTransform.anchoredPosition = new Vector2(activeX, activeVF.rectTransform.anchoredPosition.y);
+		activeAmount.text = Math.Floor(player.activeVF).ToString();
 
 		float criticalX = -(width - (width * (1f / (float)player.criticalSoul))) - 1.5f;
 		critical.rectTransform.anchoredPosition = new Vector2(criticalX, critical.rectTransform.anchoredPosition.y);

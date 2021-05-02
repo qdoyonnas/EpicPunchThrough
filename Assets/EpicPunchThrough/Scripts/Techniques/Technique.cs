@@ -27,6 +27,8 @@ public class Technique
         }
     }
 
+    protected bool consumeVF = true;
+
     public enum State {
         Trigger = 0,
         Activate = 1,
@@ -76,7 +78,7 @@ public class Technique
 
     #endregion
     
-    public Technique( Agent owner, string name, RuntimeAnimatorController animCtrl, ParticleController particleController, TechTrigger techTrgr, 
+    public Technique( Agent owner, string name, RuntimeAnimatorController animCtrl, ParticleController particleController, TechTrigger techTrgr, bool consumeVF,
         TriggerTechStrategy[] triggerStrategy, ActivateTechStrategy[] activateStrategy, StateChangeStrategy[] stateStrategy,
         ActionValidateTechStrategy[] validateStrategy, UpdateTechStrategy[] updateStrategy, EventTechStrategy[] eventStrategy, 
         HitTechStrategy[] hitStrategy, ExitTechStrategy[] exitStrategy )
@@ -92,6 +94,8 @@ public class Technique
         _techTrigger = techTrgr;
         _animatorController = animCtrl;
         _particleController = particleController;
+
+        this.consumeVF = consumeVF;
 
         this.triggerStrategies = triggerStrategy;
         this.activateStrategies = activateStrategy;
@@ -194,6 +198,10 @@ public class Technique
         _state = State.Exit;
         foreach( ExitTechStrategy strategy in exitStrategies ) {
             strategy.Exit(this);
+        }
+
+        if( consumeVF ) {
+            owner.currentVF -= (ulong)owner.chargingVF;
         }
     }
     public virtual void DeActivate()

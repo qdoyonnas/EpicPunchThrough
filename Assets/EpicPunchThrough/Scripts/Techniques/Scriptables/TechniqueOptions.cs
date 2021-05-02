@@ -14,6 +14,8 @@ public class TechniqueOptions : ScriptableObject
     public Agent.State[] states;
     public Agent.Action[] actionSequence;
 
+    public bool consumeVF = true;
+
     [SerializeField] public TriggerTechStrategyOptions[] triggerStrategies;
     [SerializeField] public ActivateTechStrategyOptions[] activateStrategies;
     [SerializeField] public StateChangeStrategyOptions[] stateStrategies;

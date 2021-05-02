@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 939ed2f704c3fb648b2430488a53b8a2, type: 3}
+  m_Name: VatGrown
+  m_EditorClassIdentifier: 
+  name: Vat Grown
+  headColor: {r: 1, g: 1, b: 1, a: 1}
+  neckColor: {r: 1, g: 1, b: 1, a: 1}
+  torsoColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+  lowerTorsoColor: {r: 0.08324079, g: 0, b: 0.2830189, a: 1}
+  hipColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  leftShoulderColor: {r: 0.26336467, g: 0, b: 0.6320754, a: 1}
+  leftUpperArmColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  leftElbowColor: {r: 0.2627451, g: 0, b: 0.6313726, a: 1}
+  leftLowerArmColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  leftHandColor: {r: 1, g: 1, b: 1, a: 1}
+  rightShoulderColor: {r: 0.2627451, g: 0, b: 0.6313726, a: 1}
+  rightUpperArmColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  rightElbowColor: {r: 0.2627451, g: 0, b: 0.6313726, a: 1}
+  rightLowerArmColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  rightHandColor: {r: 1, g: 1, b: 1, a: 1}
+  leftUpperLegColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  leftLowerLegColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  leftKneeColor: {r: 0.2627451, g: 0, b: 0.6313726, a: 1}
+  leftFootColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  rightUpperLegColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  rightLowerLegColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  rightKneeColor: {r: 0.2627451, g: 0, b: 0.6313726, a: 1}
+  rightFootColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}

@@ -203,6 +203,9 @@ public class TechniqueOptionsEditor : Editor
         EditorGUILayout.PropertyField( serializedObject.FindProperty("actionSequence"), true );
 
         EditorGUILayout.Space();
+        EditorGUILayout.PropertyField( serializedObject.FindProperty("consumeVF") );
+
+        EditorGUILayout.Space();
         EditorGUILayout.LabelField("Strategies", EditorStyles.boldLabel);
 
         foreach( StrategyData data in strategyDatas ) {

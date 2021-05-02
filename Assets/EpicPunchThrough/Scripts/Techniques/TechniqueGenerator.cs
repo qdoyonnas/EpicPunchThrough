@@ -72,7 +72,7 @@ public class TechniqueGenerator
             exitStrategies[i] = exitStrategyOptions[i].GenerateStrategy();
         }
 
-        Technique tech = new Technique(agent, options.techniqueName,  animController, particleController, techTrigger, 
+        Technique tech = new Technique(agent, options.techniqueName,  animController, particleController, techTrigger, options.consumeVF,
                                 triggerStrategies, activateStrategies, stateStrategies, actionValidateStrategies, 
                                 updateStrategies, eventStrategies, hitStrategies, exitStrategies);
         agent.AddTechnique(tech);

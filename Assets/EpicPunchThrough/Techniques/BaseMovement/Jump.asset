@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d050bb69b0f5124db97c7a6f68ff17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitalForce: 100
+  vitalForce: 30
   isRatio: 0
 --- !u!114 &-4579485328862212478
 MonoBehaviour:
@@ -98,6 +98,7 @@ MonoBehaviour:
   particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
   states: 01000000
   actionSequence: 0a000000
+  consumeVF: 1
   triggerStrategies:
   - {fileID: -4127809779928870845}
   activateStrategies:
@@ -130,8 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 4
-  mult: 2
-  minForce: 10
+  mult: 3
+  minForce: 5
   maxForce: 100
 --- !u!114 &2351029069401011331
 MonoBehaviour:
@@ -195,21 +196,21 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.00073146104
-      outSlope: 0.00073146104
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.3023998
-    - serializedVersion: 3
-      time: 0.05
-      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.13661224
-      outWeight: 0.1730778
+      outWeight: 0.0999998
+    - serializedVersion: 3
+      time: 0.02
+      value: 0
+      inSlope: 0
+      outSlope: 1.4011617
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.06685463
     - serializedVersion: 3
       time: 0.5
       value: 0.3
@@ -231,6 +232,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duration: 10
+  duration: 5
   maxVF: -1
   clampPositive: 1

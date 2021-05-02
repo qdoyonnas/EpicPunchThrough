@@ -64,8 +64,9 @@ MonoBehaviour:
   techniqueName: Turn
   animatorController: {fileID: 9100000, guid: 2228a36b707dfa742b07385092387f2b, type: 2}
   particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
-  states: 00000000
+  states: 0100000002000000
   actionSequence: 02000000
+  consumeVF: 1
   triggerStrategies:
   - {fileID: 5290764727125956991}
   activateStrategies:

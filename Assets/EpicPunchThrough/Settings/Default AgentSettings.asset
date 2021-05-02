@@ -17,7 +17,7 @@ MonoBehaviour:
   baseVitalForce: 10000
   defaultActiveVFFactor: 4
   criticalSoulFactor: 20
-  chargeRate: 0.001
+  chargeRate: 0.0005
   breakFactor: 0.1
   baseCharacterPrefab: {fileID: 1900686433913378215, guid: f45a6399d77610a408db92ccc4274982, type: 3}
   baseCharacterController: {fileID: 9100000, guid: 1433135bc191f594cb9a0da8137204ad, type: 2}
@@ -30,5 +30,5 @@ MonoBehaviour:
   propCollideAction: 3
   skins:
   - {fileID: 11400000, guid: 8786590dbc28c4947b4cf07c38f154d4, type: 2}
-  - {fileID: 11400000, guid: 6276fc760fb271d488fa50d56c73fba8, type: 2}
+  - {fileID: 11400000, guid: e4e8ea8512292244493770fe45b3af8c, type: 2}
   techniqueSettings: {fileID: 11400000, guid: 55e14b4f8d176304492ddc8a020c5f18, type: 2}

@@ -179,6 +179,8 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Scriptables\TechniqueSet.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\HitOptions\DefaultHitOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\HitOptions\ResistHitOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\HitStrategies\ResistHit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

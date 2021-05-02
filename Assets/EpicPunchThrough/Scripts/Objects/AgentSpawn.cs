@@ -8,6 +8,7 @@ public class AgentSpawn : MonoBehaviour
 	public string agentName = "Fighter";
 	public int agentTeam = 1;
 	public bool isFacingRight = false;
+	public string skinName = "";
 
 	[Min(0)] public long vitalForce = 100000;
 	[Min(1)] public long activeVitalForceFactor = 4;
@@ -20,7 +21,7 @@ public class AgentSpawn : MonoBehaviour
 														agentName, 
 														agentType, 
 														agentTeam, 
-														"Vat Grunt", 
+														skinName, 
 														(ulong)vitalForce, 
 														(ulong)activeVitalForceFactor);
 			AgentManager.Instance.SpawnAgent(data);

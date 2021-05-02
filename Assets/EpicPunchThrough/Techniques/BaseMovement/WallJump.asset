@@ -66,8 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 4
-  mult: 2
-  minForce: 10
+  mult: 3
+  minForce: 0
   maxForce: 100
 --- !u!114 &11400000
 MonoBehaviour:
@@ -86,6 +86,7 @@ MonoBehaviour:
   particleController: {fileID: 0}
   states: 
   actionSequence: 
+  consumeVF: 1
   triggerStrategies:
   - {fileID: 3082807914174557960}
   activateStrategies:
@@ -122,21 +123,21 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.17413001
-      outSlope: 0.17413001
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.10432275
-    - serializedVersion: 3
-      time: 0.2010989
-      value: 0.14929429
-      inSlope: 1.182421
-      outSlope: 1.182421
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.13661224
       outWeight: 0.0999998
+    - serializedVersion: 3
+      time: 0.02
+      value: 0
+      inSlope: 0
+      outSlope: 1.4011617
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.06685463
     - serializedVersion: 3
       time: 0.5
       value: 0.3

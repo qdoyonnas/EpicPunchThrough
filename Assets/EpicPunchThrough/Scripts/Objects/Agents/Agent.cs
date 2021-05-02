@@ -297,11 +297,8 @@ public class Agent : MonoBehaviour
             return _currentVF;
         }
         set {
-            if( value <= _maxVF ) {
-                _currentVF = value;
-            } else {
-                _currentVF = _maxVF;
-            }
+            ulong cappedValue = Math.Max(Math.Min(value, maxVF), 0);
+            _currentVF = value;
         }
     }
     public double VFRemaining {
@@ -848,22 +845,33 @@ public class Agent : MonoBehaviour
 
     public void SetSkin( CharacterSkin skin )
     {
-        //cosmetics.Find("Face").GetComponent<SpriteMeshInstance>().spriteMesh = skin.Face;
-        //cosmetics.Find("Chest").GetComponent<SpriteMeshInstance>().spriteMesh = skin.Chest;
-        //cosmetics.Find("Hip").GetComponent<SpriteMeshInstance>().spriteMesh = skin.Hip;
-        //cosmetics.Find("LeftShoulder").GetComponent<SpriteMeshInstance>().spriteMesh = skin.LeftShoulder;
-        //cosmetics.Find("LeftArm").GetComponent<SpriteMeshInstance>().spriteMesh = skin.LeftArm;
-        //cosmetics.Find("LeftHand").GetComponent<SpriteMeshInstance>().spriteMesh = skin.LeftHand;
-        //cosmetics.Find("Fingers").GetComponent<SpriteMeshInstance>().spriteMesh = skin.Fingers;
-        //cosmetics.Find("RightShoulder").GetComponent<SpriteMeshInstance>().spriteMesh = skin.RightShoulder;
-        //cosmetics.Find("RightArm").GetComponent<SpriteMeshInstance>().spriteMesh = skin.RightArm;
-        //cosmetics.Find("RightHand").GetComponent<SpriteMeshInstance>().spriteMesh = skin.RightHand;
-        //cosmetics.Find("LeftThigh").GetComponent<SpriteMeshInstance>().spriteMesh = skin.LeftThigh;
-        //cosmetics.Find("LeftLeg").GetComponent<SpriteMeshInstance>().spriteMesh = skin.LeftLeg;
-        //cosmetics.Find("LeftFoot").GetComponent<SpriteMeshInstance>().spriteMesh = skin.LeftFoot;
-        //cosmetics.Find("RightThigh").GetComponent<SpriteMeshInstance>().spriteMesh = skin.RightThigh;
-        //cosmetics.Find("RightLeg").GetComponent<SpriteMeshInstance>().spriteMesh = skin.RightLeg;
-        //cosmetics.Find("RightFoot").GetComponent<SpriteMeshInstance>().spriteMesh = skin.RightFoot;
+        graphicsChild.Find("Sprites/head").GetComponent<SpriteRenderer>().color = skin.headColor;
+        graphicsChild.Find("Sprites/torso").GetComponent<SpriteRenderer>().color = skin.torsoColor;
+        graphicsChild.Find("Sprites/hip").GetComponent<SpriteRenderer>().color = skin.hipColor;
+        graphicsChild.Find("Sprites/neck").GetComponent<SpriteRenderer>().color = skin.neckColor;
+        graphicsChild.Find("Sprites/lowerTorso").GetComponent<SpriteRenderer>().color = skin.lowerTorsoColor;
+
+        graphicsChild.Find("Sprites/rightHand").GetComponent<SpriteRenderer>().color = skin.rightHandColor;
+        graphicsChild.Find("Sprites/rightElbow").GetComponent<SpriteRenderer>().color = skin.rightElbowColor;
+        graphicsChild.Find("Sprites/rightShoulder").GetComponent<SpriteRenderer>().color = skin.rightShoulderColor;
+        graphicsChild.Find("Sprites/rightLowerArm").GetComponent<SpriteRenderer>().color = skin.rightLowerArmColor;
+        graphicsChild.Find("Sprites/rightUpperArm").GetComponent<SpriteRenderer>().color = skin.rightUpperArmColor;
+
+        graphicsChild.Find("Sprites/leftHand").GetComponent<SpriteRenderer>().color = skin.leftHandColor;
+        graphicsChild.Find("Sprites/leftElbow").GetComponent<SpriteRenderer>().color = skin.leftElbowColor;
+        graphicsChild.Find("Sprites/leftShoulder").GetComponent<SpriteRenderer>().color = skin.leftShoulderColor;
+        graphicsChild.Find("Sprites/leftLowerArm").GetComponent<SpriteRenderer>().color = skin.leftLowerArmColor;
+        graphicsChild.Find("Sprites/leftUpperArm").GetComponent<SpriteRenderer>().color = skin.leftUpperArmColor;
+
+        graphicsChild.Find("Sprites/rightUpperLeg").GetComponent<SpriteRenderer>().color = skin.rightUpperLegColor;
+        graphicsChild.Find("Sprites/rightLowerLeg").GetComponent<SpriteRenderer>().color = skin.rightLowerLegColor;
+        graphicsChild.Find("Sprites/rightKnee").GetComponent<SpriteRenderer>().color = skin.rightKneeColor;
+        graphicsChild.Find("Sprites/rightFoot").GetComponent<SpriteRenderer>().color = skin.rightFootColor;
+
+        graphicsChild.Find("Sprites/leftUpperLeg").GetComponent<SpriteRenderer>().color = skin.leftUpperLegColor;
+        graphicsChild.Find("Sprites/leftLowerLeg").GetComponent<SpriteRenderer>().color = skin.leftLowerLegColor;
+        graphicsChild.Find("Sprites/leftKnee").GetComponent<SpriteRenderer>().color = skin.leftKneeColor;
+        graphicsChild.Find("Sprites/leftFoot").GetComponent<SpriteRenderer>().color = skin.leftFootColor;
     }
 
     public void AnimationEvent(AnimationEvent e)
