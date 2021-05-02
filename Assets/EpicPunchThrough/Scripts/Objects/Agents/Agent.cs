@@ -581,8 +581,6 @@ public class Agent : MonoBehaviour
                 break;
             case State.Launched:
                 if( Time.time >= stateTimestamp ) {
-                    //|| (groundFound 
-                    //&& physicsBody.velocity.magnitude < AgentManager.Instance.settings.autoStopSpeed) ) {
                     animator.SetBool("Launched", false);
                     animator.SetBool("Fallen", false);
                     state = State.InAir;
@@ -710,7 +708,7 @@ public class Agent : MonoBehaviour
         }
 
         if( state == State.Launched ) {
-            _bodyCollider.transform.localScale = new Vector3(1, 1, 1);
+            _bodyCollider.transform.localScale = new Vector3(1, 1, backgroundDistance);
             _groundCheck.transform.localScale = new Vector3(1, 1, 1);
             _rightWallCheck.transform.localScale = new Vector3(1, 1, 1);
             _leftWallCheck.transform.localScale = new Vector3(1, 1, 1);
@@ -1154,6 +1152,7 @@ public class Agent : MonoBehaviour
                 isFacingRight = false;
             }
 
+            onLayer = 1;
             physicsBody.AddVelocity(launchVector);
         }
     }

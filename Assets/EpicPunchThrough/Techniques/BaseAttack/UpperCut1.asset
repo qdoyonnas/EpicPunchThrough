@@ -266,3 +266,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   force: 10
+  stayGrounded: 0

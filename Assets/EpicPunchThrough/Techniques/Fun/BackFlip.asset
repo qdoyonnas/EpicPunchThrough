@@ -113,6 +113,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   force: 10
+  stayGrounded: 0
 --- !u!114 &198383317452132944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +152,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   force: 10
+  stayGrounded: 0
 --- !u!114 &2896130353713965379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frictionMultiplier: 1
-  gravityMultiplier: 0
+  gravityMultiplier: 1
   slideParticles: 0
 --- !u!114 &8556883688952535273
 MonoBehaviour:

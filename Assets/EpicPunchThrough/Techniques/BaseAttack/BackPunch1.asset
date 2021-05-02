@@ -259,6 +259,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   force: 10
+  stayGrounded: 1
 --- !u!114 &6793754203851993552
 MonoBehaviour:
   m_ObjectHideFlags: 0
