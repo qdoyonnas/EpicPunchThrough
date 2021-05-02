@@ -4,12 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public abstract class TechStrategy {
-    public virtual bool InspectorDraw()
-    {
-        return false;
-    }
-}
+public abstract class TechStrategy {}
 
 public abstract class TriggerTechStrategy: TechStrategy {
     public abstract bool Trigger(Technique tech, float value );

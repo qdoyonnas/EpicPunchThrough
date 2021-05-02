@@ -26,6 +26,5 @@ public class StaticLaunchExit : ExitTechStrategy
 
         Vector3 launchVector = (launchDirection * forceTotal);
         tech.owner.physicsBody.AddVelocity(launchVector);
-        tech.owner.onLayer = 1;
 	}
 }

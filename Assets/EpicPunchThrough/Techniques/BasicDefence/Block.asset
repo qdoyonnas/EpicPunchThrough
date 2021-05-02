@@ -25,6 +25,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipExit: 1
+--- !u!114 &-2862342363561030788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f9c68b1ce28c3c45bdd6dede7f228da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +54,11 @@ MonoBehaviour:
   particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
   states: 00000000
   actionSequence: 09000000
+  consumeVF: 1
   triggerStrategies:
   - {fileID: 4361413119678829513}
   activateStrategies:
-  - {fileID: 5504148820333913938}
+  - {fileID: -2862342363561030788}
   stateStrategies:
   - {fileID: -5040999557849355754}
   actionValidateStrategies:
@@ -71,6 +84,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frictionMultiplier: 2
+  gravityMultiplier: 0
+  slideParticles: 0
 --- !u!114 &2049023853794562993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,18 +137,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c99a4a82e573ea841b7af224bacde55b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5504148820333913938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98490a9d8be7bd40a495d55b1bb511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5923495553819744638
