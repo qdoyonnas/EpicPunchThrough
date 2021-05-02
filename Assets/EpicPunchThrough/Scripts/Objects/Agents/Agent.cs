@@ -93,7 +93,6 @@ public class Agent : MonoBehaviour
         WallSliding,
         OnCeiling,
         Flinched,
-        Stunned,
         Launched
     }
     protected State _state;
@@ -118,6 +117,7 @@ public class Agent : MonoBehaviour
                     slideParticle = CreateEmitter("slide", GetAnchor("FloorAnchor").position, 0f, transform);
                     break;
                 case State.InAir:
+                    onLayer = 1;
                     physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().airFriction;
                     if( slideParticle != null ) {
                         slideParticle.End();
@@ -142,6 +142,7 @@ public class Agent : MonoBehaviour
                     animationVariation = UnityEngine.Random.Range(0, 3);
                     break;
                 case State.Launched:
+                    onLayer = 1;
                     physicsBody.velocity = new Vector3(0, 0, 0);
                     physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().airFriction;
                     if( slideParticle != null ) {
@@ -150,8 +151,6 @@ public class Agent : MonoBehaviour
                     }
 
                     animationVariation = UnityEngine.Random.Range(0, 1);
-                    break;
-                case State.Stunned:
                     break;
             }
 
@@ -746,6 +745,7 @@ public class Agent : MonoBehaviour
             }
         }
         if( !isBoundary && !isProp ) { return; }
+        if( other.bounds.max.y - transform.position.y > 1 )  { Debug.Log(other.bounds.max.y - transform.position.y); return; }
 
         _groundCheck.triggerCount += state ? 1 : -1;
         groundFound = _groundCheck.triggerCount > 0;
@@ -1152,7 +1152,6 @@ public class Agent : MonoBehaviour
                 isFacingRight = false;
             }
 
-            onLayer = 1;
             physicsBody.AddVelocity(launchVector);
         }
     }
