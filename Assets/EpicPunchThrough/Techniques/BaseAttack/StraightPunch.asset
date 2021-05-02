@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af56ed141762e1444aa663d055f3e02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMult: 1
+  speedMult: 0.5
 --- !u!114 &110329679774732457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,8 +205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventKey: Hit
-  launchDirection: 0
-  pushForce: 1
+  launchDirection: 4
+  pushForce: 0.5
   breakForce: 1
   launchForce: 1
   inertiaCarry: 1

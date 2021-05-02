@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventKey: Hit
-  launchDirection: 0
+  launchDirection: 4
   pushForce: 1
   breakForce: 1
   launchForce: 1

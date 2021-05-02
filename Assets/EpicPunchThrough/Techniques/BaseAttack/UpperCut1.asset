@@ -28,7 +28,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af56ed141762e1444aa663d055f3e02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMult: 1
+  speedMult: 0.5
 --- !u!114 &-2664641066417594455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
   states: 01000000
   actionSequence: 08000000
+  consumeVF: 1
   triggerStrategies:
   - {fileID: -866869411963626745}
   activateStrategies:
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventKey: Hit
-  launchDirection: 2
+  launchDirection: 4
   pushForce: 1
   breakForce: 1
   launchForce: 1

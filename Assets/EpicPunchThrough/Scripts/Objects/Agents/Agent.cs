@@ -113,7 +113,7 @@ public class Agent : MonoBehaviour
             switch( value ) {
                 case State.Grounded:
                     physicsBody.useGravity = false;
-                    physicsBody.velocity = new Vector3(physicsBody.velocity.x, 0, 0);
+                    physicsBody.velocity = new Vector3(physicsBody.velocity.x, Mathf.Max(physicsBody.velocity.y, 0), 0);
                     physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().groundFriction;
                     slideParticle = ParticleManager.Instance.CreateEmitter(GetAnchor("FloorAnchor").position, 0f, transform, particleController.GetParticles("slide"));
                     break;
@@ -129,7 +129,7 @@ public class Agent : MonoBehaviour
                     physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().wallFriction;
                     break;
                 case State.OnCeiling:
-                    physicsBody.velocity = new Vector3(physicsBody.velocity.x, 0, 0);
+                    physicsBody.velocity = new Vector3(physicsBody.velocity.x, Mathf.Min(physicsBody.velocity.y, 0), 0);
                     break;
                 case State.Flinched:
                     physicsBody.velocity = new Vector3(0, 0, 0);
@@ -1123,11 +1123,13 @@ public class Agent : MonoBehaviour
             stateTimestamp = Time.time + 0.2f;
 
             physicsBody.AddVelocity(pushVector);
+            if( groundFound ) {
+                physicsBody.useGravity = false;
+                physicsBody.velocity = new Vector3(physicsBody.velocity.x, Mathf.Max(physicsBody.velocity.y, 0), 0);
+            }
         } else {
             state = State.Launched;
             stateTimestamp = Time.time + 1f;
-
-            physicsBody.AddVelocity(launchVector);
 
             float rotation = Vector3.SignedAngle(Vector3.right, launchVector, Vector3.forward);
             if( launchVector.x < 0 ) {
@@ -1141,6 +1143,8 @@ public class Agent : MonoBehaviour
             }
 
             graphicsChild.eulerAngles = new Vector3(0, 0, rotation);
+
+            physicsBody.AddVelocity(launchVector);
         }
     }
 

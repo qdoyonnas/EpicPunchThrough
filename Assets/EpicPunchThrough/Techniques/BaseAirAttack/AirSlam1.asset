@@ -169,6 +169,7 @@ MonoBehaviour:
   particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
   states: 02000000
   actionSequence: 06000000
+  consumeVF: 1
   triggerStrategies:
   - {fileID: 1064482178431810874}
   activateStrategies:
@@ -214,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventKey: Hit
-  launchDirection: 1
+  launchDirection: 4
   pushForce: 2
   breakForce: 1
   launchForce: 1
