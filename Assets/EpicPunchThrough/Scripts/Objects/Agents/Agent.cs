@@ -108,7 +108,7 @@ public class Agent : MonoBehaviour
 
             // Default state behaviour
             physicsBody.useGravity = true;
-            transform.eulerAngles = Vector3.zero;
+            graphicsChild.eulerAngles = Vector3.zero;
 
             switch( value ) {
                 case State.Grounded:
@@ -264,8 +264,11 @@ public class Agent : MonoBehaviour
     protected TriggerCheck _ceilingCheck;
     protected TriggerCheck _backgroundCheck;
 
+    protected bool passThrough = false;
+    protected bool wallCollide = false;
+
     public float onLayer = 1;
-    protected float backgroundDistance = 1;
+    protected float backgroundDistance = 20;
     protected List<Collider> backgroundColliders = new List<Collider>();
 
     protected BoxCollider[] boundaryColliders;
@@ -682,29 +685,38 @@ public class Agent : MonoBehaviour
     }
     public virtual void HandlePhysics( GameManager.UpdateData data, Vector3? frictionOverride, Vector3? gravityOverride )
     {
+        HandleTriggerChecks();
+
+        physicsBody.HandleGravity( data, gravityOverride );
+        physicsBody.HandleFriction( frictionOverride );
+    }
+    protected virtual void HandleTriggerChecks()
+    {
         EnableTriggerChecks();
 
         if( backgroundDistance < onLayer ) {
             backgroundDistance = onLayer;
         }
-        if( groundFound || wallFound ) {
+
+        if( state == State.Launched ) {
+            _bodyCollider.transform.localScale = new Vector3(1, 1, 1);
+            _groundCheck.transform.localScale = new Vector3(1, 1, 1);
+            _rightWallCheck.transform.localScale = new Vector3(1, 1, 1);
+            _leftWallCheck.transform.localScale = new Vector3(1, 1, 1);
+            _ceilingCheck.transform.localScale = new Vector3(1, 1, 1);
+        } else if( groundFound || wallFound ) {
             _bodyCollider.transform.localScale = new Vector3(1, 1, onLayer);
             _groundCheck.transform.localScale = new Vector3(1, 1, onLayer);
             _rightWallCheck.transform.localScale = new Vector3(1, 1, onLayer);
             _leftWallCheck.transform.localScale = new Vector3(1, 1, onLayer);
             _ceilingCheck.transform.localScale = new Vector3(1, 1, onLayer);
         } else {
-            bool passThrough = lastAction == AgentManager.Instance.settings.propPassThroughAction && activeActionValue > 0;
-            bool wallCollide = lastAction == AgentManager.Instance.settings.propCollideAction && activeActionValue > 0;
             _bodyCollider.transform.localScale = new Vector3(1, 1, 1);
             _groundCheck.transform.localScale = new Vector3(1, 1, (passThrough ? 1 : backgroundDistance) );
             _rightWallCheck.transform.localScale = new Vector3(1, 1, (wallCollide ? backgroundDistance : 1) );
             _leftWallCheck.transform.localScale = new Vector3(1, 1, (wallCollide ? backgroundDistance : 1) );
             _ceilingCheck.transform.localScale = new Vector3(1, 1, 1);
         }
-
-        physicsBody.HandleGravity( data, gravityOverride );
-        physicsBody.HandleFriction( frictionOverride );
     }
 
     protected virtual void SetGroundFound( bool state, Collider other )
@@ -1128,7 +1140,7 @@ public class Agent : MonoBehaviour
                 rotation += 180;
             }
 
-            transform.eulerAngles = new Vector3(0, 0, rotation);
+            graphicsChild.eulerAngles = new Vector3(0, 0, rotation);
         }
     }
 

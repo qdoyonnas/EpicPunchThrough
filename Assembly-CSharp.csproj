@@ -63,6 +63,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Camera\ExactCamera.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\JumpExitOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\Hitbox.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\HitOptions\DefaultHitOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\MenuSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Camera\FollowCamera.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\GameManager.cs" />
@@ -148,11 +149,13 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\EventOptions\EndTechEventOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\UpdateOptions\ChargeUpdateOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ExitOptions\ActionExitOptions.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\Agents\FighterAgent.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActivateOptions\AttackActivateOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\AgentManager.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\MenuControls\GameStartControl.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\UpdateStrategies\MoveUpdate.cs" />
     <Compile Include="Assets\Rotary Heart\SerializableDictionaryLite\IDAttribute.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\HitOptions\ResistHitOptions.cs" />
     <Compile Include="Assets\Rotary Heart\SerializableDictionaryLite\ReorderableList\ReorderableList.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\MusicPlayer.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\ActivateStrategies\SetChargeActivate.cs" />
@@ -164,6 +167,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\MenuControls\GameStateControl.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\GameManagerSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\StateChangeStrategies\EndTechStateChange.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\HitStrategies\ResistHit.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\Transitional.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\AgentSpawn.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\PlayManager.cs" />
@@ -178,9 +182,6 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\ParticleSettings.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Scriptables\TechniqueSet.cs" />
-    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\HitOptions\DefaultHitOptions.cs" />
-    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\HitOptions\ResistHitOptions.cs" />
-    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\HitStrategies\ResistHit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
