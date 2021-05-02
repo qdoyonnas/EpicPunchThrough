@@ -106,7 +106,7 @@ MonoBehaviour:
   launchDirection: 4
   pushForce: 1
   breakForce: 1
-  launchForce: 1
+  launchForce: 0.6
   inertiaCarry: 1
   hitboxes:
   - {fileID: 3515832710518442624, guid: 5b38d48889eab1a4f9cace91d0430c6b, type: 3}

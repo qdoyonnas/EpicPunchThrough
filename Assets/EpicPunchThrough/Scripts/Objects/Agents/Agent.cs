@@ -115,7 +115,7 @@ public class Agent : MonoBehaviour
                     physicsBody.useGravity = false;
                     physicsBody.velocity = new Vector3(physicsBody.velocity.x, Mathf.Max(physicsBody.velocity.y, 0), 0);
                     physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().groundFriction;
-                    slideParticle = ParticleManager.Instance.CreateEmitter(GetAnchor("FloorAnchor").position, 0f, transform, particleController.GetParticles("slide"));
+                    slideParticle = CreateEmitter("slide", GetAnchor("FloorAnchor").position, 0f, transform);
                     break;
                 case State.InAir:
                     physicsBody.frictionCoefficients = EnvironmentManager.Instance.GetEnvironment().airFriction;
@@ -580,20 +580,31 @@ public class Agent : MonoBehaviour
                 }
                 break;
             case State.Launched:
-                if( Time.time >= stateTimestamp
-                    || (groundFound 
-                    && physicsBody.velocity.magnitude < AgentManager.Instance.settings.autoStopSpeed) ) {
+                if( Time.time >= stateTimestamp ) {
+                    //|| (groundFound 
+                    //&& physicsBody.velocity.magnitude < AgentManager.Instance.settings.autoStopSpeed) ) {
                     animator.SetBool("Launched", false);
                     animator.SetBool("Fallen", false);
                     state = State.InAir;
-                }
-                //} else {
-                //    if( groundFound && physicsBody.velocity.magnitude < AgentManager.Instance.settings.autoStopSpeed ) {
-                //        transform.rotation = Quaternion.identity;
-                //        animator.SetBool("Fallen", true);
-                //    }
-                //}
-                break;
+                } else {
+			        if (groundFound && physicsBody.velocity.y < 1 && physicsBody.velocity.magnitude < 30) {
+				        graphicsChild.rotation = Quaternion.identity;
+				        animator.SetBool("Fallen", true);
+                        if( slideParticle != null ) { slideParticle.enabled = true; }
+                        else {
+                            slideParticle = CreateEmitter("slide", GetAnchor("FloorAnchor").position, 0f, transform);
+                        }
+			        } else {
+				        animator.SetBool("Fallen", false);
+                        float rotation = Vector3.SignedAngle(Vector3.right, physicsBody.velocity, Vector3.forward);
+                        if( isFacingRight ) {
+                            rotation += 180;
+                        }
+
+                        graphicsChild.eulerAngles = new Vector3(0, 0, rotation);
+                    }
+		        }
+		break;
             case State.WallSliding:
                 if( groundFound ) {
                     state = State.Grounded;
@@ -1137,18 +1148,11 @@ public class Agent : MonoBehaviour
             state = State.Launched;
             stateTimestamp = Time.time + 1f;
 
-            float rotation = Vector3.SignedAngle(Vector3.right, launchVector, Vector3.forward);
             if( launchVector.x < 0 ) {
                 isFacingRight = true;
             } else if( launchVector.x > 0 ) {
                 isFacingRight = false;
             }
-
-            if( isFacingRight ) {
-                rotation += 180;
-            }
-
-            graphicsChild.eulerAngles = new Vector3(0, 0, rotation);
 
             physicsBody.AddVelocity(launchVector);
         }

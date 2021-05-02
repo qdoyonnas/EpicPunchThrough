@@ -197,7 +197,7 @@ MonoBehaviour:
   eventKey: Hit
   launchDirection: 1
   pushForce: 0
-  breakForce: 1
+  breakForce: 0
   launchForce: 0
   inertiaCarry: 1
   hitboxes:
