@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class NoUpdateOptions: UpdateTechStrategyOptions
 {
+    public override void InspectorDraw() {}
+
     public override UpdateTechStrategy GenerateStrategy()
     {
-        return new NoUpdate();
+        return new NoUpdate(inverseStates, validStates);
     }
 }

@@ -12,6 +12,8 @@ public class TimedChargeUpdateOptions : UpdateTechStrategyOptions
 
 	public override void InspectorDraw()
 	{
+		base.InspectorDraw();
+
 		chargeCurve = EditorGUILayout.CurveField("Charge Curve", chargeCurve);
 		duration = EditorGUILayout.FloatField("Duration", duration);
 		maxVF = EditorGUILayout.DoubleField("Maximum VF", maxVF);
@@ -20,6 +22,6 @@ public class TimedChargeUpdateOptions : UpdateTechStrategyOptions
 
 	public override UpdateTechStrategy GenerateStrategy()
 	{
-		return new TimedChargeUpdate(chargeCurve, duration, maxVF, clampPositive);
+		return new TimedChargeUpdate(inverseStates, validStates, chargeCurve, duration, maxVF, clampPositive);
 	}
 }

@@ -8,13 +8,16 @@ public class AttackActivate : ActivateTechStrategy
 
     int variation = 0;
 
-    public AttackActivate( int variations )
+    public AttackActivate( bool inverseStates, string[] states, int variations )
+		: base(inverseStates, states)
     {
         attackVariations = variations;
     }
 
 	public override void Activate(Technique tech)
 	{
+		if( !ValidateState(tech) ) { return; }
+
         variation += 1;
 		if( variation >= attackVariations )
 		{

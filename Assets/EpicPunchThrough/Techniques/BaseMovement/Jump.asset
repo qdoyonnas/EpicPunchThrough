@@ -1,23 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8667713533278725832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdfcc3e66770bff4cbdfa46f97f1c629, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skipExit: 1
-  onlyBeforeExit: 0
-  actionStates:
-  - action: 9
-    state: 1
---- !u!114 &-8200749790832529574
+--- !u!114 &-9104911493877401621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd038c8fcbe0e264b84679a3810d99c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-6211951770049355619
+  order: 1
+  inverseStates: 1
+  validStates: []
+--- !u!114 &-7002665612290377583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,12 +24,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d050bb69b0f5124db97c7a6f68ff17a, type: 3}
+  m_Script: {fileID: 11500000, guid: cdfcc3e66770bff4cbdfa46f97f1c629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitalForce: 30
-  isRatio: 0
---- !u!114 &-4579485328862212478
+  order: 1
+  inverseStates: 1
+  validStates: []
+  abortTechnique: 0
+  actionStates:
+  - action: 10
+    state: 0
+--- !u!114 &-4662482159517609900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,13 +43,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82f500e47fce818478d6537aed745d96, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f9c68b1ce28c3c45bdd6dede7f228da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frictionMultiplier: 0.5
-  gravityMultiplier: 1
-  slideParticles: 1
---- !u!114 &-4127809779928870845
+  order: 1
+  inverseStates: 1
+  validStates: []
+--- !u!114 &-4642239092205261834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99a4a82e573ea841b7af224bacde55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 1
+  validStates: []
+--- !u!114 &-1905199421204917969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,7 +76,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e441d8a1c78b7643a285ef3eb67408e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3199334731705917993
+  order: 1
+  inverseStates: 1
+  validStates: []
+--- !u!114 &-1867956001670886906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,10 +88,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 857a2b56e5b14d648b7f1dde11deffd1, type: 3}
+  m_Script: {fileID: 11500000, guid: e5185b5a45e20a843908e98afb4a9b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipExit: 1
+  order: 1
+  inverseStates: 1
+  validStates: []
+--- !u!114 &-1526004843473688780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882110b1986569a48868f8a6f5b840fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 1
+  validStates: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,25 +128,25 @@ MonoBehaviour:
   actionSequence: 0a000000
   consumeVF: 1
   triggerStrategies:
-  - {fileID: -4127809779928870845}
+  - {fileID: -1905199421204917969}
   activateStrategies:
-  - {fileID: -6211951770049355619}
+  - {fileID: -4662482159517609900}
+  techStateStrategies:
+  - {fileID: 335676323405206965}
   stateStrategies:
-  - {fileID: -3199334731705917993}
+  - {fileID: 5293992999812842480}
   actionValidateStrategies:
-  - {fileID: 4605257157354353959}
-  - {fileID: -8667713533278725832}
+  - {fileID: 3785559396430045207}
+  - {fileID: -7002665612290377583}
   updateStrategies:
-  - {fileID: 6609584538641445038}
-  - {fileID: -4579485328862212478}
+  - {fileID: -4642239092205261834}
   eventStrategies:
-  - {fileID: 2351029069401011331}
+  - {fileID: -1526004843473688780}
   hitStrategies:
-  - {fileID: -8200749790832529574}
+  - {fileID: -9104911493877401621}
   exitStrategies:
-  - {fileID: 1436312208098472326}
-  - {fileID: 5315874106583022919}
---- !u!114 &1436312208098472326
+  - {fileID: -1867956001670886906}
+--- !u!114 &335676323405206965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,26 +155,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cea365ebb4c55b4a9a86a3f44e07917, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ad199ea481035a4891e3533f0830abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 4
-  mult: 3
-  minForce: 5
-  maxForce: 100
---- !u!114 &2351029069401011331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882110b1986569a48868f8a6f5b840fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4605257157354353959
+  order: 1
+  inverseStates: 1
+  validStates: []
+--- !u!114 &3785559396430045207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,12 +173,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfcc3e66770bff4cbdfa46f97f1c629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipExit: 0
-  onlyBeforeExit: 0
+  order: 1
+  inverseStates: 1
+  validStates: []
+  abortTechnique: 0
   actionStates:
-  - action: 10
-    state: 0
---- !u!114 &5315874106583022919
+  - action: 9
+    state: 1
+--- !u!114 &5293992999812842480
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,66 +189,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec00070d28357924d890b2fe77fd9f7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 857a2b56e5b14d648b7f1dde11deffd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpMultiplier: 2
-  minForce: 10
-  maxForce: 100
---- !u!114 &6609584538641445038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76e054fae4b0bc48ab0972f1b8dd0d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chargeCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.13661224
-      outWeight: 0.0999998
-    - serializedVersion: 3
-      time: 0.02
-      value: 0
-      inSlope: 0
-      outSlope: 1.4011617
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.06685463
-    - serializedVersion: 3
-      time: 0.5
-      value: 0.3
-      inSlope: -0.014540491
-      outSlope: -0.014540491
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.051933646
-      outWeight: 0.37745017
-    - serializedVersion: 3
-      time: 1.0010986
-      value: 0.01
-      inSlope: -0.8546664
-      outSlope: -0.8546664
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.12212422
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  duration: 5
-  maxVF: -1
-  clampPositive: 1
+  order: 1
+  inverseStates: 1
+  validStates: []
+  skipExit: 0

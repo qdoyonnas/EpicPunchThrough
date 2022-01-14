@@ -8,7 +8,8 @@ public class WallSlideUpdate : UpdateTechStrategy
     float frictionMultiplier;
     float gravityMultiplier;
 
-    public WallSlideUpdate( float frictionMultiplier, float gravityMultiplier )
+    public WallSlideUpdate( bool inverseStates, string[] states, float frictionMultiplier, float gravityMultiplier )
+        : base(inverseStates, states)
     {
         this.frictionMultiplier = frictionMultiplier;
         this.gravityMultiplier = gravityMultiplier;
@@ -16,6 +17,8 @@ public class WallSlideUpdate : UpdateTechStrategy
 
     public override void Update( Technique tech, GameManager.UpdateData data, float value )
     {
+        if( !ValidateState(tech) ) { return; }
+
         Vector3? friction = new Vector3();
         Vector3? gravity = null;
 

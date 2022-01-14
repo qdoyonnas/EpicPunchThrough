@@ -6,6 +6,6 @@ public class DefaultHitOptions : HitTechStrategyOptions
 {
     public override HitTechStrategy GenerateStrategy()
     {
-        return new DefaultHit();
+        return new DefaultHit(inverseStates, validStates);
     }
 }

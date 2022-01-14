@@ -17,6 +17,8 @@ public class HitboxEventOptions : EventTechStrategyOptions
 
 	public override void InspectorDraw()
 	{
+		base.InspectorDraw();
+
 		eventKey = EditorGUILayout.TextField("Event Key", eventKey);
 
         launchDirection = (Direction)EditorGUILayout.EnumPopup("Direction", launchDirection);
@@ -54,6 +56,6 @@ public class HitboxEventOptions : EventTechStrategyOptions
 
 	public override EventTechStrategy GenerateStrategy()
 	{
-		return new HitboxEvent(eventKey, launchDirection, pushForce, breakForce, launchForce, inertiaCarry, hitboxes);
+		return new HitboxEvent(inverseStates, validStates, eventKey, launchDirection, pushForce, breakForce, launchForce, inertiaCarry, hitboxes);
 	}
 }

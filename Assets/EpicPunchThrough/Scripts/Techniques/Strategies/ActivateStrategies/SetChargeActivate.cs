@@ -7,7 +7,8 @@ public class SetChargeActivate : ActivateTechStrategy
 	double vitalForce;
 	bool isRatio;
 
-	public SetChargeActivate( double vitalForce, bool isRatio )
+	public SetChargeActivate( bool inverseStates, string[] states, double vitalForce, bool isRatio )
+		: base(inverseStates, states)
 	{
 		this.vitalForce = vitalForce;
 		this.isRatio = isRatio;
@@ -15,6 +16,8 @@ public class SetChargeActivate : ActivateTechStrategy
 
 	public override void Activate(Technique tech)
 	{
+		if( !ValidateState(tech) ) { return; }
+
 		tech.owner.chargingVF = isRatio ? tech.owner.activeVF * vitalForce : vitalForce;
 	}
 }

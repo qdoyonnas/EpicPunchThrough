@@ -6,6 +6,6 @@ public class FlipToAimActivateOptions : ActivateTechStrategyOptions
 {
 	public override ActivateTechStrategy GenerateStrategy()
 	{
-		return new FlipToAimActivate();
+		return new FlipToAimActivate(inverseStates, validStates);
 	}
 }

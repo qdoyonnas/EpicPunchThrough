@@ -54,9 +54,6 @@ public class Agent : MonoBehaviour
             return _activeTechnique;
         }
         set {
-            if( ValidActiveTechnique() ) {
-                activeTechnique.DeActivate();
-            }
             _activeTechnique = value;
         }
     }
@@ -745,7 +742,7 @@ public class Agent : MonoBehaviour
             }
         }
         if( !isBoundary && !isProp ) { return; }
-        if( other.bounds.max.y - transform.position.y > 1 )  { Debug.Log(other.bounds.max.y - transform.position.y); return; }
+        if( other.bounds.max.y - transform.position.y > 1 )  { return; }
 
         _groundCheck.triggerCount += state ? 1 : -1;
         groundFound = _groundCheck.triggerCount > 0;
@@ -929,11 +926,11 @@ public class Agent : MonoBehaviour
         activatingTechniques.Add( technique );
     }
 
-    public virtual void TransitionTechnique( Technique technique = null, bool blend = true, bool skipExit = false )
+    public virtual void TransitionTechnique( Technique technique = null, bool blend = true )
     {
         if( activeTechnique != technique ) {
             if( ValidActiveTechnique() ) {
-                if( !skipExit ) { activeTechnique.Exit(); }
+                activeTechnique.Exit();
             }
         }
 

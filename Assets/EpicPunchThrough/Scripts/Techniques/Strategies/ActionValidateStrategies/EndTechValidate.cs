@@ -5,24 +5,23 @@ using UnityEngine;
 
 public class EndTechValidate : ActionValidateTechStrategy
 {
+    bool abortTechnique = false;
     ActionState[] actionStates;
-    bool skipExit = false;
-    bool onlyBeforeExit = false;
 
-    public EndTechValidate(bool skipExit, bool beforeExit, params ActionState[] actionStates)
+    public EndTechValidate(bool inverseStates, string[] states, bool abortTechnique, params ActionState[] actionStates)
+        : base(inverseStates, states)
     {
-        this.skipExit = skipExit;
-        this.onlyBeforeExit = beforeExit;
+        this.abortTechnique = abortTechnique;
         this.actionStates = actionStates;
     }
 
     public override bool Validate( Technique tech, Agent.Action action, float value )
     {
-        if( onlyBeforeExit && tech.state >= Technique.State.Exit ) { return false; }
+        if( !ValidateState(tech) ) { return false; }
 
         foreach( ActionState actionState in actionStates ) {
             if( actionState.action == action && actionState.state == (Mathf.Abs(value) > 0)  ) {
-                tech.owner.TransitionTechnique(null, true, skipExit);
+                tech.owner.TransitionTechnique(null, true);
                 return true;
             }
         }

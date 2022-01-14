@@ -11,6 +11,8 @@ public class JumpExitOptions : ExitTechStrategyOptions
 
     public override void InspectorDraw()
     {
+		base.InspectorDraw();
+
         jumpMultiplier = EditorGUILayout.FloatField("Jump Multiplier", jumpMultiplier);
 		minForce = EditorGUILayout.FloatField("Minimum Force", minForce);
 		maxForce = EditorGUILayout.FloatField("Maximum Force", maxForce);
@@ -18,6 +20,6 @@ public class JumpExitOptions : ExitTechStrategyOptions
 
     public override ExitTechStrategy GenerateStrategy()
     {
-        return new JumpExit(jumpMultiplier, minForce, maxForce);
+        return new JumpExit(inverseStates, validStates, jumpMultiplier, minForce, maxForce);
     }
 }

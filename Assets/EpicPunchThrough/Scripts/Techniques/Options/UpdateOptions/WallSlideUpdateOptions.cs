@@ -10,12 +10,14 @@ public class WallSlideUpdateOptions : UpdateTechStrategyOptions
 
     public override void InspectorDraw()
     {
+		base.InspectorDraw();
+
         frictionMultiplier = EditorGUILayout.FloatField("Friction Multiplier", frictionMultiplier);
         gravityMultiplier = EditorGUILayout.FloatField("Gravity Multiplier", gravityMultiplier);
     }
 
     public override UpdateTechStrategy GenerateStrategy()
     {
-        return new WallSlideUpdate(frictionMultiplier, gravityMultiplier);
+        return new WallSlideUpdate( inverseStates, validStates, frictionMultiplier, gravityMultiplier);
     }
 }

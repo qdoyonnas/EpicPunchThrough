@@ -12,6 +12,8 @@ public class StaticLaunchExitOptions : ExitTechStrategyOptions
 
 	public override void InspectorDraw()
 	{
+		base.InspectorDraw();
+
 		direction = (Direction)EditorGUILayout.EnumPopup("Direction", direction);
 		forceCurve = EditorGUILayout.CurveField("Force Curve", forceCurve);
 		force = EditorGUILayout.FloatField("Force", force);
@@ -20,6 +22,6 @@ public class StaticLaunchExitOptions : ExitTechStrategyOptions
 
 	public override ExitTechStrategy GenerateStrategy()
 	{
-		return new StaticLaunchExit(direction, forceCurve, force, stayGrounded);
+		return new StaticLaunchExit(inverseStates, validStates, direction, forceCurve, force, stayGrounded);
 	}
 }

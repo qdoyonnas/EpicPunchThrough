@@ -29,19 +29,23 @@ public class Technique
 
     protected bool consumeVF = true;
 
-    public enum State {
-        Trigger = 0,
-        Activate = 1,
-        Update = 2,
-        Exit = 3,
-        Inactive = 4
+    public static class State {
+        public static readonly string INACTIVE = "INACTIVE";
+        public static readonly string ACTIVE = "ACTIVE";
     }
-    protected State _state = State.Inactive;
-    public State state {
-        get {
+    protected string _state = String.Empty;
+    public string state {
+         get {
             return _state;
         }
+        set {
+            foreach( TechStateChangeStrategy strategy in techStateChangeStrategies ) {
+                strategy.OnStateChange( this, _state, value );
+            }
+            _state = value;
+        }
     }
+
     protected Dictionary<string, object> blackboard = new Dictionary<string, object>();
 
     #region TechTrigger
@@ -69,6 +73,7 @@ public class Technique
 
     protected TriggerTechStrategy[] triggerStrategies;
     protected ActivateTechStrategy[] activateStrategies;
+    protected TechStateChangeStrategy[] techStateChangeStrategies;
     protected StateChangeStrategy[] stateStrategies;
     protected ActionValidateTechStrategy[] validateStrategies;
     protected UpdateTechStrategy[] updateStrategies;
@@ -79,7 +84,7 @@ public class Technique
     #endregion
     
     public Technique( Agent owner, string name, RuntimeAnimatorController animCtrl, ParticleController particleController, TechTrigger techTrgr, bool consumeVF,
-        TriggerTechStrategy[] triggerStrategy, ActivateTechStrategy[] activateStrategy, StateChangeStrategy[] stateStrategy,
+        TriggerTechStrategy[] triggerStrategy, ActivateTechStrategy[] activateStrategy, TechStateChangeStrategy[] techStateStrategies, StateChangeStrategy[] stateStrategy,
         ActionValidateTechStrategy[] validateStrategy, UpdateTechStrategy[] updateStrategy, EventTechStrategy[] eventStrategy, 
         HitTechStrategy[] hitStrategy, ExitTechStrategy[] exitStrategy )
     {
@@ -99,6 +104,7 @@ public class Technique
 
         this.triggerStrategies = triggerStrategy;
         this.activateStrategies = activateStrategy;
+        this.techStateChangeStrategies = techStateStrategies;
         this.stateStrategies = stateStrategy;
         this.validateStrategies = validateStrategy;
         this.updateStrategies = updateStrategy;
@@ -127,7 +133,6 @@ public class Technique
             }
         }
 
-        _state = State.Trigger;
         foreach( TriggerTechStrategy strategy in triggerStrategies ) {
             if( !strategy.Trigger(this, e.value) ) { return; }
         }
@@ -137,13 +142,12 @@ public class Technique
     }
     public virtual void Activate()
     {
-        _state = State.Activate;
+        state = State.ACTIVE;
 
         foreach( ActivateTechStrategy strategy in activateStrategies ) {
             strategy.Activate(this);
         }
 
-        _state = State.Update;
         foreach( UpdateTechStrategy strategy in updateStrategies ) {
             strategy.BeforeUpdate(this);
         }
@@ -195,20 +199,17 @@ public class Technique
             strategy.AfterUpdate(this);
         }
 
-        _state = State.Exit;
         foreach( ExitTechStrategy strategy in exitStrategies ) {
             strategy.Exit(this);
         }
 
         if( consumeVF ) {
             owner.currentVF -= (ulong)owner.chargingVF;
+            owner.chargingVF = 0;
         }
-    }
-    public virtual void DeActivate()
-    {
-        _state = State.Inactive;
+
+        state = State.INACTIVE;
         ClearBlackboardData();
-        owner.chargingVF = 0;
     }
 
     #endregion

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class NoInterruptTriggerOptions : TriggerTechStrategyOptions
 {
+    public override void InspectorDraw() {}
+
     public override TriggerTechStrategy GenerateStrategy()
     {
-        return new NoInterruptTrigger();
+        return new NoInterruptTrigger(inverseStates, validStates);
     }
 }

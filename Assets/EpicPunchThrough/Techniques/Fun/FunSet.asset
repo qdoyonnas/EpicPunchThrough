@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FunSet
   m_EditorClassIdentifier: 
   techniques:
-  - {fileID: 11400000, guid: d167b63726932aa4d93bf5d7fdd9b991, type: 2}
+  - {fileID: 0}

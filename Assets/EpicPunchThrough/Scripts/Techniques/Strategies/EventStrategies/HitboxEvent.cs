@@ -12,7 +12,8 @@ public class HitboxEvent : EventTechStrategy
 	float inertiaCarry;
 	GameObject[] hitboxes;
 
-	public HitboxEvent(string key, Direction launchDirection, float pushForce, float breakForce, float launchForce, float inertia, GameObject[] hitboxes)
+	public HitboxEvent( bool inverseStates, string[] states, string key, Direction launchDirection, float pushForce, float breakForce, float launchForce, float inertia, GameObject[] hitboxes )
+		: base(inverseStates, states)
 	{
 		this.launchDirection = launchDirection;
 		this.pushMult = pushForce;
@@ -25,6 +26,8 @@ public class HitboxEvent : EventTechStrategy
 
 	public override void OnEvent(Technique tech, AnimationEvent e)
 	{
+		if( !ValidateState(tech) ) { return; }
+
 		if( !string.IsNullOrEmpty(eventKey)
 			&& eventKey != e.stringParameter ) {
 			return;

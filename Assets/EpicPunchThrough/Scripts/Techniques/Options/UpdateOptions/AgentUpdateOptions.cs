@@ -11,6 +11,8 @@ public class AgentUpdateOptions : UpdateTechStrategyOptions
 
 	public override void InspectorDraw()
 	{
+		base.InspectorDraw();
+
 		frictionMultiplier = EditorGUILayout.FloatField("Friction Multiplier", frictionMultiplier);
 		gravityMultiplier = EditorGUILayout.FloatField("Gravity Multiplier", gravityMultiplier);
 		slideParticles = EditorGUILayout.Toggle("Slide Particles", slideParticles);
@@ -18,6 +20,6 @@ public class AgentUpdateOptions : UpdateTechStrategyOptions
 
 	public override UpdateTechStrategy GenerateStrategy()
 	{
-		return new AgentUpdate(frictionMultiplier, gravityMultiplier, slideParticles);
+		return new AgentUpdate(inverseStates, validStates, frictionMultiplier, gravityMultiplier, slideParticles);
 	}
 }

@@ -10,6 +10,8 @@ public class MoveUpdateOptions : UpdateTechStrategyOptions {
 
     public override void InspectorDraw()
     {
+		base.InspectorDraw();
+
         direction = (Direction)EditorGUILayout.EnumPopup("Direction", direction);
         maxSpeed = EditorGUILayout.FloatField("Max Speed", maxSpeed);
         acceleration = EditorGUILayout.FloatField("Acceleration", acceleration);
@@ -17,6 +19,6 @@ public class MoveUpdateOptions : UpdateTechStrategyOptions {
 
     public override UpdateTechStrategy GenerateStrategy()
     {
-        return new MoveUpdate(direction, maxSpeed, acceleration);
+        return new MoveUpdate(inverseStates, validStates, direction, maxSpeed, acceleration);
     }
 }

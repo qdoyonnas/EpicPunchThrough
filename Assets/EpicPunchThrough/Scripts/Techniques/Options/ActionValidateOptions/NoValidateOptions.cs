@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class NoValidateOptions: ActionValidateTechStrategyOptions
 {
-    public override ActionValidateTechStrategy GenerateStrategy()
+	public override void InspectorDraw() {}
+
+	public override ActionValidateTechStrategy GenerateStrategy()
     {
-        return new NoValidate();
+        return new NoValidate(inverseStates, validStates);
     }
 }

@@ -12,6 +12,8 @@ public class ChargeUpdateOptions : UpdateTechStrategyOptions
 
 	public override void InspectorDraw()
 	{
+		base.InspectorDraw();
+
 		chargeRate = EditorGUILayout.DoubleField("Charge Rate", chargeRate);
 		minimumCharge = Math.Max(EditorGUILayout.LongField("Minimum Charge", minimumCharge), 0);
 		maximumCharge = Math.Max(EditorGUILayout.LongField("Maximum Charge", maximumCharge), 0);
@@ -19,6 +21,6 @@ public class ChargeUpdateOptions : UpdateTechStrategyOptions
 
 	public override UpdateTechStrategy GenerateStrategy()
 	{
-		return new ChargeUpdate(chargeRate, (ulong)minimumCharge, (ulong)maximumCharge);
+		return new ChargeUpdate(inverseStates, validStates, chargeRate, (ulong)minimumCharge, (ulong)maximumCharge);
 	}
 }

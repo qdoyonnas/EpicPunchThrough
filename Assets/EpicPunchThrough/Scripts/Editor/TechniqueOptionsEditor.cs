@@ -119,7 +119,10 @@ public class TechniqueOptionsEditor : Editor
             bool update = false;
 
             EditorGUILayout.BeginVertical("Box");
+            EditorGUILayout.BeginHorizontal();
             int choice = EditorGUILayout.Popup(this.choice, types.Keys.ToArray());
+            strategy.order = EditorGUILayout.IntField(strategy.order, GUILayout.Width(40f));
+            EditorGUILayout.EndHorizontal();
             EditorGUI.indentLevel++;
             strategy.InspectorDraw();
             EditorGUI.indentLevel--;
@@ -154,6 +157,7 @@ public class TechniqueOptionsEditor : Editor
         strategyDatas = new StrategyData[] {
             GenerateStrategyData<TriggerTechStrategyOptions>( "Trigger Strategies", ref options.triggerStrategies, typeof(NoInterruptTriggerOptions) ),
             GenerateStrategyData<ActivateTechStrategyOptions>( "Activate Strategies", ref options.activateStrategies, typeof(NoActivateOptions) ),
+            GenerateStrategyData<TechStateChangeStrategyOptions>( "Technique State Strategies", ref options.techStateStrategies, typeof(NoTechStateChangeOptions) ),
             GenerateStrategyData<StateChangeStrategyOptions>( "State Strategies", ref options.stateStrategies, typeof(EndTechStateChangeOptions) ),
             GenerateStrategyData<ActionValidateTechStrategyOptions>( "Action Strategies", ref options.actionValidateStrategies, typeof(NoValidateOptions) ),
             GenerateStrategyData<UpdateTechStrategyOptions>( "Update Strategies", ref options.updateStrategies, typeof(NoUpdateOptions) ),
@@ -221,6 +225,12 @@ public class TechniqueOptionsEditor : Editor
                         options.activateStrategies = new ActivateTechStrategyOptions[data.strategies.Length];
                         for( int i = 0; i < data.strategies.Length; i++ ) {
                             options.activateStrategies[i] = (ActivateTechStrategyOptions)data.strategies[i].strategy;
+                        }
+                        break;
+                    case "TechStateChangeStrategyOptions":
+                        options.techStateStrategies = new TechStateChangeStrategyOptions[data.strategies.Length];
+                        for( int i = 0; i < data.strategies.Length; i++ ) {
+                            options.techStateStrategies[i] = (TechStateChangeStrategyOptions)data.strategies[i].strategy;
                         }
                         break;
                     case "StateChangeStrategyOptions":

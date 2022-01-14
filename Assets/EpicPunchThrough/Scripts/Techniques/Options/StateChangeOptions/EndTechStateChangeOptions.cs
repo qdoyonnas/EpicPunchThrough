@@ -9,11 +9,13 @@ public class EndTechStateChangeOptions: StateChangeStrategyOptions
 
 	public override void InspectorDraw()
 	{
+		base.InspectorDraw();
+
 		skipExit = EditorGUILayout.Toggle("Skip Exit", skipExit);
 	}
 
 	public override StateChangeStrategy GenerateStrategy()
     {
-        return new EndTechStateChange();
+        return new EndTechStateChange(inverseStates, validStates);
     }
 }

@@ -9,7 +9,8 @@ public class ChargeUpdate : UpdateTechStrategy
     ulong minimumCharge;
     ulong maximumCharge;
 
-    public ChargeUpdate( double chargeRate, ulong minimumCharge, ulong maximumCharge )
+    public ChargeUpdate( bool inverseStates, string[] states, double chargeRate, ulong minimumCharge, ulong maximumCharge )
+        : base(inverseStates, states)
     {
         this.chargeRate = chargeRate;
         this.minimumCharge = minimumCharge;
@@ -18,6 +19,8 @@ public class ChargeUpdate : UpdateTechStrategy
 
     public override void Update( Technique tech, GameManager.UpdateData data, float value )
     {
+        if( !ValidateState(tech) ) { return; }
+
         if( value > 0 ) {
             if( tech.owner.chargingVF < minimumCharge ) {
                 tech.owner.chargingVF = minimumCharge;

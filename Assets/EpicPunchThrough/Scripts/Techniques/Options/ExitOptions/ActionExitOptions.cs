@@ -9,11 +9,13 @@ public class ActionExitOptions : ExitTechStrategyOptions
 
 	public override void InspectorDraw()
 	{
+		base.InspectorDraw();
+		
 		action = (Agent.Action)EditorGUILayout.EnumPopup("Action", action);
 	}
 
 	public override ExitTechStrategy GenerateStrategy()
 	{
-		return new ActionExit(action);
+		return new ActionExit(inverseStates, validStates, action);
 	}
 }

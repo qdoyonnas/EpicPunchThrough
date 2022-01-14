@@ -11,7 +11,8 @@ public class TimedChargeUpdate : UpdateTechStrategy
 
 	float elapsedTime = 0f;
 
-	public TimedChargeUpdate( AnimationCurve curve, float duration, double maxVF, bool clampPositive )
+	public TimedChargeUpdate( bool inverseStates, string[] states, AnimationCurve curve, float duration, double maxVF, bool clampPositive )
+		: base(inverseStates, states)
 	{
 		this.chargeCurve = curve;
 		this.duration = duration;
@@ -26,6 +27,8 @@ public class TimedChargeUpdate : UpdateTechStrategy
 
 	public override void Update(Technique tech, GameManager.UpdateData data, float value)
 	{
+		if( !ValidateState(tech) ) { return; }
+
 		double chargeRatio = tech.GetBlackboardData("charge") as double? ?? 0.0;
 		if( value > 0 && (maxVF == -1 || tech.owner.chargingVF < maxVF) ) {
 			elapsedTime += data.deltaTime;

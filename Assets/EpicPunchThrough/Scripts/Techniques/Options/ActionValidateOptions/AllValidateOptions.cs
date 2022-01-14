@@ -6,6 +6,6 @@ public class AllValidateOptions: ActionValidateTechStrategyOptions
 {
     public override ActionValidateTechStrategy GenerateStrategy()
     {
-        return new AllValidate();
+        return new AllValidate(inverseStates, validStates);
     }
 }

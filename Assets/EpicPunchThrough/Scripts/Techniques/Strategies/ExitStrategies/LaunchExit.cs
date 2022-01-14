@@ -9,7 +9,8 @@ public class LaunchExit : ExitTechStrategy
 	float minForce;
 	float maxForce;
 
-	public LaunchExit(Direction direction, float mult, float minForce, float maxForce)
+	public LaunchExit( bool inverseStates, string[] states, Direction direction, float mult, float minForce, float maxForce )
+		: base(inverseStates, states)
 	{
 		this.direction = direction;
 		this.mult = mult;
@@ -19,6 +20,8 @@ public class LaunchExit : ExitTechStrategy
 
 	public override void Exit(Technique tech)
 	{
+		if( !ValidateState(tech) ) { return; }
+
 		Vector3 launchDirection = Utilities.GetDirectionVector(tech.owner, direction);
 		float force = Utilities.VFToForce(tech.owner.chargingVF * mult, 0, maxForce) + minForce;
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BaseAirAttack
   m_EditorClassIdentifier: 
   techniques:
-  - {fileID: 11400000, guid: a16efa23ead63ae4287951342cd3b885, type: 2}
-  - {fileID: 11400000, guid: 58678c9d5d0769745b38bfd4321c0366, type: 2}
-  - {fileID: 11400000, guid: ae970ca5a3f49bb4f93587f186f47b4f, type: 2}
-  - {fileID: 11400000, guid: 7de14fb05059de942a24bf758fa37d87, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

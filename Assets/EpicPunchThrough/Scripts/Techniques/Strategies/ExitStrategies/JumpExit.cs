@@ -8,7 +8,8 @@ public class JumpExit : ExitTechStrategy
     float minForce;
     float maxForce;
 
-    public JumpExit( float jumpMultiplier, float minForce, float maxForce )
+    public JumpExit( bool inverseStates, string[] states, float jumpMultiplier, float minForce, float maxForce )
+        : base(inverseStates, states)
     {
         this.jumpMultiplier = jumpMultiplier;
         this.minForce = minForce;
@@ -17,6 +18,8 @@ public class JumpExit : ExitTechStrategy
 
     public override void Exit( Technique tech )
     {
+        if( !ValidateState(tech) ) { return; }
+
         Transform rightFootAnchor = tech.owner.GetAnchor("FootR");
         Transform leftFootAnchor = tech.owner.GetAnchor("FootL");
         Vector3 emitterPosition = ( rightFootAnchor.position + leftFootAnchor.position ) / 2f;

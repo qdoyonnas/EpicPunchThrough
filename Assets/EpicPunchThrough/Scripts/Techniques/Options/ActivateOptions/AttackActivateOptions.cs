@@ -9,11 +9,13 @@ public class AttackActivateOptions : ActivateTechStrategyOptions
 
     public override void InspectorDraw()
     {
+		base.InspectorDraw();
+
         attackVariations = EditorGUILayout.IntField("Attack Variations", attackVariations);
     }
 
     public override ActivateTechStrategy GenerateStrategy()
     {
-        return new AttackActivate(attackVariations);
+        return new AttackActivate(inverseStates, validStates, attackVariations);
     }
 }

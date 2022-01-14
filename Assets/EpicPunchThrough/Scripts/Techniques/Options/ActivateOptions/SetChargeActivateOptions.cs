@@ -10,6 +10,8 @@ public class SetChargeActivateOptions : ActivateTechStrategyOptions
 
 	public override void InspectorDraw()
 	{
+		base.InspectorDraw();
+
 		EditorGUILayout.BeginHorizontal();
 		vitalForce = EditorGUILayout.DoubleField("Vital Force", vitalForce);
 		isRatio = EditorGUILayout.Toggle("Ratio", isRatio);
@@ -18,6 +20,6 @@ public class SetChargeActivateOptions : ActivateTechStrategyOptions
 
 	public override ActivateTechStrategy GenerateStrategy()
 	{
-		return new SetChargeActivate(vitalForce, isRatio);
+		return new SetChargeActivate(inverseStates, validStates, vitalForce, isRatio);
 	}
 }

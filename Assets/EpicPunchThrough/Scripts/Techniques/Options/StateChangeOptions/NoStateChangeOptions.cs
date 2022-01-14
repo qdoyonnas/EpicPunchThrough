@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class NoStateChangeOptions: StateChangeStrategyOptions
 {
+	public override void InspectorDraw() {}
+
 	public override StateChangeStrategy GenerateStrategy()
 	{
-		return new NoStateChange();
+		return new NoStateChange( inverseStates, validStates );
 	}
 }

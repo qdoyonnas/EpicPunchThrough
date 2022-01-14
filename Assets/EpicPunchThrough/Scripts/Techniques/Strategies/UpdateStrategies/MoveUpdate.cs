@@ -9,7 +9,8 @@ public class MoveUpdate : UpdateTechStrategy
     float maxSpeed;
     float acceleration;
     
-    public MoveUpdate(Direction direction, float maxSpeed, float acceleration)
+    public MoveUpdate( bool inverseStates, string[] states, Direction direction, float maxSpeed, float acceleration )
+        : base(inverseStates, states)
     {
         this.direction = direction;
         this.maxSpeed = maxSpeed;
@@ -18,6 +19,8 @@ public class MoveUpdate : UpdateTechStrategy
 
     public override void Update( Technique tech, GameManager.UpdateData data, float value )
     {
+        if( !ValidateState(tech) ) { return; }
+
         if( Mathf.Abs(tech.owner.physicsBody.velocity.x) < maxSpeed )
         {
             Vector3 velDirection = Utilities.GetDirectionVector(tech.owner, direction);

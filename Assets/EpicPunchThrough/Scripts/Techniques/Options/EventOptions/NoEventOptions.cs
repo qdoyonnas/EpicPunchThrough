@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class NoEventOptions: EventTechStrategyOptions
 {
+	public override void InspectorDraw() {}
+
 	public override EventTechStrategy GenerateStrategy()
 	{
-		return new NoEvent();
+		return new NoEvent(inverseStates, validStates);
 	}
 }

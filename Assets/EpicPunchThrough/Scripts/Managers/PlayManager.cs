@@ -126,7 +126,7 @@ public class PlayManager
                     playerSpawnScript.agentName, 
                     AgentManager.AgentType.player, 
                     0, "Vat Grown", 
-                    (ulong)AgentManager.Instance.settings.baseVitalForce,
+                    (ulong)playerSpawnScript.vitalForce,
                     (ulong)AgentManager.Instance.settings.defaultActiveVFFactor);
             }
         }

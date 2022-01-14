@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class ContinueValidateOptions: ActionValidateTechStrategyOptions
+public class AttackValidateOptions: ActionValidateTechStrategyOptions
 {
-    public bool onlyBeforeExit = false;
+    public float speedMult = 0f;
     public ActionState[] actionStates = new ActionState[0];
 
     private bool show = true;
 
     public override void InspectorDraw()
     {
-        onlyBeforeExit = EditorGUILayout.Toggle("Only before Exit", onlyBeforeExit);
+		base.InspectorDraw();
+
+        speedMult = EditorGUILayout.FloatField("Speed Multiplier", speedMult);
 
         EditorGUILayout.BeginHorizontal();
         show = EditorGUILayout.Foldout(show ,"Actions");
@@ -45,6 +47,6 @@ public class ContinueValidateOptions: ActionValidateTechStrategyOptions
 
     public override ActionValidateTechStrategy GenerateStrategy()
     {
-        return new ContinueValidate(onlyBeforeExit, actionStates);
+        return new AttackValidate(inverseStates, validStates, speedMult, actionStates);
     }
 }

@@ -11,6 +11,8 @@ public class EndTechEventOptions : EventTechStrategyOptions
 
 	public override void InspectorDraw()
 	{
+		base.InspectorDraw();
+
 		eventKey = EditorGUILayout.TextField("Event Key", eventKey);
 		blend = EditorGUILayout.Toggle("Blend Transition", blend);
 		skipExit = EditorGUILayout.Toggle("Skip Exit", skipExit);
@@ -18,6 +20,6 @@ public class EndTechEventOptions : EventTechStrategyOptions
 
 	public override EventTechStrategy GenerateStrategy()
 	{
-		return new EndTechEvent(eventKey, blend, skipExit);
+		return new EndTechEvent(inverseStates, validStates, eventKey, blend, skipExit);
 	}
 }

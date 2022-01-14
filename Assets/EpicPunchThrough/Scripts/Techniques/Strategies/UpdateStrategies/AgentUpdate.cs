@@ -8,7 +8,9 @@ public class AgentUpdate : UpdateTechStrategy
     float gravityMultiplier;
 	bool slideParticles;
 
-	public AgentUpdate( float friction, float gravity, bool slide ) {
+	public AgentUpdate( bool inverseStates, string[] states, float friction, float gravity, bool slide )
+		: base(inverseStates, states)
+	{
 		frictionMultiplier = friction;
 		gravityMultiplier = gravity;
 		slideParticles = slide;
@@ -16,6 +18,8 @@ public class AgentUpdate : UpdateTechStrategy
 
 	public override void Update(Technique tech, GameManager.UpdateData data, float value)
 	{
+		if( !ValidateState(tech) ) { return; }
+		
 		if( tech.owner.slideParticle != null ) { tech.owner.slideParticle.enabled = slideParticles; }
         tech.owner.HandlePhysics( data, tech.owner.physicsBody.frictionCoefficients * frictionMultiplier, 
 			EnvironmentManager.Instance.GetEnvironment().gravity * gravityMultiplier );

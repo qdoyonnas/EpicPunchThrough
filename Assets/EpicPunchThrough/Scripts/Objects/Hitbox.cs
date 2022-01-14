@@ -61,6 +61,7 @@ public class Hitbox : MonoBehaviour
 
                 Vector3 totalPushVector = launchVector * (self.physicsBody.velocity.magnitude * pushForce);
                 Vector3 totalLaunchVector = (launchVector * launchForce) + (self.physicsBody.velocity * inertiaCarry);
+                //Debug.Log(totalLaunchVector);
 
                 self.physicsBody.velocity = Vector3.zero;
                 agent.ReceiveHit(totalPushVector, breakForce, totalLaunchVector);

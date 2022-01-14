@@ -6,6 +6,6 @@ public class FlipDirectionExitOptions : ExitTechStrategyOptions
 {
 	public override ExitTechStrategy GenerateStrategy()
 	{
-		return new FlipDirectionExit();
+		return new FlipDirectionExit(inverseStates, validStates);
 	}
 }

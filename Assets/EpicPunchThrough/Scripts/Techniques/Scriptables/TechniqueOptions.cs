@@ -18,6 +18,7 @@ public class TechniqueOptions : ScriptableObject
 
     [SerializeField] public TriggerTechStrategyOptions[] triggerStrategies;
     [SerializeField] public ActivateTechStrategyOptions[] activateStrategies;
+    [SerializeField] public TechStateChangeStrategyOptions[] techStateStrategies;
     [SerializeField] public StateChangeStrategyOptions[] stateStrategies;
     [SerializeField] public ActionValidateTechStrategyOptions[] actionValidateStrategies;
     [SerializeField] public UpdateTechStrategyOptions[] updateStrategies;
@@ -32,6 +33,9 @@ public class TechniqueOptions : ScriptableObject
             EditorUtility.SetDirty(stratOptions);
         }
         foreach( ActivateTechStrategyOptions stratOptions in activateStrategies ) {
+            EditorUtility.SetDirty(stratOptions);
+        }
+        foreach( TechStateChangeStrategyOptions stratOptions in techStateStrategies ) {
             EditorUtility.SetDirty(stratOptions);
         }
         foreach( StateChangeStrategyOptions stratOptions in stateStrategies ) {
