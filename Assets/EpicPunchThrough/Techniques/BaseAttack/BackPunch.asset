@@ -1,188 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9104911493877401621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd038c8fcbe0e264b84679a3810d99c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 1
-  inverseStates: 1
-  validStates: []
---- !u!114 &-7002665612290377583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdfcc3e66770bff4cbdfa46f97f1c629, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 1
-  inverseStates: 1
-  validStates: []
-  abortTechnique: 0
-  actionStates:
-  - action: 10
-    state: 0
---- !u!114 &-4662482159517609900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f9c68b1ce28c3c45bdd6dede7f228da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 1
-  inverseStates: 1
-  validStates: []
---- !u!114 &-4642239092205261834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c99a4a82e573ea841b7af224bacde55b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 1
-  inverseStates: 1
-  validStates: []
---- !u!114 &-3315882220871609872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882110b1986569a48868f8a6f5b840fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 1
-  inverseStates: 1
-  validStates: []
---- !u!114 &-1905199421204917969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e441d8a1c78b7643a285ef3eb67408e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 1
-  inverseStates: 1
-  validStates: []
---- !u!114 &-1867956001670886906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5185b5a45e20a843908e98afb4a9b91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 1
-  inverseStates: 1
-  validStates: []
---- !u!114 &-1526004843473688780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882110b1986569a48868f8a6f5b840fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 1
-  inverseStates: 1
-  validStates: []
---- !u!114 &-664882774413742309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cea365ebb4c55b4a9a86a3f44e07917, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  order: 1
-  inverseStates: 1
-  validStates:
-  - ABORT
-  direction: 4
-  mult: 2
-  minForce: 10
-  maxForce: 100
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d6246bebaa97d842986d17b2d5bec99, type: 3}
-  m_Name: Jump
-  m_EditorClassIdentifier: 
-  techniqueName: Jump
-  animatorController: {fileID: 9100000, guid: 2229c25a5de5d7e47b5903dae176b0a5, type: 2}
-  particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
-  states: 01000000
-  actionSequence: 0a000000
-  consumeVF: 1
-  triggerStrategies:
-  - {fileID: -1905199421204917969}
-  activateStrategies:
-  - {fileID: -4662482159517609900}
-  techStateStrategies:
-  - {fileID: 335676323405206965}
-  stateStrategies:
-  - {fileID: 5293992999812842480}
-  actionValidateStrategies:
-  - {fileID: 3785559396430045207}
-  - {fileID: -7002665612290377583}
-  updateStrategies:
-  - {fileID: 6353053936524797903}
-  - {fileID: 2920823328618127929}
-  eventStrategies:
-  - {fileID: -3315882220871609872}
-  hitStrategies:
-  - {fileID: -9104911493877401621}
-  exitStrategies:
-  - {fileID: -664882774413742309}
---- !u!114 &335676323405206965
+--- !u!114 &-7959953910467858312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,7 +15,26 @@ MonoBehaviour:
   order: 1
   inverseStates: 1
   validStates: []
---- !u!114 &2920823328618127929
+--- !u!114 &-7117092955120859550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de69728a51c590d4199fbb21f06adf80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 2
+  inverseStates: 1
+  validStates:
+  - CHARGING
+  eventKey: Exit
+  blend: 0
+  skipExit: 0
+--- !u!114 &-6789532531570116637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,10 +49,34 @@ MonoBehaviour:
   order: 1
   inverseStates: 1
   validStates: []
-  frictionMultiplier: 0.8
+  frictionMultiplier: 1
   gravityMultiplier: 1
   slideParticles: 1
---- !u!114 &3785559396430045207
+--- !u!114 &-6382892902951455686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226b87ec2cb390c4dab3b6f5d1d9c993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 1
+  validStates:
+  - CHARGING
+  eventKey: Hit
+  launchDirection: 3
+  pushForce: 1
+  breakForce: 1
+  launchForce: 1
+  inertiaCarry: 1
+  hitboxes:
+  - {fileID: 5494029915257220474, guid: e682523a90c40ec44a3ff6824a6e26da, type: 3}
+--- !u!114 &-6211829319626668078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,14 +88,140 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfcc3e66770bff4cbdfa46f97f1c629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 2
-  inverseStates: 1
-  validStates: []
-  abortTechnique: 1
+  order: 1
+  inverseStates: 0
+  validStates:
+  - CHARGING
+  abortTechnique: 0
   actionStates:
   - action: 9
     state: 1
---- !u!114 &5293992999812842480
+--- !u!114 &-2205730406106512748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c5f8e6554961e49ad1e6dc32046465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 1
+  validStates: []
+  attackVariations: 1
+--- !u!114 &-2115878801840133554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd038c8fcbe0e264b84679a3810d99c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 1
+  validStates: []
+--- !u!114 &-1638454759508680818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5986c599af8b144cacd7617057a102f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 0
+  validStates:
+  - ATTACKING
+--- !u!114 &-1084279381393501035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19308211d4ae1504c81ec3b068023cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 0
+  validStates:
+  - CHARGING
+  setState: ATTACKING
+  actionStates:
+  - action: 7
+    state: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6246bebaa97d842986d17b2d5bec99, type: 3}
+  m_Name: BackPunch
+  m_EditorClassIdentifier: 
+  techniqueName: Back Punch
+  animatorController: {fileID: 9100000, guid: af435dff341f95f44bf5f5ea6063a6eb, type: 2}
+  particleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}
+  states: 01000000
+  actionSequence: 07000000
+  consumeVF: 1
+  triggerStrategies:
+  - {fileID: 7006901215874737379}
+  activateStrategies:
+  - {fileID: -2205730406106512748}
+  - {fileID: 1561386351182797670}
+  techStateStrategies:
+  - {fileID: -7959953910467858312}
+  stateStrategies:
+  - {fileID: 2575316906805823173}
+  actionValidateStrategies:
+  - {fileID: 7285788267052970038}
+  - {fileID: -6211829319626668078}
+  - {fileID: -1084279381393501035}
+  updateStrategies:
+  - {fileID: -6789532531570116637}
+  - {fileID: 5724870366210542708}
+  eventStrategies:
+  - {fileID: -6382892902951455686}
+  - {fileID: -7117092955120859550}
+  - {fileID: 8793988480195748684}
+  hitStrategies:
+  - {fileID: -2115878801840133554}
+  exitStrategies:
+  - {fileID: -1638454759508680818}
+--- !u!114 &1561386351182797670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1079d8c804f804b8e97a53a242b092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 1
+  validStates: []
+  setState: CHARGING
+--- !u!114 &2575316906805823173
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,10 +234,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   order: 1
-  inverseStates: 1
-  validStates: []
+  inverseStates: 0
+  validStates:
+  - CHARGING
   abortTechnique: 1
---- !u!114 &6353053936524797903
+--- !u!114 &5724870366210542708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,9 +250,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76e054fae4b0bc48ab0972f1b8dd0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 2
-  inverseStates: 1
-  validStates: []
+  order: 1
+  inverseStates: 0
+  validStates:
+  - CHARGING
   chargeCurve:
     serializedVersion: 2
     m_Curve:
@@ -307,6 +296,58 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duration: 1
+  duration: 0.5
   maxVF: -1
   clampPositive: 1
+--- !u!114 &7006901215874737379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e441d8a1c78b7643a285ef3eb67408e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 1
+  validStates: []
+--- !u!114 &7285788267052970038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0cd4d27ac8ff841ade716fd2e6226d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 0
+  validStates:
+  - CHARGING
+  speedMult: 1
+  actionStates:
+  - action: 7
+    state: 0
+--- !u!114 &8793988480195748684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc99ea2a7683c5448502b5bf5308938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 1
+  validStates:
+  - CHARGING
+  eventKey: Hit

@@ -21,6 +21,7 @@ public class EndTechValidate : ActionValidateTechStrategy
 
         foreach( ActionState actionState in actionStates ) {
             if( actionState.action == action && actionState.state == (Mathf.Abs(value) > 0)  ) {
+                if( abortTechnique ) { tech.state = Technique.State.ABORT; }
                 tech.owner.TransitionTechnique(null, true);
                 return true;
             }

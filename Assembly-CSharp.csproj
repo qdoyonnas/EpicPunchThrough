@@ -59,6 +59,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\ExitStrategies\LaunchExit.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\ActivateStrategies\SetBlackboardActivate.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\PropsManager.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActionValidateOptions\TechStateValidateOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\UpdateStrategies\TimedChargeUpdate.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Utility\TriggerCheck.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Camera\ExactCamera.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActivateOptions\SetBlackboardActivateOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\EventStrategies\HitboxEvent.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\UpdateStrategies\AgentUpdate.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\ActionValidateStrategies\TechStateValidate.cs" />
     <Compile Include="Assets\Rotary Heart\SerializableDictionaryLite\DrawKeyAsPropertyAttribute.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\Agents\Agent.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\PhysicsBody.cs" />
@@ -146,6 +148,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\ActivateStrategies\AttackActivate.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Camera\SceneEntrance.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\MenuControls\TabControl.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\ActivateOptions\TechStateActivateOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\MenuControls\MenuControlDecorator\SelectorControlDecorator.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\UI\DirectionIndicator.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\EventOptions\EndTechEventOptions.cs" />
@@ -172,6 +175,7 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\HitStrategies\ResistHit.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Menu\Transitional.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Objects\AgentSpawn.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\ActivateStrategies\TechStateActivate.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\PlayManager.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Managers\Settings\PlaySettings.cs" />
     <Compile Include="Assets\Rotary Heart\SerializableDictionaryLite\SerializableDictionaryBase.cs" />
@@ -185,6 +189,8 @@
     <Compile Include="Assets\EpicPunchThrough\Scripts\Environment\Environment.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\TechStateChangeOptions\NoTechStateChangeOptions.cs" />
     <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Scriptables\TechniqueSet.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Strategies\EventStrategies\LaunchEvent.cs" />
+    <Compile Include="Assets\EpicPunchThrough\Scripts\Techniques\Options\EventOptions\LaunchEventOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

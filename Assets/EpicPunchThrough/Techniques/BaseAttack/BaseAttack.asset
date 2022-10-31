@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BaseAttack
   m_EditorClassIdentifier: 
   techniques:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f3f39e6d7c8ef024b848260c56d012e5, type: 2}
+  - {fileID: 11400000, guid: 009d4a5a0abbc0a47b56c648b1638c03, type: 2}
+  - {fileID: 11400000, guid: 1243c8590995d2440837352b88d0a6c3, type: 2}
+  - {fileID: 11400000, guid: 8e5ea840b58b3cb4b81e8eb7706fa772, type: 2}

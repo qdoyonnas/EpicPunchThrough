@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BasicDefence
   m_EditorClassIdentifier: 
   techniques:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 62af440f5cf9a2b4fbfc9e5ffa5347c9, type: 2}

@@ -15,7 +15,7 @@ MonoBehaviour:
   techniques:
   - {fileID: 11400000, guid: 1a2686c8b6dd4314182da20dd35a4dce, type: 2}
   - {fileID: 11400000, guid: 04ed008fe28fb5a45b1aff4d437c3ad4, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: d13256920be1afe40aa04ce4424e0d3b, type: 2}
+  - {fileID: 11400000, guid: f4e98d375b92e6146bd0c88888a4b4c8, type: 2}
+  - {fileID: 11400000, guid: 4246d8af55cd4af4c98796a0ed781ee6, type: 2}
+  - {fileID: 11400000, guid: fe4ab5190191c0e4ca0fb7a1193c98ad, type: 2}

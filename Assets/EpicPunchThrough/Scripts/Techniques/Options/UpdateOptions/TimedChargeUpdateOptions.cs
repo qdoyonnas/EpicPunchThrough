@@ -6,9 +6,9 @@ using UnityEditor;
 public class TimedChargeUpdateOptions : UpdateTechStrategyOptions
 {
 	public AnimationCurve chargeCurve = new AnimationCurve();
-	public float duration;
-	public double maxVF;
-	public bool clampPositive;
+	public float duration = 0;
+	public double maxVF = -1;
+	public bool clampPositive = false;
 
 	public override void InspectorDraw()
 	{

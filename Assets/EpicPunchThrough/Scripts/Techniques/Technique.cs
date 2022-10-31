@@ -32,6 +32,7 @@ public class Technique
     public static class State {
         public static readonly string INACTIVE = "INACTIVE";
         public static readonly string ACTIVE = "ACTIVE";
+        public static readonly string ABORT = "ABORT";
     }
     protected string _state = String.Empty;
     public string state {
