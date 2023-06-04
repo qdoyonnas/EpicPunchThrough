@@ -16,6 +16,8 @@ public class PlayerUI : MonoBehaviour
 	Image chargingVF;
 	Image critical;
 
+	float borderWidth = 3f;
+
 	private void Awake()
 	{
 		actionsText = transform.Find("Actions").GetComponent<Text>();
@@ -40,17 +42,28 @@ public class PlayerUI : MonoBehaviour
 
 		float width = VFBar.rect.width;
 
-		float currentX = -(width - (width * (float)player.VFRemaining)) - 1.5f;
-		currentVF.rectTransform.anchoredPosition = new Vector2(currentX, currentVF.rectTransform.anchoredPosition.y);
+		float currentX = -(1f - (float)player.VFRemaining) * width - borderWidth;
+		SetRight(currentVF.rectTransform, currentX);
 
-		float activeX = -(width - (width * (1f / (float)player.activeFactor))) - 1.5f;
-		activeVF.rectTransform.anchoredPosition = new Vector2(activeX, activeVF.rectTransform.anchoredPosition.y);
-		activeAmount.text = Math.Floor(player.activeVF).ToString();
+		float activeX = -(1f - (1f / (float)player.activeFactor)) * width - borderWidth;
+		SetRight(activeVF.rectTransform, activeX);
+		activeAmount.text = (player.activeVF / 100).ToString();
 
-		float criticalX = -(width - (width * (1f / (float)player.criticalSoul))) - 1.5f;
-		critical.rectTransform.anchoredPosition = new Vector2(criticalX, critical.rectTransform.anchoredPosition.y);
+		float criticalX = -(1f - (1f / (float)player.criticalSoul)) * width - borderWidth;
+		SetRight(critical.rectTransform, criticalX);
 
-		float chargingX = -(width - (width * ((float)player.chargingVF / (float)player.maxVF)));
-		chargingVF.rectTransform.anchoredPosition = new Vector2((width - Mathf.Abs(criticalX)) + chargingX, chargingVF.rectTransform.anchoredPosition.y);
+		criticalX = (1f / (float)player.criticalSoul) * width - borderWidth;
+		float chargingX = -((1f - ((float)player.chargingVF / (float)player.maxVF)) * width) + criticalX;
+		SetLeft(chargingVF.rectTransform, criticalX);
+		SetRight(chargingVF.rectTransform, chargingX);
+	}
+
+	private void SetLeft(RectTransform rect, float value)
+	{
+		rect.offsetMin = new Vector2(value, rect.offsetMin.y);
+	}
+	private void SetRight(RectTransform rect, float value)
+	{
+		rect.offsetMax = new Vector2(value, rect.offsetMax.y);
 	}
 }

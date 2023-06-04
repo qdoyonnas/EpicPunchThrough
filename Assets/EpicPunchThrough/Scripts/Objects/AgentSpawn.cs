@@ -15,6 +15,7 @@ public class AgentSpawn : MonoBehaviour
 
 	public void Awake()
 	{
+		if( vitalForce == 0 ) { vitalForce = AgentManager.Instance.settings.baseVitalForce; }
 		if( agentType != AgentManager.AgentType.player ) {
 			AgentManager.AgentSpawnData data = new AgentManager.AgentSpawnData(transform.position, 
 														isFacingRight, 

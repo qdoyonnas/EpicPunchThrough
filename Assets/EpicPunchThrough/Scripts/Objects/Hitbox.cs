@@ -37,7 +37,7 @@ public class Hitbox : MonoBehaviour
         this.self = self;
         if( !this.hitsFriendlies ) { this.team = team; }
         lifeTimestamp = Time.time + (lifeTime / (float)attackSpeed);
-        if( launchVector.z == 0 ) { this.launchVector = launchVector; }
+        this.launchVector = launchVector;
         this.pushForce = pushForce;
         this.breakForce = breakForce;
         this.launchForce = launchForce;
@@ -61,7 +61,6 @@ public class Hitbox : MonoBehaviour
 
                 Vector3 totalPushVector = launchVector * (self.physicsBody.velocity.magnitude * pushForce);
                 Vector3 totalLaunchVector = (launchVector * launchForce) + (self.physicsBody.velocity * inertiaCarry);
-                //Debug.Log(totalLaunchVector);
 
                 self.physicsBody.velocity = Vector3.zero;
                 agent.ReceiveHit(totalPushVector, breakForce, totalLaunchVector);

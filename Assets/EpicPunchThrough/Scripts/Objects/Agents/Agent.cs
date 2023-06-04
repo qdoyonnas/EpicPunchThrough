@@ -306,9 +306,9 @@ public class Agent : MonoBehaviour
         }
     }
 
-    public double activeVF {
+    public ulong activeVF {
         get {
-            return _maxVF / _activeFactor;
+            return (ulong)(_maxVF / _activeFactor);
         }
     }
     public ulong activeFactor {
@@ -581,7 +581,16 @@ public class Agent : MonoBehaviour
                     animator.SetBool("Fallen", false);
                     state = State.InAir;
                 } else {
-			        if (groundFound && physicsBody.velocity.y < 1 && physicsBody.velocity.magnitude < 30) {
+			        if (groundFound && physicsBody.velocity.y < 1) { // && physicsBody.velocity.magnitude < 30) {
+                        physicsBody.velocity = new Vector3(physicsBody.velocity.x, 0f, 0f);
+				        graphicsChild.rotation = Quaternion.identity;
+				        animator.SetBool("Fallen", true);
+                        if( slideParticle != null ) { slideParticle.enabled = true; }
+                        else {
+                            slideParticle = CreateEmitter("slide", GetAnchor("FloorAnchor").position, 0f, transform);
+                        }
+			        } else if (wallFound) {
+                        physicsBody.velocity = new Vector3(0f, physicsBody.velocity.y, 0f);
 				        graphicsChild.rotation = Quaternion.identity;
 				        animator.SetBool("Fallen", true);
                         if( slideParticle != null ) { slideParticle.enabled = true; }
@@ -748,6 +757,7 @@ public class Agent : MonoBehaviour
         groundFound = _groundCheck.triggerCount > 0;
         
         if( state ) {
+            Debug.Log(gameObject.name + " groundFound");
             transform.position = new Vector3(transform.position.x, transform.position.y + (other.bounds.max.y - _groundCheck.transform.position.y), transform.position.z);
             if( isBoundary ) {
                 onLayer = 1;
@@ -774,6 +784,7 @@ public class Agent : MonoBehaviour
         if( isFacingRight != true ) { isFacingRight = true; }
 
         if( state ) {
+            Debug.Log(gameObject.name + " leftWallFound");
             float offset = (other.bounds.max.x - _leftWallCheck.transform.position.x);
             transform.position = new Vector3(transform.position.x  + offset, transform.position.y, transform.position.z);
             if( isBoundary ) {
@@ -801,6 +812,7 @@ public class Agent : MonoBehaviour
         if( isFacingRight == true ) { isFacingRight = false; }
 
         if( state ) {
+            Debug.Log(gameObject.name + " rightWallFound");
             float offset = (other.bounds.min.x - _rightWallCheck.transform.position.x);
             transform.position = new Vector3(transform.position.x  + offset, transform.position.y, transform.position.z);
             if( isBoundary ) {
@@ -827,6 +839,7 @@ public class Agent : MonoBehaviour
         ceilingFound = _ceilingCheck.triggerCount > 0;
 
         if( state ) {
+            Debug.Log(gameObject.name + " ceilingFound");
             transform.position = new Vector3(transform.position.x, transform.position.y + (other.bounds.min.y - _ceilingCheck.transform.position.y), transform.position.z);
             if( isBoundary ) {
                 onLayer = 1;

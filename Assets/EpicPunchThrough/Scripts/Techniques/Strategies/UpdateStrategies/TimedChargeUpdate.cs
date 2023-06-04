@@ -41,6 +41,7 @@ public class TimedChargeUpdate : UpdateTechStrategy
 			if( maxVF != -1 && tech.owner.chargingVF > maxVF ) {
 				tech.owner.chargingVF = maxVF;
 			}
+
 		}
 
 		tech.SetBlackboardData("charge", chargeRatio);

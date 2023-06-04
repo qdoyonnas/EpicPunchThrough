@@ -30,7 +30,7 @@ public class LaunchEvent : EventTechStrategy
 		}
 
 		Vector3 launchDirection = Utilities.GetDirectionVector(tech.owner, direction);
-		float force = Utilities.VFToForce(tech.owner.chargingVF * mult, 0, maxForce) + minForce;
+		float force = Utilities.VFToForce(tech.owner.chargingVF * mult, minForce, maxForce);
 
         Vector3 launchVector = (launchDirection * (float)force);
         tech.owner.physicsBody.AddVelocity(launchVector);

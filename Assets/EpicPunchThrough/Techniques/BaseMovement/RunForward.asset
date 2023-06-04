@@ -194,7 +194,7 @@ MonoBehaviour:
   validStates: []
   direction: 0
   maxSpeed: 30
-  acceleration: 10
+  acceleration: 20
 --- !u!114 &7137854758127707236
 MonoBehaviour:
   m_ObjectHideFlags: 0

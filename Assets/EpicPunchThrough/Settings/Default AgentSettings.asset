@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialAgentState: 2
   useController: 0
-  baseVitalForce: 100000
+  baseVitalForce: 10000
   defaultActiveVFFactor: 4
   criticalSoulFactor: 20
-  chargeRate: 0.0005
-  breakFactor: 0.1
+  chargeRate: 0.04
+  breakFactor: 0.05
   baseCharacterPrefab: {fileID: 1900686433913378215, guid: f45a6399d77610a408db92ccc4274982, type: 3}
   baseCharacterController: {fileID: 9100000, guid: 1433135bc191f594cb9a0da8137204ad, type: 2}
   baseParticleController: {fileID: 11400000, guid: 5818f32beb53dc54397e2101a50ae43d, type: 2}

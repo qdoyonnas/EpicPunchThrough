@@ -6,10 +6,10 @@ using UnityEditor;
 public class LaunchEventOptions : EventTechStrategyOptions
 {
 	public string eventKey;
-	Direction direction;
-	float mult;
-	float minForce;
-	float maxForce;
+	public Direction direction;
+	public float mult;
+	public float minForce;
+	public float maxForce;
 
 	public override void InspectorDraw()
 	{

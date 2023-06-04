@@ -77,36 +77,36 @@ MonoBehaviour:
       inWeight: 0.13661224
       outWeight: 0.0999998
     - serializedVersion: 3
-      time: 0.02
+      time: 0.1
       value: 0
       inSlope: 0
-      outSlope: 1.4011617
+      outSlope: 0.0040494865
       tangentMode: 1
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.06685463
+      outWeight: 0.1456043
     - serializedVersion: 3
-      time: 0.5
-      value: 0.3
-      inSlope: -0.014540491
-      outSlope: -0.014540491
+      time: 0.7
+      value: 0.05
+      inSlope: -0.000438236
+      outSlope: -0.000438236
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.051933646
-      outWeight: 0.37745017
+      inWeight: 0.20146538
+      outWeight: 0.16885944
     - serializedVersion: 3
       time: 1.0010986
-      value: 0.01
-      inSlope: -0.8546664
-      outSlope: -0.8546664
+      value: 0.001
+      inSlope: -0.007568591
+      outSlope: -0.007568591
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.12212422
+      inWeight: 0.29605272
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duration: 0.5
+  duration: 2
   maxVF: -1
   clampPositive: 1
 --- !u!114 &-5371822751780774826
@@ -128,6 +128,23 @@ MonoBehaviour:
   eventKey: Exit
   blend: 0
   skipExit: 0
+--- !u!114 &-4303949647801502662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d050bb69b0f5124db97c7a6f68ff17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 1
+  validStates: []
+  vitalForce: 0.01
+  isRatio: 1
 --- !u!114 &-2658318504039781900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +219,7 @@ MonoBehaviour:
   activateStrategies:
   - {fileID: -2658318504039781900}
   - {fileID: 5121448226133079153}
+  - {fileID: -4303949647801502662}
   techStateStrategies:
   - {fileID: -609287517458942380}
   stateStrategies:
@@ -216,6 +234,7 @@ MonoBehaviour:
   eventStrategies:
   - {fileID: -5371822751780774826}
   - {fileID: 2238783393689361622}
+  - {fileID: 7557563325351644777}
   hitStrategies:
   - {fileID: -7594904540815081209}
   exitStrategies:
@@ -331,3 +350,24 @@ MonoBehaviour:
   order: 1
   inverseStates: 1
   validStates: []
+--- !u!114 &7557563325351644777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc99ea2a7683c5448502b5bf5308938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  inverseStates: 1
+  validStates:
+  - CHARGING
+  eventKey: Hit
+  direction: 1
+  mult: 1
+  minForce: 0
+  maxForce: 100
